@@ -1,6 +1,10 @@
 ﻿@page "/employeeoverview"
 
-@rendermode InteractiveServer
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender:false))
+@* Pre-render and Auto is working really weird' *@
+@* @rendermode @(new InteractiveAutoRenderMode(prerender:false)) *@
+@* @rendermode InteractiveAuto *@
+@* @rendermode InteractiveWebAssembly *@
 
 <PageTitle>@Title</PageTitle>
 
