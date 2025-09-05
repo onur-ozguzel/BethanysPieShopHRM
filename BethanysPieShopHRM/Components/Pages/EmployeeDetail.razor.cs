@@ -2,6 +2,7 @@
 using BethanysPieShopHRM.Contracts.Services;
 using BethanysPieShopHRM.Services;
 using BethanysPieShopHRM.Shared.Domain;
+using BethanysPieShopHRM.Shared.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.QuickGrid;
 using Microsoft.AspNetCore.Components.Web.Virtualization;
@@ -26,11 +27,21 @@ namespace BethanysPieShopHRM.Components.Pages
 
         public PaginationState Pagination = new PaginationState() { ItemsPerPage = 10 };
 
+        public List<Marker> MapMarkers { get; set; } = [];
+
         protected override async Task OnInitializedAsync()
         {
             Employee = await EmployeeDataService.GetEmployeeDetails(EmployeeId);
             _itemsQueryable = TimeRegistrationDataService.GetTimeRegistrationsForEmployee(EmployeeId);
             _queryableCount = _itemsQueryable.Count();
+
+            if (Employee.Longitude.HasValue && Employee.Latitude.HasValue)
+            {
+                MapMarkers = new List<Marker>
+            {
+                new Marker{Description = $"{Employee.FirstName} {Employee.LastName}",  ShowPopup = false, X = Employee.Longitude.Value, Y = Employee.Latitude.Value}
+            };
+            }
         }
 
         public async ValueTask<ItemsProviderResult<TimeRegistration>> LoadTimeRegistrations(ItemsProviderRequest request)
