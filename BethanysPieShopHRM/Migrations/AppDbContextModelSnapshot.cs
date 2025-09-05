@@ -22,6 +22,71 @@ namespace BethanysPieShopHRM.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BethanysPieShopHRM.Auth.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.Country", b =>
                 {
                     b.Property<int>("CountryId")
@@ -102,7 +167,8 @@ namespace BethanysPieShopHRM.Migrations
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
@@ -116,7 +182,8 @@ namespace BethanysPieShopHRM.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -135,7 +202,8 @@ namespace BethanysPieShopHRM.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<double?>("Latitude")
                         .HasColumnType("float");
@@ -287,8002 +355,8135 @@ namespace BethanysPieShopHRM.Migrations
                         {
                             TimeRegistrationId = 1,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 25, 1, 33, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 1",
-                            StartTime = new DateTime(2024, 1, 27, 15, 51, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 8, 8, 44, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 1",
+                            StartTime = new DateTime(2024, 11, 8, 5, 44, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 2,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 8, 11, 55, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 2",
-                            StartTime = new DateTime(2024, 12, 12, 15, 15, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 23, 3, 7, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 2",
+                            StartTime = new DateTime(2024, 11, 22, 21, 7, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 3,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 5, 9, 42, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 3",
-                            StartTime = new DateTime(2024, 4, 1, 14, 22, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 25, 13, 54, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 3",
+                            StartTime = new DateTime(2024, 4, 25, 6, 54, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 4,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 25, 14, 45, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 4",
-                            StartTime = new DateTime(2024, 10, 8, 4, 35, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 4, 8, 6, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 4",
+                            StartTime = new DateTime(2024, 4, 4, 6, 6, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 5,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 14, 13, 45, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 5",
-                            StartTime = new DateTime(2024, 12, 28, 14, 49, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 25, 10, 55, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 5",
+                            StartTime = new DateTime(2024, 11, 25, 3, 55, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 6,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 30, 17, 40, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 6",
-                            StartTime = new DateTime(2024, 7, 18, 2, 16, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 22, 19, 59, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 6",
+                            StartTime = new DateTime(2024, 12, 22, 13, 59, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 7,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 14, 23, 14, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 7",
-                            StartTime = new DateTime(2024, 1, 6, 6, 15, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 29, 15, 25, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 7",
+                            StartTime = new DateTime(2024, 7, 29, 13, 25, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 8,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 0, 51, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 8",
-                            StartTime = new DateTime(2024, 8, 4, 18, 37, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 26, 0, 46, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 8",
+                            StartTime = new DateTime(2024, 8, 25, 23, 46, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 9,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 8, 18, 2, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 9",
-                            StartTime = new DateTime(2024, 12, 18, 23, 18, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 18, 4, 13, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 9",
+                            StartTime = new DateTime(2024, 7, 17, 20, 13, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 10,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 17, 23, 3, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 10",
-                            StartTime = new DateTime(2024, 8, 3, 20, 7, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 8, 30, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 10",
+                            StartTime = new DateTime(2024, 12, 6, 7, 30, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 11,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 11, 21, 42, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 11",
-                            StartTime = new DateTime(2024, 10, 27, 11, 44, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 31, 18, 18, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 11",
+                            StartTime = new DateTime(2024, 10, 31, 17, 18, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 12,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 30, 2, 25, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 12",
-                            StartTime = new DateTime(2024, 1, 10, 16, 41, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 2, 24, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 12",
+                            StartTime = new DateTime(2024, 7, 20, 22, 24, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 13,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 23, 45, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 13",
-                            StartTime = new DateTime(2024, 1, 7, 12, 18, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 27, 13, 56, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 13",
+                            StartTime = new DateTime(2024, 3, 27, 7, 56, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 14,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 26, 22, 22, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 14",
-                            StartTime = new DateTime(2024, 4, 24, 14, 39, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 30, 21, 59, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 14",
+                            StartTime = new DateTime(2024, 8, 30, 16, 59, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 15,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 27, 12, 22, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 15",
-                            StartTime = new DateTime(2024, 1, 15, 21, 28, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 12, 11, 48, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 15",
+                            StartTime = new DateTime(2024, 11, 12, 8, 48, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 16,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 24, 6, 38, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 16",
-                            StartTime = new DateTime(2024, 5, 28, 6, 44, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 16, 20, 29, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 16",
+                            StartTime = new DateTime(2024, 3, 16, 19, 29, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 17,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 23, 5, 24, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 17",
-                            StartTime = new DateTime(2024, 11, 1, 10, 43, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 30, 21, 12, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 17",
+                            StartTime = new DateTime(2024, 11, 30, 18, 12, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 18,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 13, 4, 7, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 18",
-                            StartTime = new DateTime(2024, 8, 27, 6, 2, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 9, 17, 26, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 18",
+                            StartTime = new DateTime(2024, 3, 9, 16, 26, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 19,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 7, 8, 30, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 19",
-                            StartTime = new DateTime(2024, 10, 2, 10, 0, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 20, 10, 30, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 19",
+                            StartTime = new DateTime(2024, 6, 20, 5, 30, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 20,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 17, 11, 50, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 20",
-                            StartTime = new DateTime(2024, 9, 29, 1, 50, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 15, 30, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 20",
+                            StartTime = new DateTime(2024, 3, 20, 11, 30, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 21,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 10, 38, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 21",
-                            StartTime = new DateTime(2024, 2, 11, 6, 30, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 18, 0, 35, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 21",
+                            StartTime = new DateTime(2024, 10, 17, 19, 35, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 22,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 30, 20, 16, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 22",
-                            StartTime = new DateTime(2024, 7, 30, 18, 4, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 12, 20, 17, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 22",
+                            StartTime = new DateTime(2024, 8, 12, 12, 17, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 23,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 8, 3, 6, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 23",
-                            StartTime = new DateTime(2024, 2, 12, 13, 9, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 3, 12, 17, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 23",
+                            StartTime = new DateTime(2024, 11, 3, 4, 17, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 24,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 3, 11, 4, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 24",
-                            StartTime = new DateTime(2024, 7, 17, 13, 24, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 26, 15, 2, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 24",
+                            StartTime = new DateTime(2024, 6, 26, 8, 2, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 25,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 2, 20, 11, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 25",
-                            StartTime = new DateTime(2024, 9, 20, 6, 46, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 13, 52, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 25",
+                            StartTime = new DateTime(2024, 10, 29, 10, 52, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 26,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 6, 11, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 26",
-                            StartTime = new DateTime(2024, 6, 21, 9, 0, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 20, 23, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 26",
+                            StartTime = new DateTime(2024, 10, 29, 18, 23, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 27,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 25, 3, 45, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 27",
-                            StartTime = new DateTime(2024, 3, 4, 10, 8, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 25, 16, 6, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 27",
+                            StartTime = new DateTime(2024, 3, 25, 8, 6, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 28,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 21, 7, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 28",
-                            StartTime = new DateTime(2024, 6, 16, 6, 13, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 21, 21, 30, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 28",
+                            StartTime = new DateTime(2024, 8, 21, 14, 30, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 29,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 17, 10, 42, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 29",
-                            StartTime = new DateTime(2024, 8, 17, 22, 58, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 25, 1, 47, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 29",
+                            StartTime = new DateTime(2024, 11, 25, 0, 47, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 30,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 12, 5, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 30",
-                            StartTime = new DateTime(2024, 8, 27, 8, 11, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 16, 3, 26, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 30",
+                            StartTime = new DateTime(2024, 8, 16, 2, 26, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 31,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 9, 22, 21, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 31",
-                            StartTime = new DateTime(2024, 10, 5, 12, 47, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 24, 0, 13, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 31",
+                            StartTime = new DateTime(2024, 8, 23, 21, 13, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 32,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 28, 4, 50, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 32",
-                            StartTime = new DateTime(2024, 1, 9, 4, 53, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 22, 14, 29, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 32",
+                            StartTime = new DateTime(2024, 4, 22, 6, 29, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 33,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 22, 11, 10, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 33",
-                            StartTime = new DateTime(2024, 8, 7, 22, 34, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 3, 4, 11, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 33",
+                            StartTime = new DateTime(2024, 7, 2, 21, 11, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 34,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 31, 3, 46, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 34",
-                            StartTime = new DateTime(2024, 11, 5, 20, 8, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 24, 2, 5, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 34",
+                            StartTime = new DateTime(2024, 10, 24, 0, 5, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 35,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 7, 20, 44, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 35",
-                            StartTime = new DateTime(2024, 11, 14, 13, 59, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 31, 21, 45, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 35",
+                            StartTime = new DateTime(2024, 5, 31, 18, 45, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 36,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 18, 10, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 36",
-                            StartTime = new DateTime(2024, 4, 17, 11, 21, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 17, 9, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 36",
+                            StartTime = new DateTime(2024, 1, 2, 13, 9, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 37,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 14, 23, 1, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 37",
-                            StartTime = new DateTime(2024, 12, 17, 8, 32, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 21, 11, 27, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 37",
+                            StartTime = new DateTime(2024, 10, 21, 7, 27, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 38,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 10, 23, 15, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 38",
-                            StartTime = new DateTime(2024, 9, 3, 19, 10, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 25, 13, 46, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 38",
+                            StartTime = new DateTime(2024, 10, 25, 5, 46, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 39,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 25, 2, 53, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 39",
-                            StartTime = new DateTime(2024, 4, 19, 13, 50, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 2, 19, 24, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 39",
+                            StartTime = new DateTime(2024, 12, 2, 12, 24, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 40,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 31, 18, 51, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 40",
-                            StartTime = new DateTime(2024, 3, 10, 4, 17, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 9, 11, 25, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 40",
+                            StartTime = new DateTime(2024, 11, 9, 3, 25, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 41,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 22, 13, 23, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 41",
-                            StartTime = new DateTime(2024, 3, 4, 11, 44, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 16, 8, 44, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 41",
+                            StartTime = new DateTime(2024, 10, 16, 2, 44, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 42,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 1, 38, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 42",
-                            StartTime = new DateTime(2024, 11, 14, 15, 49, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 15, 2, 12, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 42",
+                            StartTime = new DateTime(2024, 6, 14, 22, 12, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 43,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 22, 12, 25, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 43",
-                            StartTime = new DateTime(2024, 4, 12, 17, 30, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 25, 21, 18, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 43",
+                            StartTime = new DateTime(2024, 1, 25, 20, 18, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 44,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 25, 13, 21, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 44",
-                            StartTime = new DateTime(2024, 9, 26, 3, 42, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 15, 18, 17, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 44",
+                            StartTime = new DateTime(2024, 5, 15, 17, 17, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 45,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 22, 12, 54, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 45",
-                            StartTime = new DateTime(2024, 7, 8, 10, 28, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 2, 12, 26, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 45",
+                            StartTime = new DateTime(2024, 7, 2, 9, 26, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 46,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 12, 9, 43, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 46",
-                            StartTime = new DateTime(2024, 11, 30, 8, 54, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 11, 16, 22, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 46",
+                            StartTime = new DateTime(2024, 4, 11, 10, 22, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 47,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 5, 11, 27, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 47",
-                            StartTime = new DateTime(2024, 9, 10, 12, 30, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 11, 1, 49, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 47",
+                            StartTime = new DateTime(2024, 2, 11, 0, 49, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 48,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 20, 18, 50, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 48",
-                            StartTime = new DateTime(2024, 7, 16, 23, 48, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 29, 14, 50, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 48",
+                            StartTime = new DateTime(2024, 2, 29, 7, 50, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 49,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 12, 22, 0, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 49",
-                            StartTime = new DateTime(2024, 10, 12, 2, 38, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 1, 1, 53, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 49",
+                            StartTime = new DateTime(2024, 1, 31, 17, 53, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 50,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 27, 20, 38, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 50",
-                            StartTime = new DateTime(2024, 12, 7, 6, 42, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 14, 6, 34, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 50",
+                            StartTime = new DateTime(2024, 6, 14, 1, 34, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 51,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 8, 5, 48, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 51",
-                            StartTime = new DateTime(2024, 5, 24, 9, 48, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 15, 42, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 51",
+                            StartTime = new DateTime(2024, 5, 13, 9, 42, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 52,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 16, 6, 35, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 52",
-                            StartTime = new DateTime(2024, 12, 24, 8, 16, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 15, 20, 20, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 52",
+                            StartTime = new DateTime(2024, 7, 15, 13, 20, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 53,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 24, 4, 18, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 53",
-                            StartTime = new DateTime(2024, 10, 29, 13, 35, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 14, 17, 56, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 53",
+                            StartTime = new DateTime(2024, 1, 14, 14, 56, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 54,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 26, 6, 0, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 54",
-                            StartTime = new DateTime(2024, 4, 16, 15, 20, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 13, 8, 40, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 54",
+                            StartTime = new DateTime(2024, 8, 13, 4, 40, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 55,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 22, 9, 47, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 55",
-                            StartTime = new DateTime(2024, 9, 23, 1, 22, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 22, 19, 23, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 55",
+                            StartTime = new DateTime(2024, 7, 22, 15, 23, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 56,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 23, 6, 31, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 56",
-                            StartTime = new DateTime(2024, 2, 2, 18, 34, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 9, 24, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 56",
+                            StartTime = new DateTime(2024, 10, 1, 1, 24, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 57,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 15, 17, 1, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 57",
-                            StartTime = new DateTime(2024, 5, 8, 7, 1, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 23, 12, 36, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 57",
+                            StartTime = new DateTime(2024, 9, 23, 11, 36, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 58,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 27, 20, 50, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 58",
-                            StartTime = new DateTime(2024, 1, 9, 1, 39, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 28, 1, 43, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 58",
+                            StartTime = new DateTime(2024, 7, 27, 23, 43, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 59,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 5, 42, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 59",
-                            StartTime = new DateTime(2024, 10, 20, 1, 57, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 15, 21, 48, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 59",
+                            StartTime = new DateTime(2024, 3, 15, 14, 48, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 60,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 22, 21, 10, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 60",
-                            StartTime = new DateTime(2024, 7, 19, 0, 8, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 25, 12, 34, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 60",
+                            StartTime = new DateTime(2024, 6, 25, 9, 34, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 61,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 12, 5, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 61",
-                            StartTime = new DateTime(2024, 2, 9, 12, 9, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 29, 17, 52, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 61",
+                            StartTime = new DateTime(2024, 9, 29, 13, 52, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 62,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 2, 13, 12, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 62",
-                            StartTime = new DateTime(2024, 2, 10, 19, 20, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 13, 15, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 62",
+                            StartTime = new DateTime(2024, 6, 8, 10, 15, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 63,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 26, 20, 1, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 63",
-                            StartTime = new DateTime(2024, 10, 21, 14, 33, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 2, 45, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 63",
+                            StartTime = new DateTime(2024, 11, 27, 22, 45, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 64,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 23, 12, 37, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 64",
-                            StartTime = new DateTime(2024, 6, 29, 5, 15, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 9, 9, 27, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 64",
+                            StartTime = new DateTime(2024, 5, 9, 4, 27, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 65,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 14, 19, 14, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 65",
-                            StartTime = new DateTime(2024, 4, 23, 9, 41, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 20, 1, 27, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 65",
+                            StartTime = new DateTime(2024, 9, 19, 20, 27, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 66,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 3, 23, 38, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 66",
-                            StartTime = new DateTime(2024, 5, 5, 7, 31, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 13, 6, 42, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 66",
+                            StartTime = new DateTime(2024, 2, 13, 5, 42, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 67,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 13, 4, 15, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 67",
-                            StartTime = new DateTime(2024, 2, 25, 1, 26, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 3, 8, 45, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 67",
+                            StartTime = new DateTime(2024, 8, 3, 6, 45, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 68,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 21, 6, 39, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 68",
-                            StartTime = new DateTime(2024, 1, 27, 10, 37, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 25, 0, 32, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 68",
+                            StartTime = new DateTime(2024, 2, 24, 23, 32, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 69,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 26, 13, 57, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 69",
-                            StartTime = new DateTime(2024, 7, 6, 7, 54, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 16, 2, 42, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 69",
+                            StartTime = new DateTime(2024, 1, 15, 21, 42, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 70,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 26, 8, 51, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 70",
-                            StartTime = new DateTime(2024, 10, 6, 17, 8, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 15, 4, 21, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 70",
+                            StartTime = new DateTime(2024, 9, 15, 3, 21, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 71,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 6, 22, 30, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 71",
-                            StartTime = new DateTime(2024, 5, 2, 3, 36, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 7, 34, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 71",
+                            StartTime = new DateTime(2024, 5, 13, 3, 34, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 72,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 17, 20, 41, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 72",
-                            StartTime = new DateTime(2024, 5, 16, 11, 41, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 21, 11, 0, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 72",
+                            StartTime = new DateTime(2024, 1, 21, 10, 0, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 73,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 12, 1, 7, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 73",
-                            StartTime = new DateTime(2024, 1, 30, 0, 10, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 27, 0, 55, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 73",
+                            StartTime = new DateTime(2024, 3, 26, 20, 55, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 74,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 14, 16, 18, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 74",
-                            StartTime = new DateTime(2024, 10, 2, 14, 37, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 5, 5, 36, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 74",
+                            StartTime = new DateTime(2024, 12, 4, 23, 36, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 75,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 30, 18, 19, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 75",
-                            StartTime = new DateTime(2024, 11, 15, 16, 55, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 19, 17, 53, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 75",
+                            StartTime = new DateTime(2024, 7, 19, 9, 53, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 76,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 9, 2, 0, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 76",
-                            StartTime = new DateTime(2024, 1, 6, 21, 35, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 3, 18, 56, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 76",
+                            StartTime = new DateTime(2024, 2, 3, 10, 56, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 77,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 15, 3, 22, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 77",
-                            StartTime = new DateTime(2024, 1, 23, 10, 49, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 1, 16, 47, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 77",
+                            StartTime = new DateTime(2024, 3, 1, 14, 47, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 78,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 28, 10, 19, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 78",
-                            StartTime = new DateTime(2024, 9, 15, 15, 7, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 7, 7, 46, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 78",
+                            StartTime = new DateTime(2024, 10, 7, 6, 46, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 79,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 16, 9, 28, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 79",
-                            StartTime = new DateTime(2024, 7, 6, 13, 40, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 12, 14, 7, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 79",
+                            StartTime = new DateTime(2024, 8, 12, 8, 7, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 80,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 3, 4, 41, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 80",
-                            StartTime = new DateTime(2024, 7, 6, 12, 49, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 3, 19, 48, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 80",
+                            StartTime = new DateTime(2024, 3, 3, 16, 48, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 81,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 24, 11, 5, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 81",
-                            StartTime = new DateTime(2024, 8, 24, 10, 48, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 3, 16, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 81",
+                            StartTime = new DateTime(2024, 9, 30, 23, 16, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 82,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 6, 22, 32, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 82",
-                            StartTime = new DateTime(2024, 9, 12, 11, 18, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 19, 14, 46, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 82",
+                            StartTime = new DateTime(2024, 11, 19, 11, 46, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 83,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 26, 16, 17, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 83",
-                            StartTime = new DateTime(2024, 12, 1, 3, 44, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 29, 14, 59, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 83",
+                            StartTime = new DateTime(2024, 12, 29, 7, 59, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 84,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 0, 19, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 84",
-                            StartTime = new DateTime(2024, 1, 12, 3, 57, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 22, 1, 20, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 84",
+                            StartTime = new DateTime(2024, 2, 21, 21, 20, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 85,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 9, 20, 47, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 85",
-                            StartTime = new DateTime(2024, 8, 31, 4, 9, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 28, 19, 14, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 85",
+                            StartTime = new DateTime(2024, 3, 28, 12, 14, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 86,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 30, 15, 35, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 86",
-                            StartTime = new DateTime(2024, 11, 2, 21, 35, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 1, 30, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 86",
+                            StartTime = new DateTime(2024, 3, 19, 19, 30, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 87,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 18, 9, 27, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 87",
-                            StartTime = new DateTime(2024, 12, 13, 3, 18, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 7, 9, 33, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 87",
+                            StartTime = new DateTime(2024, 3, 7, 6, 33, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 88,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 12, 11, 2, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 88",
-                            StartTime = new DateTime(2024, 8, 18, 16, 46, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 2, 23, 19, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 88",
+                            StartTime = new DateTime(2024, 5, 2, 22, 19, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 89,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 16, 15, 6, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 89",
-                            StartTime = new DateTime(2024, 1, 23, 18, 37, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 17, 10, 12, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 89",
+                            StartTime = new DateTime(2024, 9, 17, 3, 12, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 90,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 17, 30, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 90",
-                            StartTime = new DateTime(2024, 2, 29, 4, 59, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 25, 0, 10, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 90",
+                            StartTime = new DateTime(2024, 6, 24, 20, 10, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 91,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 2, 17, 42, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 91",
-                            StartTime = new DateTime(2024, 11, 11, 9, 38, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 2, 12, 14, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 91",
+                            StartTime = new DateTime(2024, 12, 2, 7, 14, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 92,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 2, 0, 44, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 92",
-                            StartTime = new DateTime(2024, 4, 28, 2, 10, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 7, 13, 42, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 92",
+                            StartTime = new DateTime(2024, 8, 7, 8, 42, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 93,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 22, 15, 12, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 93",
-                            StartTime = new DateTime(2024, 11, 3, 3, 38, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 24, 5, 40, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 93",
+                            StartTime = new DateTime(2024, 6, 23, 23, 40, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 94,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 19, 22, 29, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 94",
-                            StartTime = new DateTime(2024, 1, 9, 10, 4, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 25, 10, 52, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 94",
+                            StartTime = new DateTime(2024, 11, 25, 4, 52, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 95,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 12, 10, 41, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 95",
-                            StartTime = new DateTime(2024, 7, 21, 16, 41, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 24, 2, 12, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 95",
+                            StartTime = new DateTime(2024, 5, 23, 23, 12, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 96,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 15, 5, 24, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 96",
-                            StartTime = new DateTime(2024, 7, 2, 23, 54, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 12, 13, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 96",
+                            StartTime = new DateTime(2024, 5, 13, 5, 13, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 97,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 28, 2, 56, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 97",
-                            StartTime = new DateTime(2024, 9, 27, 5, 28, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 8, 1, 46, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 97",
+                            StartTime = new DateTime(2024, 11, 8, 0, 46, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 98,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 3, 16, 17, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 98",
-                            StartTime = new DateTime(2024, 4, 3, 19, 33, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 14, 54, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 98",
+                            StartTime = new DateTime(2024, 2, 10, 8, 54, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 99,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 9, 12, 29, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 99",
-                            StartTime = new DateTime(2024, 6, 8, 9, 38, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 15, 22, 2, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 99",
+                            StartTime = new DateTime(2024, 8, 15, 18, 2, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 100,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 20, 13, 46, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 100",
-                            StartTime = new DateTime(2024, 8, 28, 11, 39, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 8, 8, 50, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 100",
+                            StartTime = new DateTime(2024, 9, 8, 7, 50, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 101,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 18, 0, 0, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 101",
-                            StartTime = new DateTime(2024, 4, 20, 16, 15, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 16, 10, 30, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 101",
+                            StartTime = new DateTime(2024, 2, 16, 8, 30, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 102,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 8, 1, 18, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 102",
-                            StartTime = new DateTime(2024, 4, 16, 14, 23, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 30, 13, 38, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 102",
+                            StartTime = new DateTime(2024, 1, 30, 5, 38, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 103,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 12, 19, 33, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 103",
-                            StartTime = new DateTime(2024, 7, 9, 21, 10, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 23, 13, 54, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 103",
+                            StartTime = new DateTime(2024, 11, 23, 12, 54, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 104,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 27, 6, 34, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 104",
-                            StartTime = new DateTime(2024, 8, 24, 9, 21, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 27, 13, 8, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 104",
+                            StartTime = new DateTime(2024, 2, 27, 10, 8, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 105,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 7, 0, 12, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 105",
-                            StartTime = new DateTime(2024, 6, 14, 12, 30, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 15, 49, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 105",
+                            StartTime = new DateTime(2024, 1, 6, 11, 49, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 106,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 23, 0, 53, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 106",
-                            StartTime = new DateTime(2024, 6, 14, 2, 0, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 19, 18, 31, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 106",
+                            StartTime = new DateTime(2024, 5, 19, 15, 31, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 107,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 9, 3, 48, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 107",
-                            StartTime = new DateTime(2024, 3, 1, 17, 42, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 2, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 107",
+                            StartTime = new DateTime(2024, 8, 2, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 108,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 8, 5, 34, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 108",
-                            StartTime = new DateTime(2024, 8, 16, 18, 49, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 21, 7, 8, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 108",
+                            StartTime = new DateTime(2024, 9, 21, 6, 8, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 109,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 3, 5, 46, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 109",
-                            StartTime = new DateTime(2024, 1, 24, 9, 11, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 16, 20, 30, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 109",
+                            StartTime = new DateTime(2024, 2, 16, 13, 30, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 110,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 1, 4, 16, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 110",
-                            StartTime = new DateTime(2024, 5, 8, 17, 52, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 16, 44, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 110",
+                            StartTime = new DateTime(2024, 3, 22, 15, 44, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 111,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 6, 16, 36, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 111",
-                            StartTime = new DateTime(2024, 5, 2, 15, 20, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 5, 1, 40, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 111",
+                            StartTime = new DateTime(2024, 12, 4, 22, 40, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 112,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 1, 4, 8, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 112",
-                            StartTime = new DateTime(2024, 5, 19, 16, 14, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 25, 11, 49, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 112",
+                            StartTime = new DateTime(2024, 1, 25, 7, 49, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 113,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 28, 10, 0, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 113",
-                            StartTime = new DateTime(2024, 12, 11, 10, 33, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 7, 1, 22, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 113",
+                            StartTime = new DateTime(2024, 6, 6, 17, 22, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 114,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 26, 11, 6, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 114",
-                            StartTime = new DateTime(2024, 2, 17, 2, 52, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 12, 13, 35, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 114",
+                            StartTime = new DateTime(2024, 7, 12, 5, 35, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 115,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 23, 19, 42, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 115",
-                            StartTime = new DateTime(2024, 5, 28, 13, 33, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 3, 15, 50, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 115",
+                            StartTime = new DateTime(2024, 3, 3, 12, 50, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 116,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 23, 17, 21, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 116",
-                            StartTime = new DateTime(2024, 10, 25, 18, 5, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 12, 50, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 116",
+                            StartTime = new DateTime(2024, 2, 10, 6, 50, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 117,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 7, 21, 46, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 117",
-                            StartTime = new DateTime(2024, 10, 14, 1, 1, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 19, 11, 26, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 117",
+                            StartTime = new DateTime(2024, 5, 19, 4, 26, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 118,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 17, 11, 30, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 118",
-                            StartTime = new DateTime(2024, 12, 26, 20, 19, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 18, 11, 49, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 118",
+                            StartTime = new DateTime(2024, 12, 18, 9, 49, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 119,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 4, 52, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 119",
-                            StartTime = new DateTime(2024, 11, 15, 0, 8, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 4, 20, 15, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 119",
+                            StartTime = new DateTime(2024, 1, 4, 14, 15, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 120,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 29, 12, 20, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 120",
-                            StartTime = new DateTime(2024, 11, 27, 6, 58, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 1, 14, 56, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 120",
+                            StartTime = new DateTime(2024, 5, 1, 8, 56, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 121,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 7, 4, 54, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 121",
-                            StartTime = new DateTime(2024, 2, 9, 18, 45, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 24, 3, 30, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 121",
+                            StartTime = new DateTime(2024, 4, 23, 21, 30, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 122,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 6, 2, 36, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 122",
-                            StartTime = new DateTime(2024, 6, 4, 22, 51, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 24, 21, 40, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 122",
+                            StartTime = new DateTime(2024, 4, 24, 19, 40, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 123,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 7, 21, 43, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 123",
-                            StartTime = new DateTime(2024, 8, 26, 8, 14, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 23, 15, 5, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 123",
+                            StartTime = new DateTime(2024, 8, 23, 10, 5, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 124,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 17, 10, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 124",
-                            StartTime = new DateTime(2024, 4, 21, 3, 23, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 16, 14, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 124",
+                            StartTime = new DateTime(2024, 12, 6, 10, 14, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 125,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 2, 1, 24, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 125",
-                            StartTime = new DateTime(2024, 4, 28, 8, 44, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 7, 5, 36, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 125",
+                            StartTime = new DateTime(2024, 7, 7, 0, 36, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 126,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 20, 17, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 126",
-                            StartTime = new DateTime(2024, 1, 17, 6, 15, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 17, 7, 6, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 126",
+                            StartTime = new DateTime(2024, 12, 17, 3, 6, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 127,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 30, 16, 12, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 127",
-                            StartTime = new DateTime(2024, 3, 21, 12, 31, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 26, 9, 7, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 127",
+                            StartTime = new DateTime(2024, 3, 26, 4, 7, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 128,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 30, 16, 23, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 128",
-                            StartTime = new DateTime(2024, 1, 25, 23, 16, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 24, 10, 27, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 128",
+                            StartTime = new DateTime(2024, 6, 24, 9, 27, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 129,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 14, 3, 15, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 129",
-                            StartTime = new DateTime(2024, 9, 10, 2, 29, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 18, 0, 13, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 129",
+                            StartTime = new DateTime(2024, 3, 17, 19, 13, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 130,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 18, 0, 7, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 130",
-                            StartTime = new DateTime(2024, 8, 26, 22, 56, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 17, 2, 31, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 130",
+                            StartTime = new DateTime(2024, 7, 17, 1, 31, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 131,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 2, 10, 48, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 131",
-                            StartTime = new DateTime(2024, 4, 6, 10, 59, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 3, 23, 47, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 131",
+                            StartTime = new DateTime(2024, 12, 3, 15, 47, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 132,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 8, 16, 54, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 132",
-                            StartTime = new DateTime(2024, 6, 28, 0, 34, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 5, 9, 29, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 132",
+                            StartTime = new DateTime(2024, 5, 5, 3, 29, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 133,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 8, 18, 18, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 133",
-                            StartTime = new DateTime(2024, 2, 16, 12, 12, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 20, 9, 28, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 133",
+                            StartTime = new DateTime(2024, 1, 20, 3, 28, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 134,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 6, 12, 55, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 134",
-                            StartTime = new DateTime(2024, 5, 18, 9, 52, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 4, 3, 12, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 134",
+                            StartTime = new DateTime(2024, 6, 3, 19, 12, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 135,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 5, 10, 56, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 135",
-                            StartTime = new DateTime(2024, 2, 8, 22, 7, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 30, 2, 56, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 135",
+                            StartTime = new DateTime(2024, 4, 30, 0, 56, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 136,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 4, 12, 49, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 136",
-                            StartTime = new DateTime(2024, 7, 3, 17, 16, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 10, 13, 21, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 136",
+                            StartTime = new DateTime(2024, 8, 10, 9, 21, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 137,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 25, 1, 22, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 137",
-                            StartTime = new DateTime(2024, 9, 20, 18, 16, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 22, 9, 25, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 137",
+                            StartTime = new DateTime(2024, 1, 22, 2, 25, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 138,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 10, 11, 17, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 138",
-                            StartTime = new DateTime(2024, 8, 8, 16, 14, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 13, 39, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 138",
+                            StartTime = new DateTime(2024, 3, 22, 8, 39, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 139,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 6, 17, 59, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 139",
-                            StartTime = new DateTime(2024, 11, 23, 16, 27, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 23, 51, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 139",
+                            StartTime = new DateTime(2024, 3, 24, 21, 51, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 140,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 28, 3, 36, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 140",
-                            StartTime = new DateTime(2024, 7, 29, 20, 19, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 7, 23, 27, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 140",
+                            StartTime = new DateTime(2024, 8, 7, 19, 27, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 141,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 5, 20, 57, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 141",
-                            StartTime = new DateTime(2024, 4, 26, 6, 47, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 28, 7, 52, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 141",
+                            StartTime = new DateTime(2024, 7, 28, 1, 52, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 142,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 20, 7, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 142",
-                            StartTime = new DateTime(2024, 9, 7, 9, 14, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 7, 20, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 142",
+                            StartTime = new DateTime(2024, 3, 20, 4, 20, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 143,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 23, 16, 29, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 143",
-                            StartTime = new DateTime(2024, 10, 19, 5, 13, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 10, 10, 53, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 143",
+                            StartTime = new DateTime(2024, 3, 10, 9, 53, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 144,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 5, 18, 51, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 144",
-                            StartTime = new DateTime(2024, 8, 6, 17, 58, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 3, 12, 42, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 144",
+                            StartTime = new DateTime(2024, 5, 3, 10, 42, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 145,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 23, 22, 39, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 145",
-                            StartTime = new DateTime(2024, 6, 28, 20, 39, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 3, 23, 24, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 145",
+                            StartTime = new DateTime(2024, 7, 3, 20, 24, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 146,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 0, 6, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 146",
-                            StartTime = new DateTime(2024, 9, 19, 5, 43, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 22, 13, 53, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 146",
+                            StartTime = new DateTime(2024, 6, 22, 5, 53, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 147,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 9, 9, 27, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 147",
-                            StartTime = new DateTime(2024, 1, 9, 15, 42, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 20, 6, 1, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 147",
+                            StartTime = new DateTime(2024, 12, 19, 23, 1, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 148,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 15, 19, 19, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 148",
-                            StartTime = new DateTime(2024, 4, 13, 3, 36, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 18, 0, 27, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 148",
+                            StartTime = new DateTime(2024, 11, 17, 18, 27, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 149,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 1, 49, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 149",
-                            StartTime = new DateTime(2024, 3, 29, 10, 17, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 4, 12, 37, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 149",
+                            StartTime = new DateTime(2024, 10, 4, 6, 37, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 150,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 18, 5, 29, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 150",
-                            StartTime = new DateTime(2024, 1, 20, 16, 4, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 25, 18, 24, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 150",
+                            StartTime = new DateTime(2024, 3, 25, 12, 24, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 151,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 5, 12, 23, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 151",
-                            StartTime = new DateTime(2024, 8, 22, 13, 56, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 14, 16, 56, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 151",
+                            StartTime = new DateTime(2024, 10, 14, 14, 56, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 152,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 19, 21, 49, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 152",
-                            StartTime = new DateTime(2024, 8, 14, 12, 11, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 18, 50, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 152",
+                            StartTime = new DateTime(2024, 1, 6, 10, 50, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 153,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 16, 5, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 153",
-                            StartTime = new DateTime(2024, 11, 7, 22, 32, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 1, 26, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 153",
+                            StartTime = new DateTime(2024, 1, 1, 22, 26, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 154,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 9, 29, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 154",
-                            StartTime = new DateTime(2024, 12, 26, 22, 14, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 6, 15, 16, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 154",
+                            StartTime = new DateTime(2024, 10, 6, 8, 16, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 155,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 2, 50, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 155",
-                            StartTime = new DateTime(2024, 4, 30, 1, 3, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 18, 1, 25, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 155",
+                            StartTime = new DateTime(2024, 9, 17, 21, 25, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 156,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 17, 10, 43, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 156",
-                            StartTime = new DateTime(2024, 7, 12, 16, 19, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 6, 0, 20, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 156",
+                            StartTime = new DateTime(2024, 11, 5, 22, 20, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 157,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 14, 6, 34, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 157",
-                            StartTime = new DateTime(2024, 7, 10, 21, 48, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 24, 12, 56, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 157",
+                            StartTime = new DateTime(2024, 6, 24, 4, 56, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 158,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 28, 11, 16, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 158",
-                            StartTime = new DateTime(2024, 7, 18, 8, 13, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 22, 11, 7, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 158",
+                            StartTime = new DateTime(2024, 6, 22, 4, 7, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 159,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 22, 0, 24, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 159",
-                            StartTime = new DateTime(2024, 5, 28, 12, 59, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 12, 4, 26, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 159",
+                            StartTime = new DateTime(2024, 9, 12, 0, 26, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 160,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 13, 13, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 160",
-                            StartTime = new DateTime(2024, 11, 1, 13, 24, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 22, 14, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 160",
+                            StartTime = new DateTime(2024, 12, 6, 15, 14, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 161,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 24, 7, 30, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 161",
-                            StartTime = new DateTime(2024, 7, 25, 17, 46, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 31, 3, 4, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 161",
+                            StartTime = new DateTime(2024, 7, 30, 21, 4, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 162,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 23, 0, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 162",
-                            StartTime = new DateTime(2024, 8, 15, 15, 15, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 11, 6, 11, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 162",
+                            StartTime = new DateTime(2024, 5, 11, 5, 11, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 163,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 28, 6, 34, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 163",
-                            StartTime = new DateTime(2024, 7, 4, 0, 57, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 2, 35, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 163",
+                            StartTime = new DateTime(2024, 2, 9, 18, 35, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 164,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 8, 7, 26, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 164",
-                            StartTime = new DateTime(2024, 6, 20, 5, 17, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 5, 10, 33, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 164",
+                            StartTime = new DateTime(2024, 1, 5, 5, 33, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 165,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 22, 16, 43, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 165",
-                            StartTime = new DateTime(2024, 1, 17, 6, 48, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 20, 10, 5, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 165",
+                            StartTime = new DateTime(2024, 8, 20, 7, 5, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 166,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 22, 16, 28, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 166",
-                            StartTime = new DateTime(2024, 6, 16, 7, 6, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 19, 9, 37, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 166",
+                            StartTime = new DateTime(2024, 4, 19, 7, 37, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 167,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 30, 10, 22, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 167",
-                            StartTime = new DateTime(2024, 2, 2, 10, 9, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 11, 2, 32, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 167",
+                            StartTime = new DateTime(2024, 9, 10, 20, 32, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 168,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 22, 3, 58, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 168",
-                            StartTime = new DateTime(2024, 9, 18, 22, 0, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 24, 10, 32, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 168",
+                            StartTime = new DateTime(2024, 2, 24, 5, 32, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 169,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 3, 16, 19, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 169",
-                            StartTime = new DateTime(2024, 10, 5, 8, 39, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 14, 11, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 169",
+                            StartTime = new DateTime(2024, 7, 21, 11, 11, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 170,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 12, 8, 34, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 170",
-                            StartTime = new DateTime(2024, 1, 13, 8, 43, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 26, 20, 38, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 170",
+                            StartTime = new DateTime(2024, 2, 26, 18, 38, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 171,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 5, 9, 58, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 171",
-                            StartTime = new DateTime(2024, 7, 25, 18, 52, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 29, 16, 19, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 171",
+                            StartTime = new DateTime(2024, 4, 29, 9, 19, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 172,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 6, 32, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 172",
-                            StartTime = new DateTime(2024, 9, 1, 3, 58, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 14, 0, 16, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 172",
+                            StartTime = new DateTime(2024, 12, 13, 18, 16, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 173,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 23, 7, 30, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 173",
-                            StartTime = new DateTime(2024, 4, 14, 22, 2, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 29, 21, 0, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 173",
+                            StartTime = new DateTime(2024, 12, 29, 17, 0, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 174,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 7, 30, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 174",
-                            StartTime = new DateTime(2024, 6, 1, 6, 30, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 2, 7, 6, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 174",
+                            StartTime = new DateTime(2024, 10, 2, 0, 6, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 175,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 6, 20, 3, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 175",
-                            StartTime = new DateTime(2024, 3, 1, 2, 18, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 17, 10, 22, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 175",
+                            StartTime = new DateTime(2024, 10, 17, 9, 22, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 176,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 31, 13, 30, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 176",
-                            StartTime = new DateTime(2024, 5, 9, 1, 55, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 25, 14, 45, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 176",
+                            StartTime = new DateTime(2024, 12, 25, 11, 45, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 177,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 4, 20, 20, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 177",
-                            StartTime = new DateTime(2024, 1, 8, 23, 50, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 25, 15, 48, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 177",
+                            StartTime = new DateTime(2024, 9, 25, 10, 48, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 178,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 25, 10, 21, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 178",
-                            StartTime = new DateTime(2024, 6, 26, 18, 41, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 5, 32, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 178",
+                            StartTime = new DateTime(2024, 12, 15, 3, 32, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 179,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 12, 0, 10, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 179",
-                            StartTime = new DateTime(2024, 3, 10, 23, 27, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 9, 13, 28, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 179",
+                            StartTime = new DateTime(2024, 9, 9, 11, 28, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 180,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 16, 18, 13, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 180",
-                            StartTime = new DateTime(2024, 6, 15, 9, 36, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 1, 15, 24, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 180",
+                            StartTime = new DateTime(2024, 1, 1, 14, 24, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 181,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 15, 5, 20, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 181",
-                            StartTime = new DateTime(2024, 4, 3, 12, 52, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 30, 11, 41, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 181",
+                            StartTime = new DateTime(2024, 8, 30, 3, 41, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 182,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 7, 0, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 182",
-                            StartTime = new DateTime(2024, 1, 7, 23, 19, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 12, 18, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 182",
+                            StartTime = new DateTime(2024, 3, 23, 10, 18, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 183,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 31, 3, 32, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 183",
-                            StartTime = new DateTime(2024, 4, 24, 22, 10, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 21, 19, 54, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 183",
+                            StartTime = new DateTime(2024, 1, 21, 15, 54, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 184,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 15, 13, 34, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 184",
-                            StartTime = new DateTime(2024, 8, 1, 19, 36, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 21, 29, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 184",
+                            StartTime = new DateTime(2024, 11, 5, 16, 29, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 185,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 9, 2, 9, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 185",
-                            StartTime = new DateTime(2024, 12, 15, 22, 47, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 27, 2, 8, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 185",
+                            StartTime = new DateTime(2024, 7, 26, 21, 8, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 186,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 27, 16, 2, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 186",
-                            StartTime = new DateTime(2024, 5, 11, 9, 31, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 20, 16, 50, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 186",
+                            StartTime = new DateTime(2024, 1, 20, 12, 50, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 187,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 11, 4, 50, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 187",
-                            StartTime = new DateTime(2024, 4, 11, 6, 41, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 15, 16, 51, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 187",
+                            StartTime = new DateTime(2024, 11, 15, 15, 51, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 188,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 7, 18, 9, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 188",
-                            StartTime = new DateTime(2024, 12, 16, 20, 5, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 29, 22, 32, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 188",
+                            StartTime = new DateTime(2024, 2, 29, 21, 32, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 189,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 19, 22, 43, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 189",
-                            StartTime = new DateTime(2024, 7, 16, 7, 21, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 11, 2, 0, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 189",
+                            StartTime = new DateTime(2024, 10, 10, 22, 0, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 190,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 8, 11, 15, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 190",
-                            StartTime = new DateTime(2024, 9, 7, 1, 58, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 10, 3, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 190",
+                            StartTime = new DateTime(2024, 1, 2, 4, 3, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 191,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 8, 15, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 191",
-                            StartTime = new DateTime(2024, 3, 11, 5, 9, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 25, 10, 48, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 191",
+                            StartTime = new DateTime(2024, 5, 25, 3, 48, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 192,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 1, 22, 39, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 192",
-                            StartTime = new DateTime(2024, 12, 24, 8, 37, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 7, 11, 16, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 192",
+                            StartTime = new DateTime(2024, 4, 7, 6, 16, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 193,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 19, 22, 47, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 193",
-                            StartTime = new DateTime(2024, 5, 14, 13, 42, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 23, 28, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 193",
+                            StartTime = new DateTime(2024, 3, 23, 18, 28, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 194,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 15, 1, 57, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 194",
-                            StartTime = new DateTime(2024, 2, 15, 17, 13, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 22, 1, 40, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 194",
+                            StartTime = new DateTime(2024, 8, 22, 0, 40, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 195,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 4, 50, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 195",
-                            StartTime = new DateTime(2024, 1, 19, 8, 24, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 16, 2, 19, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 195",
+                            StartTime = new DateTime(2024, 6, 15, 20, 19, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 196,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 22, 8, 9, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 196",
-                            StartTime = new DateTime(2024, 1, 24, 12, 5, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 16, 14, 50, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 196",
+                            StartTime = new DateTime(2024, 4, 16, 6, 50, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 197,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 4, 2, 49, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 197",
-                            StartTime = new DateTime(2024, 4, 15, 4, 47, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 16, 0, 36, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 197",
+                            StartTime = new DateTime(2024, 10, 15, 19, 36, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 198,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 14, 23, 28, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 198",
-                            StartTime = new DateTime(2024, 10, 5, 19, 5, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 25, 1, 3, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 198",
+                            StartTime = new DateTime(2024, 4, 24, 23, 3, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 199,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 21, 21, 14, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 199",
-                            StartTime = new DateTime(2024, 10, 28, 17, 26, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 25, 8, 13, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 199",
+                            StartTime = new DateTime(2024, 8, 25, 3, 13, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 200,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 5, 58, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 200",
-                            StartTime = new DateTime(2024, 7, 18, 14, 34, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 13, 21, 15, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 200",
+                            StartTime = new DateTime(2024, 1, 13, 15, 15, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 201,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 14, 9, 18, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 201",
-                            StartTime = new DateTime(2024, 1, 11, 2, 1, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 5, 49, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 201",
+                            StartTime = new DateTime(2024, 5, 12, 23, 49, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 202,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 8, 2, 40, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 202",
-                            StartTime = new DateTime(2024, 11, 12, 22, 40, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 7, 6, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 202",
+                            StartTime = new DateTime(2024, 7, 20, 23, 6, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 203,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 12, 17, 28, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 203",
-                            StartTime = new DateTime(2024, 11, 25, 20, 42, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 12, 11, 15, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 203",
+                            StartTime = new DateTime(2024, 9, 12, 5, 15, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 204,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 29, 17, 50, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 204",
-                            StartTime = new DateTime(2024, 7, 2, 22, 50, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 18, 2, 1, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 204",
+                            StartTime = new DateTime(2024, 2, 17, 21, 1, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 205,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 5, 2, 12, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 205",
-                            StartTime = new DateTime(2024, 7, 9, 10, 30, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 27, 3, 7, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 205",
+                            StartTime = new DateTime(2024, 5, 26, 23, 7, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 206,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 13, 9, 0, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 206",
-                            StartTime = new DateTime(2024, 8, 21, 17, 27, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 22, 53, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 206",
+                            StartTime = new DateTime(2024, 4, 5, 21, 53, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 207,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 16, 23, 24, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 207",
-                            StartTime = new DateTime(2024, 12, 29, 20, 54, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 28, 21, 20, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 207",
+                            StartTime = new DateTime(2024, 10, 28, 14, 20, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 208,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 14, 2, 44, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 208",
-                            StartTime = new DateTime(2024, 7, 28, 12, 32, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 23, 15, 3, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 208",
+                            StartTime = new DateTime(2024, 7, 23, 13, 3, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 209,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 15, 1, 50, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 209",
-                            StartTime = new DateTime(2024, 6, 28, 18, 8, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 1, 12, 15, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 209",
+                            StartTime = new DateTime(2024, 9, 1, 7, 15, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 210,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 15, 6, 14, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 210",
-                            StartTime = new DateTime(2024, 10, 5, 23, 50, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 13, 14, 37, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 210",
+                            StartTime = new DateTime(2024, 3, 13, 13, 37, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 211,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 19, 9, 19, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 211",
-                            StartTime = new DateTime(2024, 8, 7, 20, 37, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 22, 14, 49, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 211",
+                            StartTime = new DateTime(2024, 7, 22, 13, 49, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 212,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 3, 13, 44, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 212",
-                            StartTime = new DateTime(2024, 12, 1, 20, 8, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 20, 4, 21, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 212",
+                            StartTime = new DateTime(2024, 2, 20, 0, 21, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 213,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 12, 18, 42, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 213",
-                            StartTime = new DateTime(2024, 11, 24, 7, 28, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 8, 18, 22, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 213",
+                            StartTime = new DateTime(2024, 4, 8, 10, 22, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 214,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 15, 14, 25, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 214",
-                            StartTime = new DateTime(2024, 11, 18, 6, 20, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 10, 3, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 214",
+                            StartTime = new DateTime(2024, 4, 5, 4, 3, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 215,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 28, 19, 26, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 215",
-                            StartTime = new DateTime(2024, 8, 29, 10, 9, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 13, 4, 54, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 215",
+                            StartTime = new DateTime(2024, 3, 12, 20, 54, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 216,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 13, 17, 31, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 216",
-                            StartTime = new DateTime(2024, 2, 8, 4, 31, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 6, 11, 51, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 216",
+                            StartTime = new DateTime(2024, 4, 6, 6, 51, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 217,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 26, 1, 11, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 217",
-                            StartTime = new DateTime(2024, 10, 4, 19, 16, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 26, 3, 53, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 217",
+                            StartTime = new DateTime(2024, 10, 25, 21, 53, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 218,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 10, 12, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 218",
-                            StartTime = new DateTime(2024, 2, 12, 10, 48, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 26, 14, 22, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 218",
+                            StartTime = new DateTime(2024, 2, 26, 8, 22, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 219,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 25, 8, 29, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 219",
-                            StartTime = new DateTime(2024, 7, 24, 14, 38, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 18, 8, 53, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 219",
+                            StartTime = new DateTime(2024, 7, 18, 7, 53, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 220,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 3, 22, 24, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 220",
-                            StartTime = new DateTime(2024, 11, 7, 1, 28, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 14, 19, 17, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 220",
+                            StartTime = new DateTime(2024, 11, 14, 13, 17, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 221,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 26, 0, 38, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 221",
-                            StartTime = new DateTime(2024, 5, 22, 14, 11, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 20, 5, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 221",
+                            StartTime = new DateTime(2024, 11, 28, 15, 5, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 222,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 21, 3, 42, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 222",
-                            StartTime = new DateTime(2024, 12, 10, 20, 30, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 1, 1, 41, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 222",
+                            StartTime = new DateTime(2024, 2, 29, 22, 41, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 223,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 16, 10, 32, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 223",
-                            StartTime = new DateTime(2024, 8, 9, 2, 43, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 7, 1, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 223",
+                            StartTime = new DateTime(2024, 7, 21, 4, 1, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 224,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 23, 5, 33, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 224",
-                            StartTime = new DateTime(2024, 11, 13, 17, 54, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 4, 19, 18, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 224",
+                            StartTime = new DateTime(2024, 7, 4, 14, 18, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 225,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 10, 7, 17, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 225",
-                            StartTime = new DateTime(2024, 6, 7, 9, 20, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 15, 17, 21, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 225",
+                            StartTime = new DateTime(2024, 5, 15, 9, 21, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 226,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 27, 10, 51, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 226",
-                            StartTime = new DateTime(2024, 5, 8, 23, 38, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 19, 17, 8, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 226",
+                            StartTime = new DateTime(2024, 6, 19, 14, 8, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 227,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 21, 9, 15, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 227",
-                            StartTime = new DateTime(2024, 5, 10, 12, 33, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 3, 23, 12, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 227",
+                            StartTime = new DateTime(2024, 6, 3, 17, 12, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 228,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 9, 1, 56, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 228",
-                            StartTime = new DateTime(2024, 10, 11, 22, 51, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 28, 22, 32, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 228",
+                            StartTime = new DateTime(2024, 6, 28, 16, 32, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 229,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 28, 23, 4, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 229",
-                            StartTime = new DateTime(2024, 12, 23, 17, 8, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 24, 10, 18, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 229",
+                            StartTime = new DateTime(2024, 9, 24, 8, 18, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 230,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 23, 13, 4, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 230",
-                            StartTime = new DateTime(2024, 7, 8, 21, 36, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 27, 10, 34, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 230",
+                            StartTime = new DateTime(2024, 8, 27, 7, 34, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 231,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 19, 6, 56, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 231",
-                            StartTime = new DateTime(2024, 3, 23, 20, 22, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 26, 1, 43, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 231",
+                            StartTime = new DateTime(2024, 5, 25, 23, 43, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 232,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 7, 5, 43, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 232",
-                            StartTime = new DateTime(2024, 1, 19, 2, 14, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 12, 22, 52, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 232",
+                            StartTime = new DateTime(2024, 1, 12, 20, 52, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 233,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 22, 2, 22, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 233",
-                            StartTime = new DateTime(2024, 2, 10, 3, 58, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 7, 0, 4, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 233",
+                            StartTime = new DateTime(2024, 7, 6, 17, 4, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 234,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 6, 14, 11, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 234",
-                            StartTime = new DateTime(2024, 9, 20, 19, 10, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 30, 16, 48, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 234",
+                            StartTime = new DateTime(2024, 6, 30, 13, 48, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 235,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 30, 11, 4, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 235",
-                            StartTime = new DateTime(2024, 7, 26, 23, 32, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 8, 4, 30, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 235",
+                            StartTime = new DateTime(2024, 10, 7, 23, 30, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 236,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 31, 4, 37, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 236",
-                            StartTime = new DateTime(2024, 5, 11, 17, 46, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 21, 21, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 236",
+                            StartTime = new DateTime(2024, 5, 28, 13, 21, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 237,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 25, 11, 11, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 237",
-                            StartTime = new DateTime(2024, 1, 23, 14, 41, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 7, 3, 2, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 237",
+                            StartTime = new DateTime(2024, 2, 7, 1, 2, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 238,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 7, 15, 1, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 238",
-                            StartTime = new DateTime(2024, 7, 20, 17, 48, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 22, 43, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 238",
+                            StartTime = new DateTime(2024, 2, 10, 21, 43, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 239,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 18, 10, 2, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 239",
-                            StartTime = new DateTime(2024, 2, 15, 3, 53, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 16, 22, 53, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 239",
+                            StartTime = new DateTime(2024, 6, 16, 14, 53, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 240,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 18, 27, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 240",
-                            StartTime = new DateTime(2024, 4, 8, 0, 21, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 25, 1, 44, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 240",
+                            StartTime = new DateTime(2024, 5, 24, 18, 44, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 241,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 10, 17, 8, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 241",
-                            StartTime = new DateTime(2024, 11, 18, 20, 46, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 19, 9, 26, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 241",
+                            StartTime = new DateTime(2024, 6, 19, 8, 26, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 242,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 12, 1, 56, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 242",
-                            StartTime = new DateTime(2024, 8, 31, 11, 11, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 20, 10, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 242",
+                            StartTime = new DateTime(2024, 6, 8, 17, 10, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 243,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 20, 16, 48, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 243",
-                            StartTime = new DateTime(2024, 1, 20, 10, 51, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 14, 23, 25, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 243",
+                            StartTime = new DateTime(2024, 6, 14, 18, 25, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 244,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 19, 5, 30, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 244",
-                            StartTime = new DateTime(2024, 9, 26, 22, 10, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 29, 0, 57, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 244",
+                            StartTime = new DateTime(2024, 11, 28, 19, 57, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 245,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 3, 11, 14, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 245",
-                            StartTime = new DateTime(2024, 2, 7, 12, 26, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 2, 14, 4, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 245",
+                            StartTime = new DateTime(2024, 4, 2, 12, 4, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 246,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 11, 5, 1, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 246",
-                            StartTime = new DateTime(2024, 12, 6, 9, 11, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 13, 55, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 246",
+                            StartTime = new DateTime(2024, 12, 21, 7, 55, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 247,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 26, 21, 6, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 247",
-                            StartTime = new DateTime(2024, 8, 23, 17, 30, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 13, 1, 48, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 247",
+                            StartTime = new DateTime(2024, 9, 12, 19, 48, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 248,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 17, 19, 33, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 248",
-                            StartTime = new DateTime(2024, 4, 1, 1, 52, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 20, 21, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 248",
+                            StartTime = new DateTime(2024, 3, 24, 17, 21, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 249,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 28, 4, 51, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 249",
-                            StartTime = new DateTime(2024, 7, 26, 15, 48, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 3, 18, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 249",
+                            StartTime = new DateTime(2024, 9, 30, 2, 18, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 250,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 13, 9, 10, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 250",
-                            StartTime = new DateTime(2024, 8, 28, 15, 41, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 18, 15, 16, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 250",
+                            StartTime = new DateTime(2024, 5, 18, 14, 16, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 251,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 25, 4, 34, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 251",
-                            StartTime = new DateTime(2024, 7, 20, 4, 29, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 1, 1, 34, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 251",
+                            StartTime = new DateTime(2024, 4, 1, 0, 34, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 252,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 6, 20, 13, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 252",
-                            StartTime = new DateTime(2024, 11, 2, 15, 19, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 25, 2, 57, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 252",
+                            StartTime = new DateTime(2024, 8, 24, 23, 57, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 253,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 1, 2, 13, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 253",
-                            StartTime = new DateTime(2024, 5, 4, 9, 54, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 22, 19, 15, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 253",
+                            StartTime = new DateTime(2024, 7, 22, 16, 15, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 254,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 19, 42, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 254",
-                            StartTime = new DateTime(2024, 1, 10, 23, 31, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 13, 20, 4, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 254",
+                            StartTime = new DateTime(2024, 8, 13, 16, 4, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 255,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 18, 49, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 255",
-                            StartTime = new DateTime(2024, 1, 21, 10, 55, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 20, 23, 45, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 255",
+                            StartTime = new DateTime(2024, 12, 20, 21, 45, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 256,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 13, 11, 0, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 256",
-                            StartTime = new DateTime(2024, 4, 12, 18, 17, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 10, 0, 8, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 256",
+                            StartTime = new DateTime(2024, 10, 9, 19, 8, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 257,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 20, 20, 49, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 257",
-                            StartTime = new DateTime(2024, 6, 14, 19, 6, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 23, 0, 36, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 257",
+                            StartTime = new DateTime(2024, 6, 22, 20, 36, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 258,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 17, 7, 52, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 258",
-                            StartTime = new DateTime(2024, 2, 15, 14, 55, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 12, 16, 25, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 258",
+                            StartTime = new DateTime(2024, 9, 12, 12, 25, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 259,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 21, 22, 28, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 259",
-                            StartTime = new DateTime(2024, 6, 20, 5, 37, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 17, 9, 33, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 259",
+                            StartTime = new DateTime(2024, 1, 17, 8, 33, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 260,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 2, 7, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 260",
-                            StartTime = new DateTime(2024, 10, 7, 14, 15, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 18, 17, 40, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 260",
+                            StartTime = new DateTime(2024, 11, 18, 16, 40, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 261,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 12, 17, 53, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 261",
-                            StartTime = new DateTime(2024, 4, 4, 2, 26, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 12, 8, 52, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 261",
+                            StartTime = new DateTime(2024, 9, 12, 6, 52, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 262,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 3, 13, 10, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 262",
-                            StartTime = new DateTime(2024, 5, 21, 19, 36, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 10, 0, 46, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 262",
+                            StartTime = new DateTime(2024, 9, 9, 19, 46, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 263,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 1, 59, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 263",
-                            StartTime = new DateTime(2024, 6, 1, 0, 45, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 8, 4, 20, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 263",
+                            StartTime = new DateTime(2024, 8, 7, 23, 20, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 264,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 1, 9, 44, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 264",
-                            StartTime = new DateTime(2024, 2, 12, 13, 11, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 11, 20, 19, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 264",
+                            StartTime = new DateTime(2024, 6, 11, 13, 19, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 265,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 28, 15, 40, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 265",
-                            StartTime = new DateTime(2024, 9, 3, 21, 33, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 22, 58, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 265",
+                            StartTime = new DateTime(2024, 5, 28, 20, 58, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 266,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 27, 13, 56, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 266",
-                            StartTime = new DateTime(2024, 3, 7, 23, 16, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 23, 6, 57, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 266",
+                            StartTime = new DateTime(2024, 9, 22, 23, 57, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 267,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 7, 15, 13, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 267",
-                            StartTime = new DateTime(2024, 8, 18, 17, 35, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 29, 9, 6, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 267",
+                            StartTime = new DateTime(2024, 11, 29, 4, 6, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 268,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 26, 6, 29, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 268",
-                            StartTime = new DateTime(2024, 3, 22, 15, 58, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 27, 8, 20, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 268",
+                            StartTime = new DateTime(2024, 3, 27, 2, 20, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 269,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 19, 10, 11, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 269",
-                            StartTime = new DateTime(2024, 1, 30, 18, 19, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 14, 17, 24, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 269",
+                            StartTime = new DateTime(2024, 2, 14, 9, 24, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 270,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 1, 19, 10, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 270",
-                            StartTime = new DateTime(2024, 10, 22, 8, 42, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 14, 9, 31, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 270",
+                            StartTime = new DateTime(2024, 8, 14, 4, 31, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 271,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 7, 12, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 271",
-                            StartTime = new DateTime(2024, 7, 27, 0, 36, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 13, 18, 4, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 271",
+                            StartTime = new DateTime(2024, 7, 13, 13, 4, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 272,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 5, 10, 6, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 272",
-                            StartTime = new DateTime(2024, 6, 23, 2, 18, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 9, 23, 24, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 272",
+                            StartTime = new DateTime(2024, 4, 9, 21, 24, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 273,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 2, 27, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 273",
-                            StartTime = new DateTime(2024, 8, 26, 20, 29, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 12, 37, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 273",
+                            StartTime = new DateTime(2024, 1, 6, 7, 37, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 274,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 2, 21, 18, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 274",
-                            StartTime = new DateTime(2024, 8, 15, 21, 33, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 18, 9, 29, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 274",
+                            StartTime = new DateTime(2024, 7, 18, 7, 29, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 275,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 7, 1, 12, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 275",
-                            StartTime = new DateTime(2024, 2, 14, 1, 9, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 12, 4, 42, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 275",
+                            StartTime = new DateTime(2024, 2, 11, 23, 42, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 276,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 9, 8, 22, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 276",
-                            StartTime = new DateTime(2024, 7, 4, 9, 25, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 12, 1, 18, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 276",
+                            StartTime = new DateTime(2024, 7, 11, 23, 18, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 277,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 19, 7, 42, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 277",
-                            StartTime = new DateTime(2024, 2, 3, 2, 31, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 19, 11, 29, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 277",
+                            StartTime = new DateTime(2024, 12, 19, 8, 29, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 278,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 15, 8, 13, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 278",
-                            StartTime = new DateTime(2024, 3, 29, 7, 9, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 28, 14, 6, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 278",
+                            StartTime = new DateTime(2024, 3, 28, 8, 6, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 279,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 25, 19, 58, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 279",
-                            StartTime = new DateTime(2024, 11, 6, 13, 46, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 8, 2, 56, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 279",
+                            StartTime = new DateTime(2024, 9, 8, 1, 56, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 280,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 26, 23, 6, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 280",
-                            StartTime = new DateTime(2024, 6, 25, 20, 45, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 1, 28, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 280",
+                            StartTime = new DateTime(2024, 5, 12, 17, 28, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 281,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 17, 3, 16, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 281",
-                            StartTime = new DateTime(2024, 6, 18, 0, 16, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 28, 6, 15, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 281",
+                            StartTime = new DateTime(2024, 9, 27, 23, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 282,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 3, 10, 39, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 282",
-                            StartTime = new DateTime(2024, 5, 5, 2, 4, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 26, 11, 10, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 282",
+                            StartTime = new DateTime(2024, 8, 26, 10, 10, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 283,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 2, 6, 13, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 283",
-                            StartTime = new DateTime(2024, 10, 5, 9, 16, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 9, 4, 42, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 283",
+                            StartTime = new DateTime(2024, 3, 9, 1, 42, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 284,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 26, 4, 36, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 284",
-                            StartTime = new DateTime(2024, 2, 12, 2, 47, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 5, 10, 2, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 284",
+                            StartTime = new DateTime(2024, 8, 5, 4, 2, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 285,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 5, 3, 50, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 285",
-                            StartTime = new DateTime(2024, 8, 22, 2, 2, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 18, 17, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 285",
+                            StartTime = new DateTime(2024, 4, 5, 16, 17, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 286,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 13, 17, 36, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 286",
-                            StartTime = new DateTime(2024, 5, 13, 23, 43, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 11, 5, 33, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 286",
+                            StartTime = new DateTime(2024, 9, 11, 3, 33, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 287,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 15, 46, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 287",
-                            StartTime = new DateTime(2024, 5, 3, 13, 54, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 13, 1, 46, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 287",
+                            StartTime = new DateTime(2024, 1, 12, 20, 46, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 288,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 5, 17, 15, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 288",
-                            StartTime = new DateTime(2024, 1, 21, 22, 48, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 22, 2, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 288",
+                            StartTime = new DateTime(2024, 11, 5, 19, 2, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 289,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 19, 11, 17, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 289",
-                            StartTime = new DateTime(2024, 8, 2, 18, 7, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 30, 8, 39, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 289",
+                            StartTime = new DateTime(2024, 7, 30, 5, 39, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 290,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 21, 46, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 290",
-                            StartTime = new DateTime(2024, 1, 1, 1, 1, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 16, 56, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 290",
+                            StartTime = new DateTime(2024, 3, 23, 9, 56, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 291,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 16, 0, 10, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 291",
-                            StartTime = new DateTime(2024, 4, 8, 11, 48, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 9, 18, 40, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 291",
+                            StartTime = new DateTime(2024, 9, 9, 14, 40, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 292,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 12, 48, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 292",
-                            StartTime = new DateTime(2024, 3, 30, 13, 58, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 11, 15, 49, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 292",
+                            StartTime = new DateTime(2024, 2, 11, 9, 49, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 293,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 9, 8, 57, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 293",
-                            StartTime = new DateTime(2024, 6, 11, 20, 24, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 27, 12, 36, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 293",
+                            StartTime = new DateTime(2024, 6, 27, 8, 36, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 294,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 13, 7, 40, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 294",
-                            StartTime = new DateTime(2024, 11, 18, 6, 53, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 16, 13, 3, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 294",
+                            StartTime = new DateTime(2024, 6, 16, 9, 3, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 295,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 17, 23, 53, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 295",
-                            StartTime = new DateTime(2024, 8, 6, 13, 27, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 12, 5, 45, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 295",
+                            StartTime = new DateTime(2024, 2, 12, 3, 45, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 296,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 22, 18, 4, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 296",
-                            StartTime = new DateTime(2024, 8, 7, 7, 59, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 13, 0, 20, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 296",
+                            StartTime = new DateTime(2024, 9, 12, 16, 20, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 297,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 11, 2, 40, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 297",
-                            StartTime = new DateTime(2024, 3, 31, 2, 21, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 18, 12, 58, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 297",
+                            StartTime = new DateTime(2024, 5, 18, 4, 58, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 298,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 7, 19, 54, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 298",
-                            StartTime = new DateTime(2024, 3, 31, 15, 48, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 9, 17, 24, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 298",
+                            StartTime = new DateTime(2024, 3, 9, 16, 24, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 299,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 4, 13, 51, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 299",
-                            StartTime = new DateTime(2024, 11, 17, 22, 55, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 25, 16, 38, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 299",
+                            StartTime = new DateTime(2024, 3, 25, 11, 38, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 300,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 19, 4, 38, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 300",
-                            StartTime = new DateTime(2024, 8, 30, 19, 36, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 20, 16, 49, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 300",
+                            StartTime = new DateTime(2024, 4, 20, 11, 49, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 301,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 12, 6, 26, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 301",
-                            StartTime = new DateTime(2024, 7, 4, 8, 23, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 26, 3, 55, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 301",
+                            StartTime = new DateTime(2024, 5, 26, 0, 55, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 302,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 29, 15, 36, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 302",
-                            StartTime = new DateTime(2024, 6, 6, 11, 22, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 7, 12, 7, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 302",
+                            StartTime = new DateTime(2024, 8, 7, 7, 7, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 303,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 13, 12, 18, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 303",
-                            StartTime = new DateTime(2024, 1, 16, 6, 22, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 2, 7, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 303",
+                            StartTime = new DateTime(2024, 5, 12, 18, 7, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 304,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 28, 0, 11, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 304",
-                            StartTime = new DateTime(2024, 4, 22, 10, 40, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 23, 16, 42, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 304",
+                            StartTime = new DateTime(2024, 11, 23, 10, 42, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 305,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 21, 22, 40, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 305",
-                            StartTime = new DateTime(2024, 4, 20, 13, 17, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 2, 21, 57, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 305",
+                            StartTime = new DateTime(2024, 12, 2, 18, 57, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 306,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 1, 21, 27, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 306",
-                            StartTime = new DateTime(2024, 6, 22, 6, 11, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 11, 13, 25, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 306",
+                            StartTime = new DateTime(2024, 1, 11, 7, 25, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 307,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 18, 6, 43, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 307",
-                            StartTime = new DateTime(2024, 8, 6, 4, 52, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 8, 34, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 307",
+                            StartTime = new DateTime(2024, 10, 13, 6, 34, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 308,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 9, 2, 12, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 308",
-                            StartTime = new DateTime(2024, 4, 22, 12, 3, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 9, 15, 36, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 308",
+                            StartTime = new DateTime(2024, 9, 9, 11, 36, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 309,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 24, 14, 31, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 309",
-                            StartTime = new DateTime(2024, 10, 19, 8, 21, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 4, 2, 49, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 309",
+                            StartTime = new DateTime(2024, 1, 3, 19, 49, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 310,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 29, 6, 52, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 310",
-                            StartTime = new DateTime(2024, 2, 15, 17, 12, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 8, 19, 57, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 310",
+                            StartTime = new DateTime(2024, 3, 8, 14, 57, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 311,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 15, 5, 7, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 311",
-                            StartTime = new DateTime(2024, 3, 17, 21, 17, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 20, 17, 58, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 311",
+                            StartTime = new DateTime(2024, 11, 20, 10, 58, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 312,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 8, 19, 0, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 312",
-                            StartTime = new DateTime(2024, 1, 2, 13, 56, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 10, 6, 46, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 312",
+                            StartTime = new DateTime(2024, 1, 9, 22, 46, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 313,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 23, 19, 58, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 313",
-                            StartTime = new DateTime(2024, 9, 22, 12, 3, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 31, 6, 30, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 313",
+                            StartTime = new DateTime(2024, 12, 31, 4, 30, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 314,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 31, 17, 4, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 314",
-                            StartTime = new DateTime(2024, 7, 8, 0, 5, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 11, 6, 19, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 314",
+                            StartTime = new DateTime(2024, 4, 10, 22, 19, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 315,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 29, 3, 9, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 315",
-                            StartTime = new DateTime(2024, 6, 19, 11, 5, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 13, 17, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 315",
+                            StartTime = new DateTime(2024, 3, 24, 7, 17, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 316,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 3, 2, 22, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 316",
-                            StartTime = new DateTime(2024, 11, 3, 21, 50, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 15, 4, 36, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 316",
+                            StartTime = new DateTime(2024, 1, 14, 22, 36, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 317,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 16, 20, 4, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 317",
-                            StartTime = new DateTime(2024, 2, 2, 10, 57, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 7, 8, 40, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 317",
+                            StartTime = new DateTime(2024, 7, 7, 7, 40, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 318,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 26, 23, 32, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 318",
-                            StartTime = new DateTime(2024, 4, 18, 5, 40, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 1, 8, 23, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 318",
+                            StartTime = new DateTime(2024, 11, 1, 3, 23, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 319,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 26, 6, 40, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 319",
-                            StartTime = new DateTime(2024, 7, 1, 3, 5, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 26, 8, 26, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 319",
+                            StartTime = new DateTime(2024, 2, 26, 1, 26, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 320,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 27, 2, 32, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 320",
-                            StartTime = new DateTime(2024, 9, 21, 13, 10, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 1, 14, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 320",
+                            StartTime = new DateTime(2024, 5, 27, 21, 14, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 321,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 13, 1, 9, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 321",
-                            StartTime = new DateTime(2024, 9, 27, 3, 54, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 2, 16, 10, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 321",
+                            StartTime = new DateTime(2024, 2, 2, 11, 10, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 322,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 7, 13, 34, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 322",
-                            StartTime = new DateTime(2024, 7, 12, 14, 31, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 2, 21, 36, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 322",
+                            StartTime = new DateTime(2024, 5, 2, 20, 36, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 323,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 19, 19, 48, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 323",
-                            StartTime = new DateTime(2024, 2, 1, 17, 16, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 1, 31, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 323",
+                            StartTime = new DateTime(2024, 3, 22, 17, 31, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 324,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 2, 16, 44, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 324",
-                            StartTime = new DateTime(2024, 9, 19, 5, 26, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 12, 7, 9, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 324",
+                            StartTime = new DateTime(2024, 11, 12, 1, 9, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 325,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 27, 23, 53, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 325",
-                            StartTime = new DateTime(2024, 9, 10, 12, 11, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 7, 10, 46, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 325",
+                            StartTime = new DateTime(2024, 10, 7, 6, 46, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 326,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 28, 6, 26, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 326",
-                            StartTime = new DateTime(2024, 7, 27, 3, 7, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 31, 23, 29, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 326",
+                            StartTime = new DateTime(2024, 3, 31, 19, 29, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 327,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 3, 10, 7, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 327",
-                            StartTime = new DateTime(2024, 1, 25, 20, 30, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 28, 6, 48, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 327",
+                            StartTime = new DateTime(2024, 6, 28, 1, 48, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 328,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 18, 15, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 328",
-                            StartTime = new DateTime(2024, 8, 20, 3, 18, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 27, 0, 51, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 328",
+                            StartTime = new DateTime(2024, 6, 26, 17, 51, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 329,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 13, 18, 12, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 329",
-                            StartTime = new DateTime(2024, 8, 15, 3, 6, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 29, 6, 47, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 329",
+                            StartTime = new DateTime(2024, 9, 29, 4, 47, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 330,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 26, 21, 21, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 330",
-                            StartTime = new DateTime(2024, 11, 1, 11, 15, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 18, 12, 21, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 330",
+                            StartTime = new DateTime(2024, 12, 18, 9, 21, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 331,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 29, 9, 53, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 331",
-                            StartTime = new DateTime(2024, 10, 13, 19, 48, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 17, 4, 56, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 331",
+                            StartTime = new DateTime(2024, 6, 17, 0, 56, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 332,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 21, 11, 6, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 332",
-                            StartTime = new DateTime(2024, 6, 10, 0, 46, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 9, 12, 38, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 332",
+                            StartTime = new DateTime(2024, 5, 9, 4, 38, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 333,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 13, 0, 40, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 333",
-                            StartTime = new DateTime(2024, 1, 16, 18, 47, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 6, 13, 9, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 333",
+                            StartTime = new DateTime(2024, 5, 6, 6, 9, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 334,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 7, 19, 43, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 334",
-                            StartTime = new DateTime(2024, 3, 11, 14, 47, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 21, 21, 44, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 334",
+                            StartTime = new DateTime(2024, 10, 21, 18, 44, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 335,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 28, 11, 1, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 335",
-                            StartTime = new DateTime(2024, 3, 14, 14, 10, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 25, 21, 32, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 335",
+                            StartTime = new DateTime(2024, 5, 25, 16, 32, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 336,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 23, 5, 44, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 336",
-                            StartTime = new DateTime(2024, 6, 14, 13, 48, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 4, 1, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 336",
+                            StartTime = new DateTime(2024, 12, 6, 3, 1, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 337,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 25, 2, 32, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 337",
-                            StartTime = new DateTime(2024, 9, 19, 9, 8, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 11, 19, 29, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 337",
+                            StartTime = new DateTime(2024, 9, 11, 17, 29, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 338,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 15, 5, 4, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 338",
-                            StartTime = new DateTime(2024, 7, 18, 23, 2, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 22, 9, 58, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 338",
+                            StartTime = new DateTime(2024, 9, 22, 6, 58, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 339,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 6, 1, 30, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 339",
-                            StartTime = new DateTime(2024, 11, 17, 3, 10, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 25, 19, 51, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 339",
+                            StartTime = new DateTime(2024, 8, 25, 12, 51, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 340,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 9, 21, 56, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 340",
-                            StartTime = new DateTime(2024, 8, 23, 18, 40, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 9, 3, 7, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 340",
+                            StartTime = new DateTime(2024, 12, 8, 22, 7, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 341,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 16, 14, 58, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 341",
-                            StartTime = new DateTime(2024, 1, 12, 7, 3, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 12, 12, 58, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 341",
+                            StartTime = new DateTime(2024, 12, 12, 5, 58, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 342,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 4, 13, 50, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 342",
-                            StartTime = new DateTime(2024, 8, 2, 8, 35, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 29, 18, 31, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 342",
+                            StartTime = new DateTime(2024, 7, 29, 12, 31, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 343,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 2, 3, 21, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 343",
-                            StartTime = new DateTime(2024, 9, 3, 13, 41, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 30, 19, 20, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 343",
+                            StartTime = new DateTime(2024, 5, 30, 11, 20, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 344,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 24, 4, 24, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 344",
-                            StartTime = new DateTime(2024, 7, 19, 2, 27, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 12, 7, 52, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 344",
+                            StartTime = new DateTime(2024, 12, 12, 2, 52, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 345,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 21, 9, 55, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 345",
-                            StartTime = new DateTime(2024, 1, 16, 13, 33, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 18, 7, 4, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 345",
+                            StartTime = new DateTime(2024, 2, 18, 5, 4, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 346,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 29, 18, 54, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 346",
-                            StartTime = new DateTime(2024, 12, 2, 23, 31, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 17, 0, 32, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 346",
+                            StartTime = new DateTime(2024, 6, 16, 19, 32, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 347,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 12, 9, 58, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 347",
-                            StartTime = new DateTime(2024, 2, 7, 16, 39, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 15, 21, 6, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 347",
+                            StartTime = new DateTime(2024, 4, 15, 17, 6, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 348,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 17, 13, 14, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 348",
-                            StartTime = new DateTime(2024, 10, 17, 10, 29, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 22, 18, 25, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 348",
+                            StartTime = new DateTime(2024, 10, 22, 16, 25, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 349,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 5, 19, 16, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 349",
-                            StartTime = new DateTime(2024, 7, 6, 23, 26, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 16, 23, 40, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 349",
+                            StartTime = new DateTime(2024, 6, 16, 22, 40, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 350,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 5, 21, 42, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 350",
-                            StartTime = new DateTime(2024, 1, 29, 11, 19, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 20, 9, 28, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 350",
+                            StartTime = new DateTime(2024, 10, 20, 7, 28, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 351,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 25, 23, 46, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 351",
-                            StartTime = new DateTime(2024, 12, 20, 20, 35, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 1, 16, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 351",
+                            StartTime = new DateTime(2024, 9, 25, 20, 16, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 352,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 27, 12, 52, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 352",
-                            StartTime = new DateTime(2024, 8, 22, 14, 51, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 11, 14, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 352",
+                            StartTime = new DateTime(2024, 3, 24, 7, 14, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 353,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 19, 2, 20, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 353",
-                            StartTime = new DateTime(2024, 2, 18, 1, 25, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 3, 21, 23, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 353",
+                            StartTime = new DateTime(2024, 7, 3, 13, 23, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 354,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 13, 0, 58, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 354",
-                            StartTime = new DateTime(2024, 4, 28, 9, 48, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 12, 12, 8, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 354",
+                            StartTime = new DateTime(2024, 3, 12, 5, 8, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 355,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 4, 6, 44, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 355",
-                            StartTime = new DateTime(2024, 12, 22, 12, 40, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 15, 9, 24, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 355",
+                            StartTime = new DateTime(2024, 2, 15, 1, 24, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 356,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 3, 5, 16, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 356",
-                            StartTime = new DateTime(2024, 3, 22, 2, 13, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 8, 10, 27, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 356",
+                            StartTime = new DateTime(2024, 5, 8, 7, 27, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 357,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 26, 23, 59, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 357",
-                            StartTime = new DateTime(2024, 9, 9, 18, 44, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 29, 17, 22, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 357",
+                            StartTime = new DateTime(2024, 1, 29, 9, 22, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 358,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 1, 7, 50, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 358",
-                            StartTime = new DateTime(2024, 3, 15, 15, 18, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 12, 9, 10, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 358",
+                            StartTime = new DateTime(2024, 11, 12, 2, 10, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 359,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 14, 7, 53, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 359",
-                            StartTime = new DateTime(2024, 10, 27, 4, 8, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 29, 18, 6, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 359",
+                            StartTime = new DateTime(2024, 1, 29, 16, 6, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 360,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 17, 18, 33, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 360",
-                            StartTime = new DateTime(2024, 5, 8, 13, 41, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 25, 12, 1, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 360",
+                            StartTime = new DateTime(2024, 2, 25, 6, 1, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 361,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 17, 16, 8, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 361",
-                            StartTime = new DateTime(2024, 2, 9, 10, 54, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 17, 5, 24, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 361",
+                            StartTime = new DateTime(2024, 4, 17, 2, 24, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 362,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 30, 16, 6, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 362",
-                            StartTime = new DateTime(2024, 11, 25, 21, 41, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 13, 13, 38, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 362",
+                            StartTime = new DateTime(2024, 3, 13, 5, 38, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 363,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 29, 10, 29, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 363",
-                            StartTime = new DateTime(2024, 7, 15, 5, 53, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 24, 11, 15, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 363",
+                            StartTime = new DateTime(2024, 10, 24, 7, 15, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 364,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 5, 15, 56, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 364",
-                            StartTime = new DateTime(2024, 12, 22, 15, 3, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 3, 2, 44, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 364",
+                            StartTime = new DateTime(2024, 8, 2, 20, 44, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 365,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 12, 12, 3, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 365",
-                            StartTime = new DateTime(2024, 11, 13, 2, 35, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 8, 9, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 365",
+                            StartTime = new DateTime(2024, 3, 24, 0, 9, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 366,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 26, 0, 30, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 366",
-                            StartTime = new DateTime(2024, 1, 28, 18, 40, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 3, 0, 49, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 366",
+                            StartTime = new DateTime(2024, 12, 2, 20, 49, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 367,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 8, 18, 58, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 367",
-                            StartTime = new DateTime(2024, 7, 3, 2, 47, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 12, 4, 52, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 367",
+                            StartTime = new DateTime(2024, 12, 12, 0, 52, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 368,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 9, 11, 48, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 368",
-                            StartTime = new DateTime(2024, 8, 17, 6, 43, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 10, 44, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 368",
+                            StartTime = new DateTime(2024, 11, 28, 7, 44, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 369,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 30, 2, 47, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 369",
-                            StartTime = new DateTime(2024, 10, 15, 11, 3, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 9, 11, 42, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 369",
+                            StartTime = new DateTime(2024, 5, 9, 8, 42, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 370,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 23, 14, 49, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 370",
-                            StartTime = new DateTime(2024, 9, 15, 15, 23, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 6, 11, 11, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 370",
+                            StartTime = new DateTime(2024, 11, 6, 10, 11, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 371,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 3, 21, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 371",
-                            StartTime = new DateTime(2024, 1, 22, 2, 55, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 12, 3, 58, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 371",
+                            StartTime = new DateTime(2024, 9, 11, 23, 58, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 372,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 4, 7, 17, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 372",
-                            StartTime = new DateTime(2024, 1, 6, 5, 59, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 31, 10, 14, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 372",
+                            StartTime = new DateTime(2024, 5, 31, 4, 14, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 373,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 20, 22, 23, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 373",
-                            StartTime = new DateTime(2024, 4, 13, 5, 59, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 2, 9, 58, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 373",
+                            StartTime = new DateTime(2024, 6, 2, 4, 58, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 374,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 24, 22, 13, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 374",
-                            StartTime = new DateTime(2024, 12, 25, 19, 4, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 31, 11, 23, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 374",
+                            StartTime = new DateTime(2024, 12, 31, 5, 23, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 375,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 21, 3, 15, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 375",
-                            StartTime = new DateTime(2024, 5, 16, 21, 1, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 14, 19, 48, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 375",
+                            StartTime = new DateTime(2024, 2, 14, 14, 48, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 376,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 23, 10, 10, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 376",
-                            StartTime = new DateTime(2024, 5, 16, 13, 12, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 11, 28, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 376",
+                            StartTime = new DateTime(2024, 1, 2, 9, 28, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 377,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 22, 14, 39, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 377",
-                            StartTime = new DateTime(2024, 3, 11, 9, 1, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 4, 5, 19, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 377",
+                            StartTime = new DateTime(2024, 12, 4, 3, 19, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 378,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 9, 5, 10, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 378",
-                            StartTime = new DateTime(2024, 4, 26, 14, 16, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 14, 35, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 378",
+                            StartTime = new DateTime(2024, 3, 6, 6, 35, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 379,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 17, 5, 51, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 379",
-                            StartTime = new DateTime(2024, 11, 12, 10, 26, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 11, 18, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 379",
+                            StartTime = new DateTime(2024, 11, 28, 5, 18, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 380,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 15, 0, 25, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 380",
-                            StartTime = new DateTime(2024, 1, 25, 23, 12, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 0, 26, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 380",
+                            StartTime = new DateTime(2024, 3, 21, 21, 26, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 381,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 20, 21, 12, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 381",
-                            StartTime = new DateTime(2024, 8, 12, 12, 57, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 4, 4, 58, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 381",
+                            StartTime = new DateTime(2024, 12, 4, 3, 58, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 382,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 13, 11, 30, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 382",
-                            StartTime = new DateTime(2024, 8, 22, 12, 2, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 2, 0, 57, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 382",
+                            StartTime = new DateTime(2024, 11, 1, 18, 57, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 383,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 15, 21, 33, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 383",
-                            StartTime = new DateTime(2024, 7, 25, 5, 3, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 10, 9, 40, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 383",
+                            StartTime = new DateTime(2024, 7, 10, 4, 40, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 384,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 8, 5, 1, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 384",
-                            StartTime = new DateTime(2024, 11, 5, 23, 11, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 9, 9, 32, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 384",
+                            StartTime = new DateTime(2024, 6, 9, 3, 32, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 385,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 11, 16, 37, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 385",
-                            StartTime = new DateTime(2024, 7, 20, 22, 46, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 15, 15, 29, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 385",
+                            StartTime = new DateTime(2024, 6, 15, 8, 29, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 386,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 8, 18, 29, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 386",
-                            StartTime = new DateTime(2024, 3, 11, 6, 4, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 1, 19, 29, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 386",
+                            StartTime = new DateTime(2024, 12, 1, 16, 29, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 387,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 3, 11, 18, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 387",
-                            StartTime = new DateTime(2024, 1, 20, 14, 47, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 19, 4, 8, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 387",
+                            StartTime = new DateTime(2024, 9, 18, 23, 8, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 388,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 22, 50, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 388",
-                            StartTime = new DateTime(2024, 4, 12, 0, 36, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 4, 3, 3, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 388",
+                            StartTime = new DateTime(2024, 10, 3, 22, 3, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 389,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 30, 13, 53, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 389",
-                            StartTime = new DateTime(2024, 1, 26, 0, 4, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 2, 12, 45, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 389",
+                            StartTime = new DateTime(2024, 9, 2, 8, 45, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 390,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 17, 15, 16, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 390",
-                            StartTime = new DateTime(2024, 1, 20, 10, 36, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 16, 9, 20, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 390",
+                            StartTime = new DateTime(2024, 11, 16, 1, 20, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 391,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 9, 13, 3, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 391",
-                            StartTime = new DateTime(2024, 9, 5, 20, 48, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 20, 18, 55, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 391",
+                            StartTime = new DateTime(2024, 8, 20, 17, 55, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 392,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 8, 35, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 392",
-                            StartTime = new DateTime(2024, 8, 27, 15, 16, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 20, 5, 11, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 392",
+                            StartTime = new DateTime(2024, 11, 20, 3, 11, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 393,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 23, 17, 16, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 393",
-                            StartTime = new DateTime(2024, 11, 16, 23, 17, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 17, 13, 31, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 393",
+                            StartTime = new DateTime(2024, 5, 17, 11, 31, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 394,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 2, 15, 45, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 394",
-                            StartTime = new DateTime(2024, 9, 17, 23, 29, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 29, 18, 39, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 394",
+                            StartTime = new DateTime(2024, 2, 29, 10, 39, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 395,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 10, 11, 43, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 395",
-                            StartTime = new DateTime(2024, 10, 25, 22, 11, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 7, 22, 15, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 395",
+                            StartTime = new DateTime(2024, 5, 7, 18, 15, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 396,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 5, 25, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 396",
-                            StartTime = new DateTime(2024, 8, 13, 12, 11, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 6, 21, 24, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 396",
+                            StartTime = new DateTime(2024, 2, 6, 14, 24, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 397,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 8, 6, 28, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 397",
-                            StartTime = new DateTime(2024, 8, 12, 8, 29, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 7, 3, 20, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 397",
+                            StartTime = new DateTime(2024, 2, 6, 22, 20, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 398,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 5, 22, 24, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 398",
-                            StartTime = new DateTime(2024, 2, 18, 4, 52, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 4, 15, 17, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 398",
+                            StartTime = new DateTime(2024, 5, 4, 10, 17, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 399,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 19, 10, 7, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 399",
-                            StartTime = new DateTime(2024, 7, 31, 18, 20, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 10, 8, 31, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 399",
+                            StartTime = new DateTime(2024, 4, 10, 7, 31, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 400,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 11, 10, 0, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 400",
-                            StartTime = new DateTime(2024, 11, 12, 3, 35, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 18, 22, 41, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 400",
+                            StartTime = new DateTime(2024, 2, 18, 18, 41, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 401,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 1, 7, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 401",
-                            StartTime = new DateTime(2024, 7, 17, 14, 37, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 19, 59, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 401",
+                            StartTime = new DateTime(2024, 8, 19, 14, 59, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 402,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 4, 6, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 402",
-                            StartTime = new DateTime(2024, 4, 12, 11, 54, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 4, 14, 25, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 402",
+                            StartTime = new DateTime(2024, 1, 4, 6, 25, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 403,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 11, 10, 17, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 403",
-                            StartTime = new DateTime(2024, 11, 20, 13, 42, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 1, 10, 49, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 403",
+                            StartTime = new DateTime(2024, 5, 1, 8, 49, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 404,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 13, 19, 58, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 404",
-                            StartTime = new DateTime(2024, 8, 24, 10, 51, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 4, 11, 43, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 404",
+                            StartTime = new DateTime(2024, 9, 4, 7, 43, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 405,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 2, 3, 43, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 405",
-                            StartTime = new DateTime(2024, 12, 11, 15, 41, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 29, 2, 13, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 405",
+                            StartTime = new DateTime(2024, 11, 28, 19, 13, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 406,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 11, 6, 13, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 406",
-                            StartTime = new DateTime(2024, 10, 6, 21, 48, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 14, 49, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 406",
+                            StartTime = new DateTime(2024, 10, 29, 7, 49, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 407,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 20, 21, 27, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 407",
-                            StartTime = new DateTime(2024, 2, 17, 16, 6, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 16, 6, 2, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 407",
+                            StartTime = new DateTime(2024, 12, 15, 23, 2, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 408,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 18, 14, 44, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 408",
-                            StartTime = new DateTime(2024, 6, 21, 20, 28, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 9, 6, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 408",
+                            StartTime = new DateTime(2024, 12, 15, 5, 6, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 409,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 26, 20, 10, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 409",
-                            StartTime = new DateTime(2024, 2, 23, 12, 14, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 20, 13, 57, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 409",
+                            StartTime = new DateTime(2024, 1, 20, 7, 57, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 410,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 3, 13, 20, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 410",
-                            StartTime = new DateTime(2024, 8, 27, 2, 7, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 16, 10, 42, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 410",
+                            StartTime = new DateTime(2024, 9, 16, 3, 42, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 411,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 18, 9, 42, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 411",
-                            StartTime = new DateTime(2024, 7, 2, 9, 45, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 18, 11, 51, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 411",
+                            StartTime = new DateTime(2024, 5, 18, 7, 51, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 412,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 22, 17, 18, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 412",
-                            StartTime = new DateTime(2024, 2, 29, 3, 30, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 7, 2, 50, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 412",
+                            StartTime = new DateTime(2024, 8, 6, 20, 50, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 413,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 2, 4, 57, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 413",
-                            StartTime = new DateTime(2024, 7, 11, 2, 59, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 13, 8, 34, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 413",
+                            StartTime = new DateTime(2024, 12, 13, 2, 34, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 414,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 4, 14, 13, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 414",
-                            StartTime = new DateTime(2024, 2, 5, 14, 15, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 25, 12, 39, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 414",
+                            StartTime = new DateTime(2024, 12, 25, 10, 39, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 415,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 7, 21, 24, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 415",
-                            StartTime = new DateTime(2024, 3, 12, 18, 52, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 3, 3, 29, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 415",
+                            StartTime = new DateTime(2024, 10, 2, 21, 29, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 416,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 14, 19, 45, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 416",
-                            StartTime = new DateTime(2024, 3, 22, 7, 10, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 13, 15, 19, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 416",
+                            StartTime = new DateTime(2024, 11, 13, 7, 19, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 417,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 2, 8, 26, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 417",
-                            StartTime = new DateTime(2024, 2, 16, 4, 25, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 16, 4, 23, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 417",
+                            StartTime = new DateTime(2024, 7, 15, 20, 23, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 418,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 14, 38, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 418",
-                            StartTime = new DateTime(2024, 4, 16, 19, 41, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 15, 4, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 418",
+                            StartTime = new DateTime(2024, 6, 8, 9, 4, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 419,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 2, 59, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 419",
-                            StartTime = new DateTime(2024, 8, 15, 8, 50, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 24, 2, 27, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 419",
+                            StartTime = new DateTime(2024, 2, 23, 18, 27, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 420,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 19, 0, 1, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 420",
-                            StartTime = new DateTime(2024, 3, 14, 10, 14, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 2, 10, 48, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 420",
+                            StartTime = new DateTime(2024, 3, 2, 8, 48, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 421,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 5, 16, 47, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 421",
-                            StartTime = new DateTime(2024, 5, 26, 23, 16, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 26, 6, 35, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 421",
+                            StartTime = new DateTime(2024, 12, 25, 23, 35, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 422,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 8, 7, 8, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 422",
-                            StartTime = new DateTime(2024, 12, 28, 10, 20, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 2, 5, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 422",
+                            StartTime = new DateTime(2024, 6, 7, 18, 5, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 423,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 18, 0, 44, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 423",
-                            StartTime = new DateTime(2024, 9, 3, 16, 56, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 22, 16, 9, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 423",
+                            StartTime = new DateTime(2024, 9, 22, 12, 9, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 424,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 14, 12, 52, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 424",
-                            StartTime = new DateTime(2024, 8, 28, 0, 25, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 29, 20, 54, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 424",
+                            StartTime = new DateTime(2024, 4, 29, 15, 54, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 425,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 20, 2, 54, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 425",
-                            StartTime = new DateTime(2024, 4, 22, 0, 0, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 4, 7, 24, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 425",
+                            StartTime = new DateTime(2024, 7, 3, 23, 24, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 426,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 6, 18, 18, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 426",
-                            StartTime = new DateTime(2024, 5, 16, 22, 20, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 7, 6, 9, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 426",
+                            StartTime = new DateTime(2024, 3, 7, 5, 9, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 427,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 27, 3, 35, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 427",
-                            StartTime = new DateTime(2024, 2, 9, 17, 11, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 28, 22, 40, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 427",
+                            StartTime = new DateTime(2024, 7, 28, 15, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 428,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 3, 15, 47, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 428",
-                            StartTime = new DateTime(2024, 4, 2, 10, 38, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 4, 6, 40, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 428",
+                            StartTime = new DateTime(2024, 10, 4, 2, 40, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 429,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 9, 12, 0, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 429",
-                            StartTime = new DateTime(2024, 1, 6, 9, 3, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 9, 53, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 429",
+                            StartTime = new DateTime(2024, 10, 13, 5, 53, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 430,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 5, 18, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 430",
-                            StartTime = new DateTime(2024, 10, 17, 0, 8, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 7, 23, 7, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 430",
+                            StartTime = new DateTime(2024, 4, 7, 20, 7, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 431,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 8, 3, 32, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 431",
-                            StartTime = new DateTime(2024, 5, 8, 16, 10, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 7, 10, 4, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 431",
+                            StartTime = new DateTime(2024, 12, 7, 3, 4, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 432,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 3, 4, 30, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 432",
-                            StartTime = new DateTime(2024, 3, 10, 11, 49, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 9, 5, 50, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 432",
+                            StartTime = new DateTime(2024, 6, 8, 22, 50, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 433,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 21, 6, 24, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 433",
-                            StartTime = new DateTime(2024, 9, 4, 18, 36, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 11, 4, 56, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 433",
+                            StartTime = new DateTime(2024, 11, 10, 23, 56, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 434,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 28, 21, 27, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 434",
-                            StartTime = new DateTime(2024, 7, 2, 12, 13, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 6, 12, 22, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 434",
+                            StartTime = new DateTime(2024, 4, 6, 8, 22, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 435,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 4, 4, 5, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 435",
-                            StartTime = new DateTime(2024, 6, 16, 2, 43, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 15, 21, 10, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 435",
+                            StartTime = new DateTime(2024, 10, 15, 13, 10, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 436,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 20, 21, 11, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 436",
-                            StartTime = new DateTime(2024, 2, 6, 14, 38, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 16, 19, 11, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 436",
+                            StartTime = new DateTime(2024, 10, 16, 15, 11, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 437,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 28, 13, 22, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 437",
-                            StartTime = new DateTime(2024, 10, 14, 18, 27, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 4, 6, 3, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 437",
+                            StartTime = new DateTime(2024, 9, 4, 4, 3, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 438,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 10, 8, 0, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 438",
-                            StartTime = new DateTime(2024, 8, 22, 11, 10, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 17, 5, 55, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 438",
+                            StartTime = new DateTime(2024, 12, 16, 22, 55, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 439,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 6, 4, 56, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 439",
-                            StartTime = new DateTime(2024, 1, 13, 9, 19, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 2, 13, 11, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 439",
+                            StartTime = new DateTime(2024, 9, 2, 5, 11, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 440,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 9, 18, 52, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 440",
-                            StartTime = new DateTime(2024, 1, 9, 2, 29, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 13, 1, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 440",
+                            StartTime = new DateTime(2024, 11, 5, 11, 1, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 441,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 28, 2, 6, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 441",
-                            StartTime = new DateTime(2024, 2, 23, 14, 4, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 2, 1, 40, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 441",
+                            StartTime = new DateTime(2024, 4, 1, 20, 40, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 442,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 19, 8, 12, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 442",
-                            StartTime = new DateTime(2024, 11, 12, 5, 2, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 8, 8, 10, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 442",
+                            StartTime = new DateTime(2024, 11, 8, 0, 10, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 443,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 23, 23, 22, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 443",
-                            StartTime = new DateTime(2024, 12, 9, 9, 26, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 20, 21, 21, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 443",
+                            StartTime = new DateTime(2024, 2, 20, 18, 21, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 444,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 10, 21, 53, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 444",
-                            StartTime = new DateTime(2024, 12, 28, 9, 4, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 3, 9, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 444",
+                            StartTime = new DateTime(2024, 5, 12, 19, 9, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 445,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 25, 9, 0, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 445",
-                            StartTime = new DateTime(2024, 8, 2, 9, 4, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 9, 4, 32, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 445",
+                            StartTime = new DateTime(2024, 3, 9, 3, 32, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 446,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 21, 20, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 446",
-                            StartTime = new DateTime(2024, 11, 9, 10, 48, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 10, 3, 9, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 446",
+                            StartTime = new DateTime(2024, 5, 9, 21, 9, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 447,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 24, 5, 17, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 447",
-                            StartTime = new DateTime(2024, 11, 2, 2, 53, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 21, 19, 56, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 447",
+                            StartTime = new DateTime(2024, 10, 21, 18, 56, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 448,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 2, 14, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 448",
-                            StartTime = new DateTime(2024, 6, 26, 8, 49, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 26, 1, 5, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 448",
+                            StartTime = new DateTime(2024, 10, 25, 17, 5, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 449,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 15, 21, 2, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 449",
-                            StartTime = new DateTime(2024, 6, 1, 2, 0, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 10, 17, 59, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 449",
+                            StartTime = new DateTime(2024, 3, 10, 14, 59, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 450,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 2, 3, 36, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 450",
-                            StartTime = new DateTime(2024, 2, 20, 0, 35, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 15, 20, 9, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 450",
+                            StartTime = new DateTime(2024, 8, 15, 19, 9, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 451,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 26, 3, 45, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 451",
-                            StartTime = new DateTime(2024, 10, 10, 3, 37, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 1, 10, 19, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 451",
+                            StartTime = new DateTime(2024, 6, 1, 5, 19, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 452,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 22, 21, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 452",
-                            StartTime = new DateTime(2024, 3, 9, 9, 0, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 23, 3, 9, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 452",
+                            StartTime = new DateTime(2024, 5, 23, 1, 9, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 453,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 18, 5, 53, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 453",
-                            StartTime = new DateTime(2024, 2, 2, 5, 15, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 13, 5, 20, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 453",
+                            StartTime = new DateTime(2024, 3, 13, 4, 20, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 454,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 18, 11, 34, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 454",
-                            StartTime = new DateTime(2024, 5, 24, 3, 33, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 8, 6, 7, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 454",
+                            StartTime = new DateTime(2024, 5, 8, 0, 7, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 455,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 4, 12, 32, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 455",
-                            StartTime = new DateTime(2024, 8, 1, 5, 42, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 23, 58, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 455",
+                            StartTime = new DateTime(2024, 3, 22, 18, 58, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 456,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 12, 0, 44, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 456",
-                            StartTime = new DateTime(2024, 11, 18, 22, 14, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 23, 11, 40, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 456",
+                            StartTime = new DateTime(2024, 11, 23, 9, 40, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 457,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 22, 5, 47, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 457",
-                            StartTime = new DateTime(2024, 9, 21, 1, 21, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 4, 35, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 457",
+                            StartTime = new DateTime(2024, 1, 5, 21, 35, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 458,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 0, 32, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 458",
-                            StartTime = new DateTime(2024, 7, 20, 9, 53, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 16, 15, 23, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 458",
+                            StartTime = new DateTime(2024, 10, 16, 7, 23, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 459,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 20, 2, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 459",
-                            StartTime = new DateTime(2024, 6, 28, 19, 59, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 17, 59, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 459",
+                            StartTime = new DateTime(2024, 9, 30, 16, 59, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 460,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 10, 14, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 460",
-                            StartTime = new DateTime(2024, 3, 17, 9, 38, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 7, 2, 34, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 460",
+                            StartTime = new DateTime(2024, 1, 6, 22, 34, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 461,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 3, 5, 26, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 461",
-                            StartTime = new DateTime(2024, 9, 4, 13, 58, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 25, 0, 55, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 461",
+                            StartTime = new DateTime(2024, 9, 24, 21, 55, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 462,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 8, 3, 47, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 462",
-                            StartTime = new DateTime(2024, 9, 17, 8, 44, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 13, 19, 7, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 462",
+                            StartTime = new DateTime(2024, 2, 13, 17, 7, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 463,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 1, 19, 25, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 463",
-                            StartTime = new DateTime(2024, 7, 31, 13, 55, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 12, 10, 48, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 463",
+                            StartTime = new DateTime(2024, 10, 12, 4, 48, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 464,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 14, 0, 40, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 464",
-                            StartTime = new DateTime(2024, 4, 20, 11, 44, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 24, 9, 13, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 464",
+                            StartTime = new DateTime(2024, 9, 24, 5, 13, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 465,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 21, 3, 53, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 465",
-                            StartTime = new DateTime(2024, 1, 16, 23, 30, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 19, 20, 20, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 465",
+                            StartTime = new DateTime(2024, 10, 19, 14, 20, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 466,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 3, 21, 41, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 466",
-                            StartTime = new DateTime(2024, 5, 25, 6, 7, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 4, 6, 5, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 466",
+                            StartTime = new DateTime(2024, 3, 4, 0, 5, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 467,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 28, 13, 35, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 467",
-                            StartTime = new DateTime(2024, 11, 23, 17, 16, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 21, 1, 7, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 467",
+                            StartTime = new DateTime(2024, 10, 20, 23, 7, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 468,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 4, 17, 6, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 468",
-                            StartTime = new DateTime(2024, 7, 5, 8, 32, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 1, 3, 19, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 468",
+                            StartTime = new DateTime(2024, 5, 1, 2, 19, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 469,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 5, 5, 37, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 469",
-                            StartTime = new DateTime(2024, 9, 9, 14, 37, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 11, 22, 53, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 469",
+                            StartTime = new DateTime(2024, 4, 11, 16, 53, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 470,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 24, 13, 28, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 470",
-                            StartTime = new DateTime(2024, 4, 8, 3, 29, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 22, 18, 58, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 470",
+                            StartTime = new DateTime(2024, 1, 22, 13, 58, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 471,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 2, 20, 44, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 471",
-                            StartTime = new DateTime(2024, 8, 24, 18, 1, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 29, 5, 42, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 471",
+                            StartTime = new DateTime(2024, 1, 29, 0, 42, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 472,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 20, 27, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 472",
-                            StartTime = new DateTime(2024, 2, 21, 7, 57, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 31, 21, 23, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 472",
+                            StartTime = new DateTime(2024, 1, 31, 19, 23, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 473,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 10, 9, 1, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 473",
-                            StartTime = new DateTime(2024, 6, 16, 15, 33, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 15, 11, 0, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 473",
+                            StartTime = new DateTime(2024, 6, 15, 6, 0, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 474,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 1, 30, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 474",
-                            StartTime = new DateTime(2024, 1, 1, 11, 55, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 28, 20, 56, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 474",
+                            StartTime = new DateTime(2024, 8, 28, 12, 56, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 475,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 19, 16, 11, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 475",
-                            StartTime = new DateTime(2024, 10, 19, 23, 14, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 21, 6, 52, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 475",
+                            StartTime = new DateTime(2024, 5, 21, 3, 52, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 476,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 22, 1, 14, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 476",
-                            StartTime = new DateTime(2024, 1, 16, 9, 3, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 5, 13, 15, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 476",
+                            StartTime = new DateTime(2024, 9, 5, 7, 15, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 477,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 28, 18, 0, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 477",
-                            StartTime = new DateTime(2024, 5, 6, 2, 7, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 23, 3, 14, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 477",
+                            StartTime = new DateTime(2024, 7, 23, 2, 14, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 478,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 14, 37, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 478",
-                            StartTime = new DateTime(2024, 4, 12, 5, 49, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 13, 14, 36, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 478",
+                            StartTime = new DateTime(2024, 12, 13, 9, 36, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 479,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 20, 2, 20, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 479",
-                            StartTime = new DateTime(2024, 3, 4, 5, 10, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 21, 21, 52, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 479",
+                            StartTime = new DateTime(2024, 1, 21, 20, 52, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 480,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 30, 7, 19, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 480",
-                            StartTime = new DateTime(2024, 11, 24, 22, 1, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 22, 26, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 480",
+                            StartTime = new DateTime(2024, 6, 8, 14, 26, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 481,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 10, 23, 12, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 481",
-                            StartTime = new DateTime(2024, 2, 3, 17, 15, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 5, 15, 2, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 481",
+                            StartTime = new DateTime(2024, 8, 5, 13, 2, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 482,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 26, 14, 26, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 482",
-                            StartTime = new DateTime(2024, 10, 7, 20, 11, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 4, 42, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 482",
+                            StartTime = new DateTime(2024, 7, 20, 21, 42, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 483,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 24, 10, 4, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 483",
-                            StartTime = new DateTime(2024, 6, 12, 7, 18, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 18, 5, 33, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 483",
+                            StartTime = new DateTime(2024, 8, 18, 3, 33, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 484,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 0, 13, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 484",
-                            StartTime = new DateTime(2024, 5, 8, 4, 33, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 22, 6, 6, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 484",
+                            StartTime = new DateTime(2024, 12, 22, 2, 6, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 485,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 24, 20, 16, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 485",
-                            StartTime = new DateTime(2024, 6, 24, 16, 43, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 27, 13, 24, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 485",
+                            StartTime = new DateTime(2024, 11, 27, 9, 24, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 486,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 18, 17, 3, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 486",
-                            StartTime = new DateTime(2024, 12, 24, 4, 54, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 19, 17, 31, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 486",
+                            StartTime = new DateTime(2024, 10, 19, 10, 31, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 487,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 22, 7, 32, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 487",
-                            StartTime = new DateTime(2024, 2, 1, 18, 19, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 14, 12, 42, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 487",
+                            StartTime = new DateTime(2024, 7, 14, 10, 42, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 488,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 3, 18, 48, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 488",
-                            StartTime = new DateTime(2024, 12, 1, 4, 15, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 12, 23, 57, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 488",
+                            StartTime = new DateTime(2024, 5, 12, 19, 57, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 489,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 6, 7, 46, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 489",
-                            StartTime = new DateTime(2024, 11, 17, 7, 14, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 4, 21, 17, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 489",
+                            StartTime = new DateTime(2024, 11, 4, 17, 17, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 490,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 30, 4, 18, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 490",
-                            StartTime = new DateTime(2024, 2, 20, 12, 48, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 27, 19, 11, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 490",
+                            StartTime = new DateTime(2024, 11, 27, 11, 11, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 491,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 18, 6, 16, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 491",
-                            StartTime = new DateTime(2024, 3, 25, 17, 14, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 9, 17, 21, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 491",
+                            StartTime = new DateTime(2024, 7, 9, 11, 21, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 492,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 11, 3, 29, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 492",
-                            StartTime = new DateTime(2024, 3, 19, 21, 54, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 18, 14, 0, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 492",
+                            StartTime = new DateTime(2024, 3, 18, 10, 0, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 493,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 19, 56, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 493",
-                            StartTime = new DateTime(2024, 9, 28, 19, 27, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 28, 0, 2, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 493",
+                            StartTime = new DateTime(2024, 12, 27, 23, 2, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 494,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 17, 13, 12, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 494",
-                            StartTime = new DateTime(2024, 9, 24, 22, 46, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 23, 12, 30, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 494",
+                            StartTime = new DateTime(2024, 10, 23, 6, 30, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 495,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 29, 23, 7, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 495",
-                            StartTime = new DateTime(2024, 5, 16, 10, 31, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 3, 6, 10, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 495",
+                            StartTime = new DateTime(2024, 6, 3, 2, 10, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 496,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 26, 7, 42, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 496",
-                            StartTime = new DateTime(2024, 4, 25, 0, 48, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 5, 0, 12, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 496",
+                            StartTime = new DateTime(2024, 2, 4, 21, 12, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 497,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 11, 11, 23, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 497",
-                            StartTime = new DateTime(2024, 9, 15, 9, 35, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 16, 0, 19, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 497",
+                            StartTime = new DateTime(2024, 7, 15, 20, 19, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 498,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 5, 58, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 498",
-                            StartTime = new DateTime(2024, 7, 5, 4, 36, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 19, 1, 59, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 498",
+                            StartTime = new DateTime(2024, 4, 19, 0, 59, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 499,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 24, 22, 48, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 499",
-                            StartTime = new DateTime(2024, 6, 18, 16, 26, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 8, 18, 16, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 499",
+                            StartTime = new DateTime(2024, 12, 8, 16, 16, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 500,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 21, 7, 1, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 500",
-                            StartTime = new DateTime(2024, 10, 8, 18, 22, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 16, 21, 29, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 500",
+                            StartTime = new DateTime(2024, 2, 16, 14, 29, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 501,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 27, 0, 20, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 501",
-                            StartTime = new DateTime(2024, 5, 17, 16, 15, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 12, 12, 16, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 501",
+                            StartTime = new DateTime(2024, 4, 12, 5, 16, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 502,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 10, 16, 6, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 502",
-                            StartTime = new DateTime(2024, 3, 10, 18, 30, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 22, 6, 27, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 502",
+                            StartTime = new DateTime(2024, 7, 22, 1, 27, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 503,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 28, 5, 15, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 503",
-                            StartTime = new DateTime(2024, 7, 18, 21, 31, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 21, 20, 27, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 503",
+                            StartTime = new DateTime(2024, 10, 21, 19, 27, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 504,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 28, 20, 4, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 504",
-                            StartTime = new DateTime(2024, 4, 22, 1, 2, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 6, 14, 50, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 504",
+                            StartTime = new DateTime(2024, 6, 6, 9, 50, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 505,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 17, 15, 29, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 505",
-                            StartTime = new DateTime(2024, 8, 22, 2, 56, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 6, 2, 9, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 505",
+                            StartTime = new DateTime(2024, 10, 5, 20, 9, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 506,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 15, 6, 41, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 506",
-                            StartTime = new DateTime(2024, 1, 6, 9, 29, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 1, 7, 41, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 506",
+                            StartTime = new DateTime(2024, 7, 1, 3, 41, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 507,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 31, 22, 50, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 507",
-                            StartTime = new DateTime(2024, 8, 20, 21, 36, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 22, 20, 57, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 507",
+                            StartTime = new DateTime(2024, 12, 22, 16, 57, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 508,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 5, 4, 42, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 508",
-                            StartTime = new DateTime(2024, 12, 2, 12, 59, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 14, 28, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 508",
+                            StartTime = new DateTime(2024, 9, 30, 13, 28, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 509,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 10, 8, 48, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 509",
-                            StartTime = new DateTime(2024, 10, 9, 16, 25, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 25, 23, 45, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 509",
+                            StartTime = new DateTime(2024, 7, 25, 17, 45, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 510,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 11, 1, 25, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 510",
-                            StartTime = new DateTime(2024, 7, 31, 8, 51, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 18, 3, 19, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 510",
+                            StartTime = new DateTime(2024, 7, 17, 20, 19, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 511,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 7, 32, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 511",
-                            StartTime = new DateTime(2024, 11, 21, 15, 23, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 17, 1, 19, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 511",
+                            StartTime = new DateTime(2024, 6, 16, 19, 19, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 512,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 29, 8, 5, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 512",
-                            StartTime = new DateTime(2024, 3, 21, 13, 36, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 27, 11, 40, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 512",
+                            StartTime = new DateTime(2024, 8, 27, 9, 40, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 513,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 21, 3, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 513",
-                            StartTime = new DateTime(2024, 12, 15, 9, 56, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 4, 2, 22, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 513",
+                            StartTime = new DateTime(2024, 7, 3, 21, 22, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 514,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 29, 10, 41, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 514",
-                            StartTime = new DateTime(2024, 4, 13, 8, 25, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 6, 7, 38, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 514",
+                            StartTime = new DateTime(2024, 2, 6, 2, 38, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 515,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 25, 17, 53, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 515",
-                            StartTime = new DateTime(2024, 7, 15, 7, 53, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 6, 17, 18, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 515",
+                            StartTime = new DateTime(2024, 6, 6, 12, 18, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 516,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 22, 20, 56, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 516",
-                            StartTime = new DateTime(2024, 5, 24, 16, 57, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 19, 0, 24, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 516",
+                            StartTime = new DateTime(2024, 7, 18, 19, 24, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 517,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 8, 12, 14, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 517",
-                            StartTime = new DateTime(2024, 4, 18, 13, 26, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 22, 13, 43, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 517",
+                            StartTime = new DateTime(2024, 5, 22, 9, 43, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 518,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 22, 39, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 518",
-                            StartTime = new DateTime(2024, 2, 19, 7, 25, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 16, 20, 0, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 518",
+                            StartTime = new DateTime(2024, 9, 16, 14, 0, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 519,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 23, 12, 33, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 519",
-                            StartTime = new DateTime(2024, 12, 4, 4, 2, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 24, 15, 44, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 519",
+                            StartTime = new DateTime(2024, 5, 24, 12, 44, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 520,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 20, 6, 57, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 520",
-                            StartTime = new DateTime(2024, 10, 27, 16, 8, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 12, 22, 21, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 520",
+                            StartTime = new DateTime(2024, 2, 12, 21, 21, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 521,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 4, 16, 32, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 521",
-                            StartTime = new DateTime(2024, 5, 5, 3, 4, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 17, 8, 57, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 521",
+                            StartTime = new DateTime(2024, 8, 17, 6, 57, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 522,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 5, 11, 44, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 522",
-                            StartTime = new DateTime(2024, 11, 21, 14, 58, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 5, 3, 38, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 522",
+                            StartTime = new DateTime(2024, 12, 5, 0, 38, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 523,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 5, 17, 38, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 523",
-                            StartTime = new DateTime(2024, 3, 5, 22, 50, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 2, 37, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 523",
+                            StartTime = new DateTime(2024, 3, 19, 19, 37, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 524,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 6, 3, 24, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 524",
-                            StartTime = new DateTime(2024, 3, 3, 13, 0, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 27, 16, 44, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 524",
+                            StartTime = new DateTime(2024, 10, 27, 14, 44, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 525,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 6, 20, 52, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 525",
-                            StartTime = new DateTime(2024, 11, 11, 13, 40, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 23, 5, 58, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 525",
+                            StartTime = new DateTime(2024, 8, 23, 4, 58, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 526,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 5, 17, 53, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 526",
-                            StartTime = new DateTime(2024, 4, 24, 3, 43, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 24, 2, 5, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 526",
+                            StartTime = new DateTime(2024, 11, 23, 18, 5, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 527,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 29, 17, 19, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 527",
-                            StartTime = new DateTime(2024, 10, 29, 13, 48, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 21, 21, 55, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 527",
+                            StartTime = new DateTime(2024, 5, 21, 13, 55, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 528,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 10, 19, 17, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 528",
-                            StartTime = new DateTime(2024, 1, 26, 3, 11, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 19, 10, 10, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 528",
+                            StartTime = new DateTime(2024, 11, 19, 3, 10, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 529,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 12, 12, 10, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 529",
-                            StartTime = new DateTime(2024, 1, 27, 2, 17, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 10, 23, 9, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 529",
+                            StartTime = new DateTime(2024, 1, 10, 21, 9, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 530,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 19, 4, 46, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 530",
-                            StartTime = new DateTime(2024, 2, 5, 9, 19, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 13, 21, 36, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 530",
+                            StartTime = new DateTime(2024, 8, 13, 15, 36, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 531,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 12, 17, 22, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 531",
-                            StartTime = new DateTime(2024, 9, 14, 10, 38, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 18, 1, 54, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 531",
+                            StartTime = new DateTime(2024, 12, 17, 22, 54, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 532,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 26, 16, 0, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 532",
-                            StartTime = new DateTime(2024, 9, 7, 18, 45, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 8, 32, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 532",
+                            StartTime = new DateTime(2024, 3, 23, 1, 32, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 533,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 24, 5, 18, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 533",
-                            StartTime = new DateTime(2024, 3, 16, 1, 40, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 16, 22, 57, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 533",
+                            StartTime = new DateTime(2024, 7, 16, 15, 57, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 534,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 15, 16, 24, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 534",
-                            StartTime = new DateTime(2024, 7, 18, 15, 51, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 19, 12, 26, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 534",
+                            StartTime = new DateTime(2024, 7, 19, 5, 26, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 535,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 8, 56, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 535",
-                            StartTime = new DateTime(2024, 7, 8, 17, 52, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 1, 51, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 535",
+                            StartTime = new DateTime(2024, 11, 4, 23, 51, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 536,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 7, 17, 22, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 536",
-                            StartTime = new DateTime(2024, 8, 17, 19, 46, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 4, 11, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 536",
+                            StartTime = new DateTime(2024, 12, 15, 1, 11, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 537,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 1, 6, 18, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 537",
-                            StartTime = new DateTime(2024, 9, 14, 4, 32, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 29, 0, 38, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 537",
+                            StartTime = new DateTime(2024, 12, 28, 18, 38, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 538,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 24, 10, 45, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 538",
-                            StartTime = new DateTime(2024, 12, 22, 1, 44, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 25, 16, 47, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 538",
+                            StartTime = new DateTime(2024, 6, 25, 14, 47, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 539,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 20, 12, 1, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 539",
-                            StartTime = new DateTime(2024, 6, 9, 23, 0, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 8, 5, 53, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 539",
+                            StartTime = new DateTime(2024, 5, 8, 2, 53, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 540,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 23, 58, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 540",
-                            StartTime = new DateTime(2024, 7, 4, 19, 59, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 21, 10, 46, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 540",
+                            StartTime = new DateTime(2024, 6, 21, 9, 46, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 541,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 23, 19, 44, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 541",
-                            StartTime = new DateTime(2024, 9, 25, 4, 21, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 13, 18, 35, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 541",
+                            StartTime = new DateTime(2024, 4, 13, 11, 35, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 542,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 5, 20, 37, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 542",
-                            StartTime = new DateTime(2024, 11, 12, 17, 19, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 3, 14, 14, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 542",
+                            StartTime = new DateTime(2024, 5, 3, 7, 14, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 543,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 18, 21, 51, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 543",
-                            StartTime = new DateTime(2024, 3, 23, 6, 57, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 5, 43, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 543",
+                            StartTime = new DateTime(2024, 9, 26, 0, 43, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 544,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 2, 3, 52, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 544",
-                            StartTime = new DateTime(2024, 6, 3, 4, 12, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 10, 19, 20, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 544",
+                            StartTime = new DateTime(2024, 3, 10, 14, 20, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 545,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 22, 4, 12, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 545",
-                            StartTime = new DateTime(2024, 11, 21, 7, 37, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 11, 0, 37, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 545",
+                            StartTime = new DateTime(2024, 12, 10, 20, 37, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 546,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 3, 11, 41, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 546",
-                            StartTime = new DateTime(2024, 7, 25, 9, 41, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 9, 14, 52, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 546",
+                            StartTime = new DateTime(2024, 10, 9, 7, 52, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 547,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 0, 56, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 547",
-                            StartTime = new DateTime(2024, 12, 12, 12, 59, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 31, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 547",
+                            StartTime = new DateTime(2024, 7, 31, 1, 15, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 548,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 3, 15, 28, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 548",
-                            StartTime = new DateTime(2024, 6, 9, 14, 4, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 18, 41, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 548",
+                            StartTime = new DateTime(2024, 12, 21, 15, 41, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 549,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 12, 39, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 549",
-                            StartTime = new DateTime(2024, 11, 1, 21, 5, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 23, 7, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 549",
+                            StartTime = new DateTime(2024, 7, 21, 22, 7, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 550,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 29, 13, 21, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 550",
-                            StartTime = new DateTime(2024, 10, 24, 0, 0, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 0, 0, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 550",
+                            StartTime = new DateTime(2024, 11, 9, 19, 0, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 551,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 3, 11, 54, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 551",
-                            StartTime = new DateTime(2024, 6, 16, 5, 2, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 5, 18, 27, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 551",
+                            StartTime = new DateTime(2024, 9, 5, 16, 27, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 552,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 25, 18, 34, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 552",
-                            StartTime = new DateTime(2024, 8, 20, 16, 15, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 7, 17, 51, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 552",
+                            StartTime = new DateTime(2024, 3, 7, 15, 51, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 553,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 15, 23, 31, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 553",
-                            StartTime = new DateTime(2024, 5, 24, 11, 53, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 7, 18, 9, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 553",
+                            StartTime = new DateTime(2024, 9, 7, 11, 9, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 554,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 8, 10, 54, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 554",
-                            StartTime = new DateTime(2024, 12, 12, 19, 28, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 7, 12, 44, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 554",
+                            StartTime = new DateTime(2024, 2, 7, 10, 44, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 555,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 3, 14, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 555",
-                            StartTime = new DateTime(2024, 9, 29, 7, 33, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 29, 15, 44, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 555",
+                            StartTime = new DateTime(2024, 7, 29, 7, 44, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 556,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 15, 3, 57, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 556",
-                            StartTime = new DateTime(2024, 4, 3, 8, 50, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 8, 2, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 556",
+                            StartTime = new DateTime(2024, 11, 10, 6, 2, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 557,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 23, 17, 18, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 557",
-                            StartTime = new DateTime(2024, 8, 16, 2, 57, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 26, 5, 52, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 557",
+                            StartTime = new DateTime(2024, 11, 26, 4, 52, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 558,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 15, 31, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 558",
-                            StartTime = new DateTime(2024, 11, 22, 16, 44, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 30, 10, 48, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 558",
+                            StartTime = new DateTime(2024, 6, 30, 5, 48, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 559,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 10, 22, 45, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 559",
-                            StartTime = new DateTime(2024, 6, 15, 9, 43, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 29, 5, 7, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 559",
+                            StartTime = new DateTime(2024, 2, 28, 23, 7, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 560,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 20, 20, 55, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 560",
-                            StartTime = new DateTime(2024, 6, 10, 13, 19, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 28, 19, 49, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 560",
+                            StartTime = new DateTime(2024, 3, 28, 16, 49, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 561,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 11, 17, 53, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 561",
-                            StartTime = new DateTime(2024, 5, 29, 7, 42, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 8, 21, 1, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 561",
+                            StartTime = new DateTime(2024, 5, 8, 14, 1, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 562,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 28, 15, 35, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 562",
-                            StartTime = new DateTime(2024, 11, 7, 15, 12, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 24, 10, 49, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 562",
+                            StartTime = new DateTime(2024, 4, 24, 3, 49, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 563,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 3, 57, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 563",
-                            StartTime = new DateTime(2024, 6, 20, 7, 45, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 19, 37, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 563",
+                            StartTime = new DateTime(2024, 12, 21, 16, 37, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 564,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 9, 18, 55, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 564",
-                            StartTime = new DateTime(2024, 10, 1, 16, 19, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 3, 10, 10, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 564",
+                            StartTime = new DateTime(2024, 10, 3, 2, 10, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 565,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 2, 13, 35, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 565",
-                            StartTime = new DateTime(2024, 9, 10, 21, 41, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 31, 8, 33, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 565",
+                            StartTime = new DateTime(2024, 3, 31, 7, 33, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 566,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 20, 7, 8, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 566",
-                            StartTime = new DateTime(2024, 12, 7, 12, 25, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 11, 11, 3, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 566",
+                            StartTime = new DateTime(2024, 3, 11, 7, 3, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 567,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 23, 19, 5, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 567",
-                            StartTime = new DateTime(2024, 6, 22, 14, 45, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 5, 18, 29, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 567",
+                            StartTime = new DateTime(2024, 7, 5, 15, 29, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 568,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 27, 19, 54, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 568",
-                            StartTime = new DateTime(2024, 10, 24, 14, 24, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 27, 6, 59, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 568",
+                            StartTime = new DateTime(2024, 9, 27, 0, 59, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 569,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 22, 6, 52, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 569",
-                            StartTime = new DateTime(2024, 2, 27, 10, 35, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 29, 13, 1, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 569",
+                            StartTime = new DateTime(2024, 7, 29, 5, 1, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 570,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 2, 9, 2, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 570",
-                            StartTime = new DateTime(2024, 3, 17, 10, 47, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 5, 6, 15, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 570",
+                            StartTime = new DateTime(2024, 2, 5, 5, 15, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 571,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 28, 12, 7, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 571",
-                            StartTime = new DateTime(2024, 10, 17, 4, 16, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 4, 12, 51, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 571",
+                            StartTime = new DateTime(2024, 9, 4, 5, 51, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 572,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 5, 0, 13, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 572",
-                            StartTime = new DateTime(2024, 8, 30, 8, 41, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 9, 9, 44, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 572",
+                            StartTime = new DateTime(2024, 12, 9, 2, 44, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 573,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 11, 14, 39, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 573",
-                            StartTime = new DateTime(2024, 5, 19, 9, 28, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 12, 9, 4, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 573",
+                            StartTime = new DateTime(2024, 7, 12, 8, 4, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 574,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 24, 4, 30, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 574",
-                            StartTime = new DateTime(2024, 12, 19, 14, 4, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 29, 9, 29, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 574",
+                            StartTime = new DateTime(2024, 3, 29, 5, 29, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 575,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 5, 20, 47, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 575",
-                            StartTime = new DateTime(2024, 2, 26, 7, 34, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 21, 20, 57, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 575",
+                            StartTime = new DateTime(2024, 2, 21, 15, 57, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 576,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 29, 17, 0, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 576",
-                            StartTime = new DateTime(2024, 12, 5, 20, 4, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 5, 13, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 576",
+                            StartTime = new DateTime(2024, 10, 12, 22, 13, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 577,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 9, 19, 11, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 577",
-                            StartTime = new DateTime(2024, 9, 15, 5, 38, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 14, 20, 41, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 577",
+                            StartTime = new DateTime(2024, 3, 14, 16, 41, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 578,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 4, 10, 2, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 578",
-                            StartTime = new DateTime(2024, 2, 17, 12, 50, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 15, 27, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 578",
+                            StartTime = new DateTime(2024, 1, 2, 9, 27, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 579,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 17, 22, 59, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 579",
-                            StartTime = new DateTime(2024, 5, 3, 9, 5, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 1, 44, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 579",
+                            StartTime = new DateTime(2024, 12, 20, 20, 44, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 580,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 25, 19, 30, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 580",
-                            StartTime = new DateTime(2024, 9, 25, 11, 6, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 9, 23, 56, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 580",
+                            StartTime = new DateTime(2024, 8, 9, 18, 56, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 581,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 11, 6, 34, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 581",
-                            StartTime = new DateTime(2024, 3, 8, 12, 6, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 17, 20, 33, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 581",
+                            StartTime = new DateTime(2024, 3, 17, 18, 33, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 582,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 26, 0, 13, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 582",
-                            StartTime = new DateTime(2024, 10, 8, 11, 1, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 18, 41, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 582",
+                            StartTime = new DateTime(2024, 3, 22, 17, 41, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 583,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 21, 38, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 583",
-                            StartTime = new DateTime(2024, 5, 6, 13, 13, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 5, 13, 53, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 583",
+                            StartTime = new DateTime(2024, 6, 5, 6, 53, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 584,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 3, 2, 19, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 584",
-                            StartTime = new DateTime(2024, 4, 22, 2, 0, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 17, 14, 29, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 584",
+                            StartTime = new DateTime(2024, 7, 17, 8, 29, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 585,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 12, 27, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 585",
-                            StartTime = new DateTime(2024, 11, 26, 15, 47, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 23, 7, 14, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 585",
+                            StartTime = new DateTime(2024, 4, 22, 23, 14, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 586,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 23, 7, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 586",
-                            StartTime = new DateTime(2024, 3, 31, 4, 1, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 17, 14, 21, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 586",
+                            StartTime = new DateTime(2024, 2, 17, 11, 21, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 587,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 3, 13, 47, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 587",
-                            StartTime = new DateTime(2024, 11, 29, 3, 18, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 16, 10, 40, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 587",
+                            StartTime = new DateTime(2024, 11, 16, 5, 40, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 588,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 14, 21, 4, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 588",
-                            StartTime = new DateTime(2024, 6, 17, 4, 9, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 14, 3, 8, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 588",
+                            StartTime = new DateTime(2024, 7, 13, 19, 8, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 589,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 11, 17, 36, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 589",
-                            StartTime = new DateTime(2024, 7, 22, 17, 32, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 7, 15, 15, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 589",
+                            StartTime = new DateTime(2024, 1, 7, 11, 15, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 590,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 28, 3, 57, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 590",
-                            StartTime = new DateTime(2024, 6, 11, 18, 25, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 0, 54, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 590",
+                            StartTime = new DateTime(2024, 11, 9, 23, 54, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 591,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 16, 10, 58, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 591",
-                            StartTime = new DateTime(2024, 10, 22, 9, 41, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 22, 19, 48, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 591",
+                            StartTime = new DateTime(2024, 9, 22, 14, 48, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 592,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 6, 26, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 592",
-                            StartTime = new DateTime(2024, 4, 6, 6, 15, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 12, 2, 39, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 592",
+                            StartTime = new DateTime(2024, 4, 11, 21, 39, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 593,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 13, 19, 8, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 593",
-                            StartTime = new DateTime(2024, 1, 25, 23, 14, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 12, 2, 12, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 593",
+                            StartTime = new DateTime(2024, 1, 12, 1, 12, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 594,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 20, 3, 34, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 594",
-                            StartTime = new DateTime(2024, 4, 16, 18, 3, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 29, 11, 38, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 594",
+                            StartTime = new DateTime(2024, 12, 29, 5, 38, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 595,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 29, 16, 41, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 595",
-                            StartTime = new DateTime(2024, 9, 6, 20, 36, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 16, 7, 42, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 595",
+                            StartTime = new DateTime(2024, 6, 16, 5, 42, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 596,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 29, 0, 11, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 596",
-                            StartTime = new DateTime(2024, 3, 26, 8, 13, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 21, 3, 28, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 596",
+                            StartTime = new DateTime(2024, 9, 20, 21, 28, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 597,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 17, 48, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 597",
-                            StartTime = new DateTime(2024, 1, 22, 13, 17, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 26, 22, 52, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 597",
+                            StartTime = new DateTime(2024, 4, 26, 16, 52, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 598,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 9, 12, 18, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 598",
-                            StartTime = new DateTime(2024, 7, 14, 4, 26, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 12, 2, 26, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 598",
+                            StartTime = new DateTime(2024, 12, 11, 21, 26, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 599,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 2, 21, 0, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 599",
-                            StartTime = new DateTime(2024, 5, 12, 19, 44, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 17, 0, 56, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 599",
+                            StartTime = new DateTime(2024, 1, 16, 22, 56, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 600,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 29, 3, 22, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 600",
-                            StartTime = new DateTime(2024, 3, 4, 20, 13, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 18, 12, 6, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 600",
+                            StartTime = new DateTime(2024, 6, 18, 6, 6, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 601,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 27, 20, 59, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 601",
-                            StartTime = new DateTime(2024, 12, 27, 9, 45, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 21, 5, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 601",
+                            StartTime = new DateTime(2024, 11, 10, 15, 5, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 602,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 7, 10, 58, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 602",
-                            StartTime = new DateTime(2024, 1, 5, 11, 35, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 11, 12, 57, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 602",
+                            StartTime = new DateTime(2024, 1, 11, 6, 57, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 603,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 22, 45, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 603",
-                            StartTime = new DateTime(2024, 3, 9, 12, 57, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 12, 18, 8, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 603",
+                            StartTime = new DateTime(2024, 2, 12, 13, 8, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 604,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 2, 23, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 604",
-                            StartTime = new DateTime(2024, 5, 29, 6, 52, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 30, 15, 6, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 604",
+                            StartTime = new DateTime(2024, 5, 30, 14, 6, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 605,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 20, 8, 14, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 605",
-                            StartTime = new DateTime(2024, 4, 4, 16, 52, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 13, 54, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 605",
+                            StartTime = new DateTime(2024, 5, 28, 9, 54, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 606,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 8, 1, 14, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 606",
-                            StartTime = new DateTime(2024, 7, 21, 7, 41, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 30, 17, 41, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 606",
+                            StartTime = new DateTime(2024, 10, 30, 13, 41, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 607,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 13, 16, 31, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 607",
-                            StartTime = new DateTime(2024, 8, 4, 16, 22, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 24, 22, 37, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 607",
+                            StartTime = new DateTime(2024, 11, 24, 14, 37, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 608,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 29, 3, 10, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 608",
-                            StartTime = new DateTime(2024, 12, 13, 9, 43, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 18, 47, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 608",
+                            StartTime = new DateTime(2024, 12, 15, 14, 47, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 609,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 3, 8, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 609",
-                            StartTime = new DateTime(2024, 3, 17, 2, 19, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 30, 3, 5, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 609",
+                            StartTime = new DateTime(2024, 8, 29, 21, 5, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 610,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 26, 23, 4, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 610",
-                            StartTime = new DateTime(2024, 6, 9, 6, 32, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 23, 8, 38, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 610",
+                            StartTime = new DateTime(2024, 12, 23, 5, 38, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 611,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 14, 18, 3, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 611",
-                            StartTime = new DateTime(2024, 7, 17, 16, 58, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 1, 4, 37, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 611",
+                            StartTime = new DateTime(2024, 4, 1, 0, 37, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 612,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 16, 1, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 612",
-                            StartTime = new DateTime(2024, 12, 1, 13, 32, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 8, 10, 25, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 612",
+                            StartTime = new DateTime(2024, 3, 8, 4, 25, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 613,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 21, 2, 32, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 613",
-                            StartTime = new DateTime(2024, 2, 11, 16, 46, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 30, 13, 20, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 613",
+                            StartTime = new DateTime(2024, 12, 30, 6, 20, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 614,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 13, 2, 44, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 614",
-                            StartTime = new DateTime(2024, 6, 18, 0, 59, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 20, 2, 45, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 614",
+                            StartTime = new DateTime(2024, 1, 19, 22, 45, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 615,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 6, 9, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 615",
-                            StartTime = new DateTime(2024, 4, 19, 1, 18, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 8, 14, 57, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 615",
+                            StartTime = new DateTime(2024, 6, 8, 9, 57, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 616,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 15, 16, 19, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 616",
-                            StartTime = new DateTime(2024, 11, 24, 14, 44, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 22, 16, 16, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 616",
+                            StartTime = new DateTime(2024, 3, 22, 10, 16, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 617,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 7, 1, 2, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 617",
-                            StartTime = new DateTime(2024, 8, 13, 21, 11, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 22, 3, 39, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 617",
+                            StartTime = new DateTime(2024, 6, 21, 23, 39, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 618,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 6, 15, 48, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 618",
-                            StartTime = new DateTime(2024, 10, 23, 6, 39, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 9, 20, 30, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 618",
+                            StartTime = new DateTime(2024, 11, 9, 19, 30, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 619,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 12, 20, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 619",
-                            StartTime = new DateTime(2024, 3, 16, 20, 10, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 25, 7, 3, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 619",
+                            StartTime = new DateTime(2024, 11, 25, 0, 3, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 620,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 21, 6, 20, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 620",
-                            StartTime = new DateTime(2024, 4, 17, 11, 39, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 16, 22, 3, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 620",
+                            StartTime = new DateTime(2024, 1, 16, 19, 3, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 621,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 17, 19, 39, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 621",
-                            StartTime = new DateTime(2024, 7, 6, 12, 24, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 30, 22, 58, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 621",
+                            StartTime = new DateTime(2024, 10, 30, 18, 58, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 622,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 8, 19, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 622",
-                            StartTime = new DateTime(2024, 11, 28, 13, 21, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 23, 7, 39, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 622",
+                            StartTime = new DateTime(2024, 7, 23, 3, 39, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 623,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 12, 11, 19, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 623",
-                            StartTime = new DateTime(2024, 4, 26, 22, 49, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 12, 4, 28, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 623",
+                            StartTime = new DateTime(2024, 7, 11, 22, 28, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 624,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 7, 7, 34, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 624",
-                            StartTime = new DateTime(2024, 6, 6, 12, 23, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 16, 16, 37, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 624",
+                            StartTime = new DateTime(2024, 3, 16, 15, 37, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 625,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 19, 11, 55, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 625",
-                            StartTime = new DateTime(2024, 7, 1, 20, 31, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 22, 1, 46, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 625",
+                            StartTime = new DateTime(2024, 1, 21, 17, 46, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 626,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 25, 18, 14, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 626",
-                            StartTime = new DateTime(2024, 9, 23, 9, 46, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 29, 2, 59, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 626",
+                            StartTime = new DateTime(2024, 9, 28, 18, 59, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 627,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 10, 11, 23, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 627",
-                            StartTime = new DateTime(2024, 11, 22, 12, 25, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 16, 23, 2, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 627",
+                            StartTime = new DateTime(2024, 4, 16, 19, 2, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 628,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 16, 2, 28, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 628",
-                            StartTime = new DateTime(2024, 2, 21, 11, 27, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 4, 1, 9, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 628",
+                            StartTime = new DateTime(2024, 2, 3, 23, 9, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 629,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 18, 1, 12, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 629",
-                            StartTime = new DateTime(2024, 2, 20, 3, 33, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 6, 59, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 629",
+                            StartTime = new DateTime(2024, 8, 18, 23, 59, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 630,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 15, 18, 11, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 630",
-                            StartTime = new DateTime(2024, 7, 12, 16, 54, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 11, 18, 1, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 630",
+                            StartTime = new DateTime(2024, 1, 11, 10, 1, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 631,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 3, 12, 10, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 631",
-                            StartTime = new DateTime(2024, 9, 12, 17, 13, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 26, 17, 42, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 631",
+                            StartTime = new DateTime(2024, 8, 26, 13, 42, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 632,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 16, 6, 41, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 632",
-                            StartTime = new DateTime(2024, 9, 25, 2, 11, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 1, 19, 1, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 632",
+                            StartTime = new DateTime(2024, 2, 1, 11, 1, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 633,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 30, 16, 51, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 633",
-                            StartTime = new DateTime(2024, 9, 29, 18, 45, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 14, 13, 8, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 633",
+                            StartTime = new DateTime(2024, 1, 14, 7, 8, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 634,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 30, 16, 27, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 634",
-                            StartTime = new DateTime(2024, 12, 3, 4, 19, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 16, 13, 40, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 634",
+                            StartTime = new DateTime(2024, 2, 16, 12, 40, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 635,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 19, 14, 46, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 635",
-                            StartTime = new DateTime(2024, 6, 10, 13, 21, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 23, 5, 25, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 635",
+                            StartTime = new DateTime(2024, 2, 22, 23, 25, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 636,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 9, 11, 36, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 636",
-                            StartTime = new DateTime(2024, 12, 23, 10, 42, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 4, 13, 32, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 636",
+                            StartTime = new DateTime(2024, 11, 4, 6, 32, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 637,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 14, 19, 0, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 637",
-                            StartTime = new DateTime(2024, 4, 30, 10, 20, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 13, 4, 4, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 637",
+                            StartTime = new DateTime(2024, 7, 13, 2, 4, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 638,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 25, 5, 49, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 638",
-                            StartTime = new DateTime(2024, 3, 1, 11, 26, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 19, 0, 3, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 638",
+                            StartTime = new DateTime(2024, 3, 18, 23, 3, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 639,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 3, 4, 55, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 639",
-                            StartTime = new DateTime(2024, 10, 9, 20, 11, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 23, 1, 2, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 639",
+                            StartTime = new DateTime(2024, 4, 22, 18, 2, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 640,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 8, 22, 38, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 640",
-                            StartTime = new DateTime(2024, 11, 12, 19, 8, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 24, 5, 23, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 640",
+                            StartTime = new DateTime(2024, 2, 24, 0, 23, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 641,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 10, 15, 25, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 641",
-                            StartTime = new DateTime(2024, 12, 1, 14, 28, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 22, 14, 32, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 641",
+                            StartTime = new DateTime(2024, 10, 22, 12, 32, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 642,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 12, 40, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 642",
-                            StartTime = new DateTime(2024, 6, 25, 15, 59, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 3, 22, 19, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 642",
+                            StartTime = new DateTime(2024, 7, 3, 21, 19, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 643,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 26, 10, 9, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 643",
-                            StartTime = new DateTime(2024, 5, 11, 15, 23, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 22, 16, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 643",
+                            StartTime = new DateTime(2024, 1, 6, 20, 16, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 644,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 18, 15, 47, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 644",
-                            StartTime = new DateTime(2024, 1, 30, 5, 50, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 25, 20, 51, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 644",
+                            StartTime = new DateTime(2024, 11, 25, 16, 51, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 645,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 16, 21, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 645",
-                            StartTime = new DateTime(2024, 3, 25, 16, 48, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 4, 27, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 645",
+                            StartTime = new DateTime(2024, 2, 10, 2, 27, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 646,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 19, 22, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 646",
-                            StartTime = new DateTime(2024, 12, 29, 7, 20, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 16, 10, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 646",
+                            StartTime = new DateTime(2024, 9, 26, 13, 10, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 647,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 25, 20, 18, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 647",
-                            StartTime = new DateTime(2024, 9, 7, 9, 59, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 2, 0, 53, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 647",
+                            StartTime = new DateTime(2024, 3, 1, 21, 53, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 648,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 9, 0, 12, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 648",
-                            StartTime = new DateTime(2024, 6, 27, 9, 9, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 17, 21, 18, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 648",
+                            StartTime = new DateTime(2024, 3, 17, 18, 18, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 649,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 16, 2, 10, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 649",
-                            StartTime = new DateTime(2024, 10, 30, 19, 41, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 25, 9, 29, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 649",
+                            StartTime = new DateTime(2024, 12, 25, 7, 29, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 650,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 16, 23, 39, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 650",
-                            StartTime = new DateTime(2024, 7, 5, 11, 2, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 7, 5, 55, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 650",
+                            StartTime = new DateTime(2024, 2, 7, 2, 55, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 651,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 9, 9, 52, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 651",
-                            StartTime = new DateTime(2024, 6, 17, 11, 12, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 2, 35, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 651",
+                            StartTime = new DateTime(2024, 11, 4, 18, 35, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 652,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 22, 23, 28, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 652",
-                            StartTime = new DateTime(2024, 10, 15, 20, 28, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 24, 2, 33, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 652",
+                            StartTime = new DateTime(2024, 1, 23, 22, 33, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 653,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 28, 21, 38, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 653",
-                            StartTime = new DateTime(2024, 8, 20, 6, 47, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 16, 7, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 653",
+                            StartTime = new DateTime(2024, 12, 15, 10, 7, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 654,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 21, 15, 18, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 654",
-                            StartTime = new DateTime(2024, 2, 10, 15, 40, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 4, 48, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 654",
+                            StartTime = new DateTime(2024, 11, 9, 22, 48, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 655,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 24, 23, 25, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 655",
-                            StartTime = new DateTime(2024, 2, 25, 18, 46, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 10, 8, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 655",
+                            StartTime = new DateTime(2024, 12, 6, 6, 8, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 656,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 12, 2, 7, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 656",
-                            StartTime = new DateTime(2024, 5, 29, 4, 11, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 29, 20, 56, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 656",
+                            StartTime = new DateTime(2024, 6, 29, 14, 56, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 657,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 23, 23, 3, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 657",
-                            StartTime = new DateTime(2024, 6, 14, 16, 21, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 10, 2, 29, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 657",
+                            StartTime = new DateTime(2024, 1, 9, 23, 29, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 658,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 10, 21, 26, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 658",
-                            StartTime = new DateTime(2024, 8, 25, 11, 31, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 13, 0, 11, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 658",
+                            StartTime = new DateTime(2024, 4, 12, 17, 11, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 659,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 21, 20, 6, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 659",
-                            StartTime = new DateTime(2024, 11, 6, 7, 21, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 23, 0, 29, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 659",
+                            StartTime = new DateTime(2024, 5, 22, 19, 29, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 660,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 29, 18, 59, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 660",
-                            StartTime = new DateTime(2024, 12, 23, 6, 51, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 16, 22, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 660",
+                            StartTime = new DateTime(2024, 8, 19, 9, 22, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 661,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 18, 13, 44, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 661",
-                            StartTime = new DateTime(2024, 10, 4, 13, 9, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 20, 4, 20, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 661",
+                            StartTime = new DateTime(2024, 5, 19, 22, 20, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 662,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 19, 19, 28, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 662",
-                            StartTime = new DateTime(2024, 6, 27, 14, 36, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 14, 23, 59, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 662",
+                            StartTime = new DateTime(2024, 7, 14, 15, 59, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 663,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 7, 43, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 663",
-                            StartTime = new DateTime(2024, 4, 10, 6, 33, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 4, 4, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 663",
+                            StartTime = new DateTime(2024, 3, 23, 2, 4, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 664,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 27, 6, 56, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 664",
-                            StartTime = new DateTime(2024, 10, 30, 2, 15, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 15, 1, 39, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 664",
+                            StartTime = new DateTime(2024, 4, 14, 20, 39, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 665,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 13, 22, 52, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 665",
-                            StartTime = new DateTime(2024, 8, 31, 16, 26, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 27, 2, 31, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 665",
+                            StartTime = new DateTime(2024, 4, 26, 21, 31, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 666,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 7, 7, 19, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 666",
-                            StartTime = new DateTime(2024, 9, 23, 3, 1, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 11, 3, 39, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 666",
+                            StartTime = new DateTime(2024, 12, 11, 1, 39, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 667,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 21, 34, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 667",
-                            StartTime = new DateTime(2024, 5, 12, 13, 5, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 28, 22, 7, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 667",
+                            StartTime = new DateTime(2024, 4, 28, 21, 7, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 668,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 16, 2, 1, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 668",
-                            StartTime = new DateTime(2024, 11, 13, 22, 10, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 8, 12, 37, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 668",
+                            StartTime = new DateTime(2024, 9, 8, 8, 37, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 669,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 6, 4, 27, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 669",
-                            StartTime = new DateTime(2024, 8, 10, 11, 45, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 24, 14, 16, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 669",
+                            StartTime = new DateTime(2024, 6, 24, 6, 16, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 670,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 12, 2, 51, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 670",
-                            StartTime = new DateTime(2024, 12, 18, 10, 38, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 7, 4, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 670",
+                            StartTime = new DateTime(2024, 4, 5, 3, 4, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 671,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 12, 24, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 671",
-                            StartTime = new DateTime(2024, 11, 9, 9, 53, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 15, 12, 11, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 671",
+                            StartTime = new DateTime(2024, 6, 15, 11, 11, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 672,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 30, 6, 0, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 672",
-                            StartTime = new DateTime(2024, 4, 14, 19, 33, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 27, 9, 29, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 672",
+                            StartTime = new DateTime(2024, 12, 27, 3, 29, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 673,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 19, 43, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 673",
-                            StartTime = new DateTime(2024, 10, 19, 8, 32, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 22, 14, 6, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 673",
+                            StartTime = new DateTime(2024, 1, 22, 8, 6, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 674,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 4, 10, 6, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 674",
-                            StartTime = new DateTime(2024, 1, 11, 4, 36, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 30, 13, 20, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 674",
+                            StartTime = new DateTime(2024, 7, 30, 7, 20, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 675,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 23, 9, 32, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 675",
-                            StartTime = new DateTime(2024, 5, 31, 18, 35, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 4, 16, 12, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 675",
+                            StartTime = new DateTime(2024, 10, 4, 14, 12, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 676,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 18, 9, 55, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 676",
-                            StartTime = new DateTime(2024, 11, 2, 3, 23, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 27, 20, 28, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 676",
+                            StartTime = new DateTime(2024, 8, 27, 16, 28, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 677,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 24, 3, 27, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 677",
-                            StartTime = new DateTime(2024, 3, 25, 20, 51, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 6, 20, 58, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 677",
+                            StartTime = new DateTime(2024, 11, 6, 12, 58, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 678,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 24, 9, 25, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 678",
-                            StartTime = new DateTime(2024, 10, 27, 11, 6, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 4, 14, 39, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 678",
+                            StartTime = new DateTime(2024, 10, 4, 11, 39, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 679,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 11, 6, 12, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 679",
-                            StartTime = new DateTime(2024, 8, 23, 14, 35, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 9, 0, 6, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 679",
+                            StartTime = new DateTime(2024, 4, 8, 18, 6, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 680,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 19, 18, 42, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 680",
-                            StartTime = new DateTime(2024, 4, 19, 13, 45, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 28, 12, 37, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 680",
+                            StartTime = new DateTime(2024, 4, 28, 7, 37, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 681,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 28, 13, 21, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 681",
-                            StartTime = new DateTime(2024, 4, 1, 13, 46, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 31, 11, 48, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 681",
+                            StartTime = new DateTime(2024, 1, 31, 6, 48, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 682,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 1, 5, 10, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 682",
-                            StartTime = new DateTime(2024, 9, 21, 6, 41, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 31, 5, 1, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 682",
+                            StartTime = new DateTime(2024, 12, 30, 21, 1, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 683,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 12, 2, 57, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 683",
-                            StartTime = new DateTime(2024, 1, 4, 16, 12, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 17, 22, 31, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 683",
+                            StartTime = new DateTime(2024, 8, 17, 18, 31, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 684,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 7, 32, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 684",
-                            StartTime = new DateTime(2024, 1, 25, 17, 6, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 11, 4, 45, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 684",
+                            StartTime = new DateTime(2024, 9, 10, 21, 45, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 685,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 3, 5, 27, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 685",
-                            StartTime = new DateTime(2024, 2, 20, 12, 38, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 17, 4, 20, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 685",
+                            StartTime = new DateTime(2024, 5, 17, 2, 20, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 686,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 22, 0, 55, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 686",
-                            StartTime = new DateTime(2024, 9, 1, 3, 45, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 9, 11, 38, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 686",
+                            StartTime = new DateTime(2024, 3, 9, 4, 38, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 687,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 17, 8, 24, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 687",
-                            StartTime = new DateTime(2024, 10, 24, 22, 3, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 25, 2, 3, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 687",
+                            StartTime = new DateTime(2024, 5, 24, 23, 3, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 688,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 24, 9, 50, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 688",
-                            StartTime = new DateTime(2024, 7, 27, 18, 19, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 10, 17, 2, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 688",
+                            StartTime = new DateTime(2024, 12, 10, 12, 2, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 689,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 9, 4, 33, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 689",
-                            StartTime = new DateTime(2024, 10, 13, 14, 28, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 3, 19, 56, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 689",
+                            StartTime = new DateTime(2024, 10, 1, 1, 19, 56, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 690,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 23, 8, 41, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 690",
-                            StartTime = new DateTime(2024, 6, 12, 23, 40, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 24, 19, 49, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 690",
+                            StartTime = new DateTime(2024, 7, 24, 12, 49, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 691,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 6, 21, 6, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 691",
-                            StartTime = new DateTime(2024, 2, 2, 15, 0, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 24, 9, 36, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 691",
+                            StartTime = new DateTime(2024, 1, 24, 5, 36, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 692,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 7, 2, 57, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 692",
-                            StartTime = new DateTime(2024, 6, 18, 12, 53, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 30, 19, 16, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 692",
+                            StartTime = new DateTime(2024, 5, 30, 13, 16, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 693,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 5, 10, 45, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 693",
-                            StartTime = new DateTime(2024, 4, 26, 19, 39, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 12, 21, 4, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 693",
+                            StartTime = new DateTime(2024, 5, 12, 15, 4, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 694,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 12, 2, 37, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 694",
-                            StartTime = new DateTime(2024, 12, 18, 9, 58, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 5, 53, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 694",
+                            StartTime = new DateTime(2024, 10, 29, 2, 53, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 695,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 17, 17, 26, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 695",
-                            StartTime = new DateTime(2024, 2, 3, 0, 31, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 20, 53, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 695",
+                            StartTime = new DateTime(2024, 1, 6, 13, 53, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 696,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 29, 12, 5, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 696",
-                            StartTime = new DateTime(2024, 10, 22, 18, 2, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 2, 16, 3, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 696",
+                            StartTime = new DateTime(2024, 3, 2, 10, 3, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 697,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 26, 11, 40, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 697",
-                            StartTime = new DateTime(2024, 7, 5, 22, 10, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 26, 0, 23, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 697",
+                            StartTime = new DateTime(2024, 2, 25, 22, 23, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 698,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 23, 20, 36, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 698",
-                            StartTime = new DateTime(2024, 12, 5, 21, 42, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 2, 1, 0, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 698",
+                            StartTime = new DateTime(2024, 3, 1, 21, 0, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 699,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 19, 16, 26, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 699",
-                            StartTime = new DateTime(2024, 3, 7, 3, 35, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 20, 15, 10, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 699",
+                            StartTime = new DateTime(2024, 5, 20, 10, 10, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 700,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 10, 33, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 700",
-                            StartTime = new DateTime(2024, 9, 4, 13, 34, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 13, 10, 28, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 700",
+                            StartTime = new DateTime(2024, 12, 13, 5, 28, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 701,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 30, 11, 11, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 701",
-                            StartTime = new DateTime(2024, 9, 30, 17, 35, 4, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 5, 17, 27, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 701",
+                            StartTime = new DateTime(2024, 5, 5, 12, 27, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 702,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 12, 14, 51, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 702",
-                            StartTime = new DateTime(2024, 7, 15, 1, 23, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 6, 21, 12, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 702",
+                            StartTime = new DateTime(2024, 1, 6, 20, 12, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 703,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 22, 19, 1, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 703",
-                            StartTime = new DateTime(2024, 5, 5, 23, 27, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 2, 7, 45, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 703",
+                            StartTime = new DateTime(2024, 10, 2, 6, 45, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 704,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 11, 3, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 704",
-                            StartTime = new DateTime(2024, 8, 27, 21, 6, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 10, 56, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 704",
+                            StartTime = new DateTime(2024, 3, 6, 6, 56, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 705,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 3, 4, 51, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 705",
-                            StartTime = new DateTime(2024, 3, 4, 12, 42, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 19, 19, 2, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 705",
+                            StartTime = new DateTime(2024, 10, 19, 14, 2, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 706,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 26, 7, 22, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 706",
-                            StartTime = new DateTime(2024, 3, 12, 1, 41, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 29, 6, 40, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 706",
+                            StartTime = new DateTime(2024, 1, 28, 22, 40, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 707,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 22, 19, 26, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 707",
-                            StartTime = new DateTime(2024, 9, 18, 4, 49, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 25, 12, 33, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 707",
+                            StartTime = new DateTime(2024, 12, 25, 10, 33, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 708,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 20, 21, 53, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 708",
-                            StartTime = new DateTime(2024, 11, 6, 1, 47, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 24, 11, 29, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 708",
+                            StartTime = new DateTime(2024, 12, 24, 3, 29, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 709,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 5, 9, 8, 46, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 709",
-                            StartTime = new DateTime(2024, 5, 16, 16, 56, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 24, 2, 43, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 709",
+                            StartTime = new DateTime(2024, 12, 23, 18, 43, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 710,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 11, 20, 39, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 710",
-                            StartTime = new DateTime(2024, 9, 1, 9, 27, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 26, 10, 12, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 710",
+                            StartTime = new DateTime(2024, 6, 26, 5, 12, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 711,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 3, 14, 54, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 711",
-                            StartTime = new DateTime(2024, 7, 9, 12, 47, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 5, 31, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 711",
+                            StartTime = new DateTime(2024, 8, 19, 0, 31, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 712,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 23, 5, 49, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 712",
-                            StartTime = new DateTime(2024, 11, 11, 19, 0, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 28, 4, 3, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 712",
+                            StartTime = new DateTime(2024, 2, 27, 21, 3, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 713,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 18, 14, 0, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 713",
-                            StartTime = new DateTime(2024, 4, 11, 16, 15, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 16, 34, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 713",
+                            StartTime = new DateTime(2024, 12, 21, 10, 34, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 714,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 28, 17, 55, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 714",
-                            StartTime = new DateTime(2024, 6, 4, 18, 24, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 3, 5, 1, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 714",
+                            StartTime = new DateTime(2024, 6, 2, 21, 1, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 715,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 29, 13, 30, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 715",
-                            StartTime = new DateTime(2024, 10, 20, 11, 22, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 5, 0, 27, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 715",
+                            StartTime = new DateTime(2024, 7, 4, 21, 27, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 716,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 1, 6, 59, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 716",
-                            StartTime = new DateTime(2024, 9, 4, 20, 15, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 11, 2, 46, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 716",
+                            StartTime = new DateTime(2024, 7, 10, 18, 46, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 717,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 19, 17, 6, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 717",
-                            StartTime = new DateTime(2024, 1, 1, 20, 28, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 7, 12, 53, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 717",
+                            StartTime = new DateTime(2024, 7, 7, 10, 53, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 718,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 15, 3, 20, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 718",
-                            StartTime = new DateTime(2024, 12, 16, 4, 45, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 15, 22, 11, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 718",
+                            StartTime = new DateTime(2024, 3, 15, 17, 11, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 719,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 21, 12, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 719",
-                            StartTime = new DateTime(2024, 5, 2, 0, 1, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 30, 20, 14, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 719",
+                            StartTime = new DateTime(2024, 8, 30, 18, 14, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 720,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 25, 22, 36, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 720",
-                            StartTime = new DateTime(2024, 7, 5, 16, 4, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 13, 8, 7, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 720",
+                            StartTime = new DateTime(2024, 3, 13, 0, 7, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 721,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 4, 1, 38, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 721",
-                            StartTime = new DateTime(2024, 7, 13, 19, 48, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 12, 15, 24, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 721",
+                            StartTime = new DateTime(2024, 4, 12, 10, 24, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 722,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 21, 17, 10, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 722",
-                            StartTime = new DateTime(2024, 10, 28, 5, 21, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 27, 16, 25, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 722",
+                            StartTime = new DateTime(2024, 3, 27, 8, 25, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 723,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 24, 3, 23, 15, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 723",
-                            StartTime = new DateTime(2024, 3, 12, 2, 10, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 14, 6, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 723",
+                            StartTime = new DateTime(2024, 11, 28, 13, 6, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 724,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 3, 19, 52, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 724",
-                            StartTime = new DateTime(2024, 2, 16, 2, 37, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 2, 11, 59, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 724",
+                            StartTime = new DateTime(2024, 8, 2, 7, 59, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 725,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 4, 2, 24, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 725",
-                            StartTime = new DateTime(2024, 10, 24, 16, 37, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 29, 18, 24, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 725",
+                            StartTime = new DateTime(2024, 4, 29, 12, 24, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 726,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 17, 22, 47, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 726",
-                            StartTime = new DateTime(2024, 11, 12, 1, 48, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 20, 3, 15, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 726",
+                            StartTime = new DateTime(2024, 8, 19, 19, 15, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 727,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 28, 10, 26, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 727",
-                            StartTime = new DateTime(2024, 3, 30, 16, 12, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 12, 10, 22, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 727",
+                            StartTime = new DateTime(2024, 11, 12, 4, 22, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 728,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 17, 19, 8, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 728",
-                            StartTime = new DateTime(2024, 10, 21, 5, 12, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 10, 52, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 728",
+                            StartTime = new DateTime(2024, 5, 28, 7, 52, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 729,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 3, 16, 19, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 729",
-                            StartTime = new DateTime(2024, 3, 7, 19, 36, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 1, 22, 6, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 729",
+                            StartTime = new DateTime(2024, 4, 1, 18, 6, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 730,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 27, 6, 16, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 730",
-                            StartTime = new DateTime(2024, 2, 19, 1, 18, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 17, 23, 44, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 730",
+                            StartTime = new DateTime(2024, 2, 17, 22, 44, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 731,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 17, 0, 52, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 731",
-                            StartTime = new DateTime(2024, 7, 3, 16, 31, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 19, 41, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 731",
+                            StartTime = new DateTime(2024, 10, 1, 18, 41, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 732,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 2, 22, 44, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 732",
-                            StartTime = new DateTime(2024, 7, 12, 6, 2, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 21, 5, 9, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 732",
+                            StartTime = new DateTime(2024, 2, 21, 3, 9, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 733,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 18, 21, 10, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 733",
-                            StartTime = new DateTime(2024, 11, 22, 9, 19, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 23, 17, 2, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 733",
+                            StartTime = new DateTime(2024, 5, 23, 12, 2, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 734,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 28, 19, 38, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 734",
-                            StartTime = new DateTime(2024, 12, 26, 19, 36, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 24, 11, 6, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 734",
+                            StartTime = new DateTime(2024, 7, 24, 9, 6, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 735,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 30, 5, 37, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 735",
-                            StartTime = new DateTime(2024, 3, 18, 9, 43, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 16, 21, 9, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 735",
+                            StartTime = new DateTime(2024, 11, 16, 14, 9, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 736,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 10, 54, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 736",
-                            StartTime = new DateTime(2024, 3, 15, 9, 14, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 20, 30, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 736",
+                            StartTime = new DateTime(2024, 2, 10, 14, 30, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 737,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 21, 6, 23, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 737",
-                            StartTime = new DateTime(2024, 11, 17, 1, 10, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 16, 3, 0, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 737",
+                            StartTime = new DateTime(2024, 11, 16, 1, 0, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 738,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 2, 20, 27, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 738",
-                            StartTime = new DateTime(2024, 7, 8, 17, 45, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 29, 6, 47, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 738",
+                            StartTime = new DateTime(2024, 1, 29, 5, 47, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 739,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 25, 14, 2, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 739",
-                            StartTime = new DateTime(2024, 12, 8, 13, 21, 38, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 5, 11, 16, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 739",
+                            StartTime = new DateTime(2024, 2, 5, 8, 16, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 740,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 1, 19, 16, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 740",
-                            StartTime = new DateTime(2024, 12, 2, 5, 13, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 26, 5, 18, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 740",
+                            StartTime = new DateTime(2024, 4, 26, 4, 18, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 741,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 30, 2, 25, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 741",
-                            StartTime = new DateTime(2024, 3, 14, 20, 49, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 21, 13, 35, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 741",
+                            StartTime = new DateTime(2024, 9, 21, 6, 35, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 742,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 8, 0, 4, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 742",
-                            StartTime = new DateTime(2024, 5, 11, 13, 33, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 30, 20, 38, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 742",
+                            StartTime = new DateTime(2024, 1, 30, 12, 38, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 743,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 12, 15, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 743",
-                            StartTime = new DateTime(2024, 5, 7, 15, 3, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 11, 6, 9, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 743",
+                            StartTime = new DateTime(2024, 5, 10, 22, 9, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 744,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 9, 45, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 744",
-                            StartTime = new DateTime(2024, 5, 3, 18, 41, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 14, 3, 14, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 744",
+                            StartTime = new DateTime(2024, 4, 13, 23, 14, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 745,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 4, 21, 9, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 745",
-                            StartTime = new DateTime(2024, 3, 6, 0, 35, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 20, 15, 44, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 745",
+                            StartTime = new DateTime(2024, 1, 20, 11, 44, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 746,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 20, 6, 7, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 746",
-                            StartTime = new DateTime(2024, 4, 28, 16, 45, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 13, 15, 55, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 746",
+                            StartTime = new DateTime(2024, 11, 13, 8, 55, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 747,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 29, 22, 21, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 747",
-                            StartTime = new DateTime(2024, 5, 6, 3, 38, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 8, 52, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 747",
+                            StartTime = new DateTime(2024, 9, 30, 5, 52, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 748,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 11, 10, 18, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 748",
-                            StartTime = new DateTime(2024, 2, 26, 17, 34, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 5, 24, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 748",
+                            StartTime = new DateTime(2024, 10, 13, 1, 24, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 749,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 4, 19, 14, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 749",
-                            StartTime = new DateTime(2024, 7, 7, 16, 2, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 10, 11, 57, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 749",
+                            StartTime = new DateTime(2024, 11, 10, 6, 57, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 750,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 27, 7, 12, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 750",
-                            StartTime = new DateTime(2024, 12, 19, 1, 42, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 3, 2, 46, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 750",
+                            StartTime = new DateTime(2024, 4, 2, 21, 46, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 751,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 3, 4, 37, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 751",
-                            StartTime = new DateTime(2024, 11, 26, 3, 18, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 19, 5, 34, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 751",
+                            StartTime = new DateTime(2024, 5, 18, 22, 34, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 752,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 7, 40, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 752",
-                            StartTime = new DateTime(2024, 7, 27, 6, 22, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 27, 21, 32, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 752",
+                            StartTime = new DateTime(2024, 7, 27, 17, 32, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 753,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 16, 4, 8, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 753",
-                            StartTime = new DateTime(2024, 11, 5, 15, 30, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 27, 22, 4, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 753",
+                            StartTime = new DateTime(2024, 8, 27, 14, 4, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 754,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 14, 8, 44, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 754",
-                            StartTime = new DateTime(2024, 3, 13, 16, 3, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 25, 0, 20, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 754",
+                            StartTime = new DateTime(2024, 2, 24, 18, 20, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 755,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 21, 23, 46, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 755",
-                            StartTime = new DateTime(2024, 2, 14, 22, 58, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 19, 35, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 755",
+                            StartTime = new DateTime(2024, 12, 6, 11, 35, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 756,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 20, 22, 30, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 756",
-                            StartTime = new DateTime(2024, 6, 6, 4, 31, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 3, 22, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 756",
+                            StartTime = new DateTime(2024, 2, 9, 22, 22, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 757,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 4, 10, 53, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 757",
-                            StartTime = new DateTime(2024, 10, 2, 16, 31, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 26, 5, 6, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 757",
+                            StartTime = new DateTime(2024, 5, 25, 22, 6, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 758,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 10, 7, 6, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 758",
-                            StartTime = new DateTime(2024, 3, 13, 22, 52, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 18, 15, 50, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 758",
+                            StartTime = new DateTime(2024, 9, 18, 14, 50, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 759,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 23, 22, 11, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 759",
-                            StartTime = new DateTime(2024, 7, 14, 5, 39, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 24, 12, 16, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 759",
+                            StartTime = new DateTime(2024, 5, 24, 11, 16, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 760,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 8, 8, 47, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 760",
-                            StartTime = new DateTime(2024, 12, 7, 9, 22, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 19, 12, 18, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 760",
+                            StartTime = new DateTime(2024, 12, 19, 9, 18, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 761,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 30, 23, 37, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 761",
-                            StartTime = new DateTime(2024, 6, 7, 3, 54, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 10, 3, 1, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 761",
+                            StartTime = new DateTime(2024, 9, 10, 2, 1, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 762,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 31, 23, 2, 7, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 762",
-                            StartTime = new DateTime(2024, 4, 15, 8, 10, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 10, 17, 16, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 762",
+                            StartTime = new DateTime(2024, 7, 10, 14, 16, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 763,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 21, 14, 55, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 763",
-                            StartTime = new DateTime(2024, 12, 16, 11, 15, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 13, 4, 9, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 763",
+                            StartTime = new DateTime(2024, 9, 13, 3, 9, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 764,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 6, 20, 1, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 764",
-                            StartTime = new DateTime(2024, 4, 5, 6, 49, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 17, 2, 59, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 764",
+                            StartTime = new DateTime(2024, 5, 17, 0, 59, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 765,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 20, 18, 7, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 765",
-                            StartTime = new DateTime(2024, 9, 15, 22, 14, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 14, 8, 36, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 765",
+                            StartTime = new DateTime(2024, 2, 14, 4, 36, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 766,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 19, 6, 41, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 766",
-                            StartTime = new DateTime(2024, 6, 13, 1, 48, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 14, 5, 57, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 766",
+                            StartTime = new DateTime(2024, 12, 14, 3, 57, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 767,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 7, 13, 17, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 767",
-                            StartTime = new DateTime(2024, 11, 15, 5, 1, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 7, 42, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 767",
+                            StartTime = new DateTime(2024, 4, 5, 6, 42, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 768,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 13, 13, 27, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 768",
-                            StartTime = new DateTime(2024, 2, 20, 15, 34, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 24, 2, 12, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 768",
+                            StartTime = new DateTime(2024, 5, 23, 19, 12, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 769,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 27, 21, 2, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 769",
-                            StartTime = new DateTime(2024, 1, 18, 7, 1, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 21, 3, 16, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 769",
+                            StartTime = new DateTime(2024, 3, 20, 20, 16, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 770,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 26, 18, 39, 38, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 770",
-                            StartTime = new DateTime(2024, 6, 29, 22, 24, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 3, 12, 54, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 770",
+                            StartTime = new DateTime(2024, 12, 3, 9, 54, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 771,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 16, 1, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 771",
-                            StartTime = new DateTime(2024, 6, 10, 14, 40, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 9, 22, 4, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 771",
+                            StartTime = new DateTime(2024, 9, 9, 19, 4, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 772,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 9, 18, 45, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 772",
-                            StartTime = new DateTime(2024, 8, 13, 21, 51, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 8, 11, 4, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 772",
+                            StartTime = new DateTime(2024, 7, 8, 3, 4, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 773,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 18, 18, 16, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 773",
-                            StartTime = new DateTime(2024, 2, 7, 4, 44, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 14, 9, 9, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 773",
+                            StartTime = new DateTime(2024, 7, 14, 2, 9, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 774,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 20, 3, 16, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 774",
-                            StartTime = new DateTime(2024, 9, 3, 12, 7, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 23, 38, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 774",
+                            StartTime = new DateTime(2024, 7, 21, 22, 38, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 775,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 18, 14, 56, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 775",
-                            StartTime = new DateTime(2024, 6, 29, 3, 55, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 14, 6, 58, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 775",
+                            StartTime = new DateTime(2024, 4, 14, 2, 58, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 776,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 19, 3, 45, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 776",
-                            StartTime = new DateTime(2024, 9, 2, 16, 52, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 15, 7, 18, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 776",
+                            StartTime = new DateTime(2024, 1, 15, 4, 18, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 777,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 14, 5, 33, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 777",
-                            StartTime = new DateTime(2024, 6, 13, 0, 0, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 11, 13, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 777",
+                            StartTime = new DateTime(2024, 10, 1, 9, 13, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 778,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 4, 8, 39, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 778",
-                            StartTime = new DateTime(2024, 6, 19, 0, 21, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 19, 14, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 778",
+                            StartTime = new DateTime(2024, 10, 13, 11, 14, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 779,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 10, 18, 41, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 779",
-                            StartTime = new DateTime(2024, 10, 7, 9, 56, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 22, 24, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 779",
+                            StartTime = new DateTime(2024, 8, 19, 20, 24, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 780,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 19, 2, 49, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 780",
-                            StartTime = new DateTime(2024, 4, 21, 10, 31, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 1, 45, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 780",
+                            StartTime = new DateTime(2024, 11, 27, 19, 45, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 781,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 23, 16, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 781",
-                            StartTime = new DateTime(2024, 9, 11, 12, 28, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 14, 16, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 781",
+                            StartTime = new DateTime(2024, 10, 1, 7, 16, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 782,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 24, 9, 9, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 782",
-                            StartTime = new DateTime(2024, 3, 16, 4, 52, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 21, 1, 54, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 782",
+                            StartTime = new DateTime(2024, 8, 20, 21, 54, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 783,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 17, 0, 46, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 783",
-                            StartTime = new DateTime(2024, 7, 24, 14, 33, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 4, 15, 5, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 783",
+                            StartTime = new DateTime(2024, 12, 4, 10, 5, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 784,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 7, 4, 16, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 784",
-                            StartTime = new DateTime(2024, 7, 22, 2, 28, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 13, 11, 12, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 784",
+                            StartTime = new DateTime(2024, 12, 13, 3, 12, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 785,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 27, 1, 45, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 785",
-                            StartTime = new DateTime(2024, 6, 21, 18, 49, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 4, 14, 52, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 785",
+                            StartTime = new DateTime(2024, 4, 4, 7, 52, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 786,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 5, 3, 52, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 786",
-                            StartTime = new DateTime(2024, 10, 28, 20, 42, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 11, 22, 44, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 786",
+                            StartTime = new DateTime(2024, 11, 11, 15, 44, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 787,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 1, 11, 0, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 787",
-                            StartTime = new DateTime(2024, 8, 13, 9, 42, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 1, 14, 29, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 787",
+                            StartTime = new DateTime(2024, 2, 1, 9, 29, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 788,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 10, 10, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 788",
-                            StartTime = new DateTime(2024, 7, 30, 19, 26, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 26, 8, 22, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 788",
+                            StartTime = new DateTime(2024, 11, 26, 4, 22, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 789,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 19, 42, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 789",
-                            StartTime = new DateTime(2024, 8, 15, 4, 1, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 12, 14, 49, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 789",
+                            StartTime = new DateTime(2024, 5, 12, 9, 49, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 790,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 17, 30, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 790",
-                            StartTime = new DateTime(2024, 12, 13, 2, 18, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 27, 20, 53, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 790",
+                            StartTime = new DateTime(2024, 2, 27, 17, 53, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 791,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 9, 12, 11, 42, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 791",
-                            StartTime = new DateTime(2024, 10, 2, 7, 58, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 11, 10, 0, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 791",
+                            StartTime = new DateTime(2024, 2, 11, 2, 0, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 792,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 16, 0, 39, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 792",
-                            StartTime = new DateTime(2024, 12, 19, 15, 30, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 14, 5, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 792",
+                            StartTime = new DateTime(2024, 9, 26, 8, 5, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 793,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 9, 3, 43, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 793",
-                            StartTime = new DateTime(2024, 3, 7, 19, 50, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 9, 17, 19, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 793",
+                            StartTime = new DateTime(2024, 4, 9, 14, 19, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 794,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 13, 7, 16, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 794",
-                            StartTime = new DateTime(2024, 12, 15, 6, 36, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 6, 2, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 794",
+                            StartTime = new DateTime(2024, 9, 25, 22, 2, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 795,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 21, 44, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 795",
-                            StartTime = new DateTime(2024, 3, 23, 18, 9, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 2, 14, 45, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 795",
+                            StartTime = new DateTime(2024, 6, 2, 11, 45, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 796,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 18, 12, 56, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 796",
-                            StartTime = new DateTime(2024, 8, 19, 20, 45, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 24, 15, 50, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 796",
+                            StartTime = new DateTime(2024, 11, 24, 13, 50, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 797,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 25, 0, 40, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 797",
-                            StartTime = new DateTime(2024, 12, 6, 12, 6, 43, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 2, 6, 21, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 797",
+                            StartTime = new DateTime(2024, 4, 1, 22, 21, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 798,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 20, 9, 43, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 798",
-                            StartTime = new DateTime(2024, 5, 28, 9, 56, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 25, 2, 23, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 798",
+                            StartTime = new DateTime(2024, 3, 24, 21, 23, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 799,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 1, 12, 5, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 799",
-                            StartTime = new DateTime(2024, 11, 30, 19, 35, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 10, 0, 26, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 799",
+                            StartTime = new DateTime(2024, 9, 9, 18, 26, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 800,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 25, 13, 37, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 800",
-                            StartTime = new DateTime(2024, 2, 17, 1, 33, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 7, 12, 24, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 800",
+                            StartTime = new DateTime(2024, 5, 7, 11, 24, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 801,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 1, 20, 27, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 801",
-                            StartTime = new DateTime(2024, 3, 23, 14, 51, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 22, 54, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 801",
+                            StartTime = new DateTime(2024, 3, 6, 21, 54, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 802,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 21, 19, 27, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 802",
-                            StartTime = new DateTime(2024, 5, 16, 14, 10, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 17, 8, 41, 36, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 802",
+                            StartTime = new DateTime(2024, 5, 17, 6, 41, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 803,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 3, 17, 47, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 803",
-                            StartTime = new DateTime(2024, 9, 5, 1, 57, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 16, 15, 7, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 803",
+                            StartTime = new DateTime(2024, 10, 16, 13, 7, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 804,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 10, 6, 28, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 804",
-                            StartTime = new DateTime(2024, 12, 3, 19, 39, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 27, 11, 38, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 804",
+                            StartTime = new DateTime(2024, 6, 27, 3, 38, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 805,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 12, 5, 56, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 805",
-                            StartTime = new DateTime(2024, 12, 9, 7, 57, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 20, 14, 21, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 805",
+                            StartTime = new DateTime(2024, 7, 20, 9, 21, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 806,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 22, 4, 53, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 806",
-                            StartTime = new DateTime(2024, 9, 7, 11, 5, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 12, 22, 37, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 806",
+                            StartTime = new DateTime(2024, 3, 12, 19, 37, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 807,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 18, 16, 4, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 807",
-                            StartTime = new DateTime(2024, 1, 5, 17, 19, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 23, 2, 59, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 807",
+                            StartTime = new DateTime(2024, 5, 22, 21, 59, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 808,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 3, 11, 20, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 808",
-                            StartTime = new DateTime(2024, 11, 19, 10, 41, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 27, 18, 26, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 808",
+                            StartTime = new DateTime(2024, 10, 27, 13, 26, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 809,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 23, 25, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 809",
-                            StartTime = new DateTime(2024, 10, 15, 10, 52, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 6, 11, 46, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 809",
+                            StartTime = new DateTime(2024, 8, 6, 8, 46, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 810,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 22, 12, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 810",
-                            StartTime = new DateTime(2024, 9, 15, 8, 30, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 31, 18, 35, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 810",
+                            StartTime = new DateTime(2024, 1, 31, 17, 35, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 811,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 7, 10, 0, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 811",
-                            StartTime = new DateTime(2024, 8, 20, 13, 36, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 27, 12, 21, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 811",
+                            StartTime = new DateTime(2024, 5, 27, 4, 21, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 812,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 25, 21, 23, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 812",
-                            StartTime = new DateTime(2024, 4, 13, 3, 48, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 9, 3, 40, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 812",
+                            StartTime = new DateTime(2024, 1, 9, 1, 40, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 813,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 25, 23, 14, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 813",
-                            StartTime = new DateTime(2024, 9, 8, 22, 10, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 9, 13, 54, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 813",
+                            StartTime = new DateTime(2024, 2, 9, 11, 54, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 814,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 22, 12, 15, 49, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 814",
-                            StartTime = new DateTime(2024, 10, 19, 3, 7, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 31, 19, 35, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 814",
+                            StartTime = new DateTime(2024, 10, 31, 11, 35, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 815,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 22, 9, 49, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 815",
-                            StartTime = new DateTime(2024, 11, 12, 23, 12, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 25, 2, 28, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 815",
+                            StartTime = new DateTime(2024, 8, 24, 20, 28, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 816,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 15, 18, 54, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 816",
-                            StartTime = new DateTime(2024, 7, 1, 13, 58, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 23, 3, 57, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 816",
+                            StartTime = new DateTime(2024, 4, 23, 0, 57, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 817,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 10, 5, 55, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 817",
-                            StartTime = new DateTime(2024, 9, 18, 16, 54, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 23, 2, 13, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 817",
+                            StartTime = new DateTime(2024, 8, 23, 1, 13, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 818,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 9, 12, 20, 33, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 818",
-                            StartTime = new DateTime(2024, 6, 28, 13, 44, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 26, 7, 20, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 818",
+                            StartTime = new DateTime(2024, 4, 26, 2, 20, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 819,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 24, 22, 30, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 819",
-                            StartTime = new DateTime(2024, 7, 19, 9, 37, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 17, 18, 13, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 819",
+                            StartTime = new DateTime(2024, 9, 17, 15, 13, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 820,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 14, 6, 21, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 820",
-                            StartTime = new DateTime(2024, 9, 4, 20, 41, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 5, 16, 51, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 820",
+                            StartTime = new DateTime(2024, 1, 5, 9, 51, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 821,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 15, 10, 45, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 821",
-                            StartTime = new DateTime(2024, 5, 22, 13, 52, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 8, 4, 11, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 821",
+                            StartTime = new DateTime(2024, 9, 8, 3, 11, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 822,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 22, 30, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 822",
-                            StartTime = new DateTime(2024, 8, 22, 17, 43, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 18, 14, 28, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 822",
+                            StartTime = new DateTime(2024, 11, 18, 12, 28, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 823,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 29, 23, 6, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 823",
-                            StartTime = new DateTime(2024, 2, 25, 17, 29, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 9, 20, 8, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 823",
+                            StartTime = new DateTime(2024, 5, 9, 19, 8, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 824,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 16, 8, 53, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 824",
-                            StartTime = new DateTime(2024, 9, 21, 14, 53, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 30, 4, 49, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 824",
+                            StartTime = new DateTime(2024, 4, 30, 3, 49, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 825,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 6, 10, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 825",
-                            StartTime = new DateTime(2024, 10, 2, 6, 1, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 9, 21, 55, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 825",
+                            StartTime = new DateTime(2024, 1, 9, 17, 55, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 826,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 20, 21, 5, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 826",
-                            StartTime = new DateTime(2024, 2, 9, 15, 59, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 23, 23, 25, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 826",
+                            StartTime = new DateTime(2024, 4, 23, 17, 25, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 827,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 8, 3, 24, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 827",
-                            StartTime = new DateTime(2024, 4, 7, 12, 36, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 8, 12, 43, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 827",
+                            StartTime = new DateTime(2024, 3, 8, 8, 43, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 828,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 26, 1, 29, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 828",
-                            StartTime = new DateTime(2024, 8, 7, 6, 10, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 28, 20, 39, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 828",
+                            StartTime = new DateTime(2024, 7, 28, 17, 39, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 829,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 20, 11, 11, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 829",
-                            StartTime = new DateTime(2024, 4, 13, 19, 39, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 25, 18, 14, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 829",
+                            StartTime = new DateTime(2024, 1, 25, 17, 14, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 830,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 25, 19, 19, 19, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 830",
-                            StartTime = new DateTime(2024, 10, 14, 11, 13, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 13, 10, 9, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 830",
+                            StartTime = new DateTime(2024, 8, 13, 5, 9, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 831,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 29, 10, 15, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 831",
-                            StartTime = new DateTime(2024, 2, 17, 11, 39, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 7, 9, 59, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 831",
+                            StartTime = new DateTime(2024, 9, 7, 2, 59, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 832,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 31, 14, 39, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 832",
-                            StartTime = new DateTime(2024, 10, 6, 22, 33, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 20, 48, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 832",
+                            StartTime = new DateTime(2024, 4, 5, 19, 48, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 833,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 8, 16, 32, 53, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 833",
-                            StartTime = new DateTime(2024, 3, 27, 5, 23, 41, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 22, 51, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 833",
+                            StartTime = new DateTime(2024, 12, 6, 14, 51, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 834,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 16, 21, 31, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 834",
-                            StartTime = new DateTime(2024, 5, 10, 3, 52, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 17, 7, 55, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 834",
+                            StartTime = new DateTime(2024, 2, 17, 0, 55, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 835,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 15, 14, 41, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 835",
-                            StartTime = new DateTime(2024, 3, 21, 21, 39, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 9, 14, 37, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 835",
+                            StartTime = new DateTime(2024, 12, 9, 6, 37, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 836,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 10, 8, 52, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 836",
-                            StartTime = new DateTime(2024, 9, 17, 22, 53, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 7, 22, 4, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 836",
+                            StartTime = new DateTime(2024, 7, 7, 15, 4, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 837,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 11, 10, 1, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 837",
-                            StartTime = new DateTime(2024, 3, 25, 19, 50, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 23, 5, 10, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 837",
+                            StartTime = new DateTime(2024, 4, 23, 3, 10, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 838,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 25, 11, 17, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 838",
-                            StartTime = new DateTime(2024, 7, 12, 23, 20, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 3, 14, 21, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 838",
+                            StartTime = new DateTime(2024, 3, 3, 12, 21, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 839,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 30, 15, 13, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 839",
-                            StartTime = new DateTime(2024, 3, 30, 12, 28, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 29, 1, 37, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 839",
+                            StartTime = new DateTime(2024, 6, 28, 22, 37, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 840,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 4, 55, 12, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 840",
-                            StartTime = new DateTime(2024, 7, 2, 16, 27, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 11, 13, 39, 6, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 840",
+                            StartTime = new DateTime(2024, 9, 11, 10, 39, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 841,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 27, 7, 13, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 841",
-                            StartTime = new DateTime(2024, 11, 4, 2, 35, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 10, 14, 27, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 841",
+                            StartTime = new DateTime(2024, 10, 10, 7, 27, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 842,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 10, 3, 5, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 842",
-                            StartTime = new DateTime(2024, 11, 11, 8, 18, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 4, 3, 22, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 842",
+                            StartTime = new DateTime(2024, 5, 3, 22, 22, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 843,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 30, 4, 28, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 843",
-                            StartTime = new DateTime(2024, 11, 13, 16, 19, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 9, 7, 19, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 843",
+                            StartTime = new DateTime(2024, 12, 8, 23, 19, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 844,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 13, 22, 43, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 844",
-                            StartTime = new DateTime(2024, 6, 8, 2, 16, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 30, 14, 44, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 844",
+                            StartTime = new DateTime(2024, 1, 30, 8, 44, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 845,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 26, 10, 41, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 845",
-                            StartTime = new DateTime(2024, 8, 20, 12, 35, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 12, 0, 44, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 845",
+                            StartTime = new DateTime(2024, 10, 11, 22, 44, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 846,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 7, 0, 39, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 846",
-                            StartTime = new DateTime(2024, 8, 13, 18, 26, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 5, 16, 53, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 846",
+                            StartTime = new DateTime(2024, 5, 5, 12, 53, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 847,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 22, 21, 45, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 847",
-                            StartTime = new DateTime(2024, 8, 20, 4, 53, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 4, 15, 38, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 847",
+                            StartTime = new DateTime(2024, 2, 4, 12, 38, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 848,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 6, 4, 35, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 848",
-                            StartTime = new DateTime(2024, 9, 2, 2, 15, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 13, 7, 6, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 848",
+                            StartTime = new DateTime(2024, 9, 13, 2, 6, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 849,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 28, 6, 26, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 849",
-                            StartTime = new DateTime(2024, 8, 13, 14, 51, 59, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 24, 11, 40, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 849",
+                            StartTime = new DateTime(2024, 5, 24, 9, 40, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 850,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 9, 0, 22, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 850",
-                            StartTime = new DateTime(2024, 2, 13, 5, 19, 8, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 8, 18, 17, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 850",
+                            StartTime = new DateTime(2024, 8, 8, 11, 17, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 851,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 12, 7, 4, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 851",
-                            StartTime = new DateTime(2024, 1, 13, 10, 55, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 9, 0, 20, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 851",
+                            StartTime = new DateTime(2024, 6, 8, 20, 20, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 852,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 6, 13, 45, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 852",
-                            StartTime = new DateTime(2024, 3, 26, 13, 5, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 6, 14, 34, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 852",
+                            StartTime = new DateTime(2024, 8, 6, 13, 34, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 853,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 18, 47, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 853",
-                            StartTime = new DateTime(2024, 6, 8, 10, 33, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 20, 3, 45, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 853",
+                            StartTime = new DateTime(2024, 5, 19, 23, 45, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 854,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 5, 16, 32, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 854",
-                            StartTime = new DateTime(2024, 7, 31, 20, 42, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 2, 6, 38, 24, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 854",
+                            StartTime = new DateTime(2024, 8, 2, 4, 38, 24, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 855,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 24, 18, 41, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 855",
-                            StartTime = new DateTime(2024, 10, 27, 14, 9, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 23, 22, 5, 54, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 855",
+                            StartTime = new DateTime(2024, 10, 23, 21, 5, 54, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 856,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 21, 49, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 856",
-                            StartTime = new DateTime(2024, 8, 6, 4, 55, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 7, 23, 47, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 856",
+                            StartTime = new DateTime(2024, 2, 7, 21, 47, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 857,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 22, 11, 18, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 857",
-                            StartTime = new DateTime(2024, 9, 14, 11, 12, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 31, 10, 32, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 857",
+                            StartTime = new DateTime(2024, 5, 31, 7, 32, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 858,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 24, 7, 33, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 858",
-                            StartTime = new DateTime(2024, 5, 21, 4, 31, 46, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 31, 9, 41, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 858",
+                            StartTime = new DateTime(2024, 5, 31, 2, 41, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 859,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 3, 21, 53, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 859",
-                            StartTime = new DateTime(2024, 1, 11, 12, 10, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 1, 4, 50, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 859",
+                            StartTime = new DateTime(2024, 2, 29, 23, 50, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 860,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 27, 5, 9, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 860",
-                            StartTime = new DateTime(2024, 5, 11, 10, 37, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 1, 22, 11, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 860",
+                            StartTime = new DateTime(2024, 6, 1, 19, 11, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 861,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 18, 10, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 861",
-                            StartTime = new DateTime(2024, 5, 19, 19, 10, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 9, 4, 41, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 861",
+                            StartTime = new DateTime(2024, 2, 9, 0, 41, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 862,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 13, 17, 1, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 862",
-                            StartTime = new DateTime(2024, 9, 20, 13, 45, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 21, 10, 26, 12, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 862",
+                            StartTime = new DateTime(2024, 12, 21, 3, 26, 12, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 863,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 21, 10, 55, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 863",
-                            StartTime = new DateTime(2024, 11, 15, 17, 7, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 28, 0, 20, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 863",
+                            StartTime = new DateTime(2024, 9, 27, 18, 20, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 864,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 21, 23, 0, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 864",
-                            StartTime = new DateTime(2024, 2, 17, 11, 20, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 15, 21, 59, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 864",
+                            StartTime = new DateTime(2024, 12, 15, 16, 59, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 865,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 2, 28, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 865",
-                            StartTime = new DateTime(2024, 6, 19, 18, 20, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 4, 17, 28, 34, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 865",
+                            StartTime = new DateTime(2024, 5, 4, 9, 28, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 866,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 1, 0, 18, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 866",
-                            StartTime = new DateTime(2024, 5, 9, 0, 32, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 1, 2, 39, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 866",
+                            StartTime = new DateTime(2024, 10, 31, 23, 39, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 867,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 18, 18, 58, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 867",
-                            StartTime = new DateTime(2024, 1, 5, 14, 44, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 22, 18, 6, 37, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 867",
+                            StartTime = new DateTime(2024, 1, 22, 11, 6, 37, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 868,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 8, 6, 28, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 868",
-                            StartTime = new DateTime(2024, 5, 1, 20, 13, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 4, 1, 58, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 868",
+                            StartTime = new DateTime(2024, 12, 3, 22, 58, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 869,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 6, 13, 48, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 869",
-                            StartTime = new DateTime(2024, 10, 15, 14, 0, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 12, 3, 47, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 869",
+                            StartTime = new DateTime(2024, 6, 11, 21, 47, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 870,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 21, 6, 22, 14, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 870",
-                            StartTime = new DateTime(2024, 5, 21, 3, 18, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 23, 19, 1, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 870",
+                            StartTime = new DateTime(2024, 8, 23, 15, 1, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 871,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 28, 17, 29, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 871",
-                            StartTime = new DateTime(2024, 4, 16, 2, 3, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 27, 20, 18, 57, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 871",
+                            StartTime = new DateTime(2024, 8, 27, 14, 18, 57, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 872,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 21, 32, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 872",
-                            StartTime = new DateTime(2024, 5, 23, 3, 46, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 2, 23, 14, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 872",
+                            StartTime = new DateTime(2024, 6, 2, 19, 14, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 873,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 17, 15, 26, 34, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 873",
-                            StartTime = new DateTime(2024, 8, 15, 12, 38, 17, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 22, 13, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 873",
+                            StartTime = new DateTime(2024, 5, 13, 17, 13, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 874,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 8, 21, 40, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 874",
-                            StartTime = new DateTime(2024, 9, 30, 0, 22, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 26, 0, 14, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 874",
+                            StartTime = new DateTime(2024, 3, 25, 20, 14, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 875,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 26, 17, 42, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 875",
-                            StartTime = new DateTime(2024, 4, 18, 4, 25, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 5, 21, 36, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 875",
+                            StartTime = new DateTime(2024, 10, 5, 17, 36, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 876,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 4, 11, 3, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 876",
-                            StartTime = new DateTime(2024, 4, 14, 8, 45, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 13, 10, 49, 2, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 876",
+                            StartTime = new DateTime(2024, 10, 13, 3, 49, 2, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 877,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 14, 10, 37, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 877",
-                            StartTime = new DateTime(2024, 11, 25, 10, 49, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 12, 0, 32, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 877",
+                            StartTime = new DateTime(2024, 6, 11, 17, 32, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 878,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 27, 9, 31, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 878",
-                            StartTime = new DateTime(2024, 12, 20, 14, 11, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 5, 10, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 878",
+                            StartTime = new DateTime(2024, 3, 20, 4, 10, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 879,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 18, 21, 2, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 879",
-                            StartTime = new DateTime(2024, 6, 15, 19, 30, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 19, 10, 5, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 879",
+                            StartTime = new DateTime(2024, 1, 19, 8, 5, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 880,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 4, 20, 7, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 880",
-                            StartTime = new DateTime(2024, 11, 15, 13, 16, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 27, 4, 20, 30, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 880",
+                            StartTime = new DateTime(2024, 12, 27, 1, 20, 30, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 881,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 1, 22, 12, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 881",
-                            StartTime = new DateTime(2024, 12, 19, 14, 7, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 21, 18, 55, 3, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 881",
+                            StartTime = new DateTime(2024, 2, 21, 10, 55, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 882,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 24, 7, 33, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 882",
-                            StartTime = new DateTime(2024, 8, 8, 22, 57, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 17, 20, 22, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 882",
+                            StartTime = new DateTime(2024, 4, 17, 14, 22, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 883,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 14, 18, 22, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 883",
-                            StartTime = new DateTime(2024, 5, 2, 5, 23, 12, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 22, 38, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 883",
+                            StartTime = new DateTime(2024, 10, 1, 21, 38, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 884,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 22, 22, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 884",
-                            StartTime = new DateTime(2024, 5, 26, 0, 48, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 22, 8, 48, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 884",
+                            StartTime = new DateTime(2024, 9, 22, 6, 48, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 885,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 14, 9, 55, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 885",
-                            StartTime = new DateTime(2024, 6, 8, 19, 20, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 5, 5, 30, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 885",
+                            StartTime = new DateTime(2024, 2, 5, 4, 30, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 886,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 2, 0, 49, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 886",
-                            StartTime = new DateTime(2024, 11, 3, 6, 0, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 30, 1, 38, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 886",
+                            StartTime = new DateTime(2024, 1, 29, 18, 38, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 887,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 30, 0, 21, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 887",
-                            StartTime = new DateTime(2024, 10, 6, 9, 47, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 28, 17, 18, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 887",
+                            StartTime = new DateTime(2024, 2, 28, 13, 18, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 888,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 8, 31, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 888",
-                            StartTime = new DateTime(2024, 3, 3, 9, 38, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 29, 23, 59, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 888",
+                            StartTime = new DateTime(2024, 9, 29, 16, 59, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 889,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 21, 6, 43, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 889",
-                            StartTime = new DateTime(2024, 5, 8, 7, 47, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 28, 4, 28, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 889",
+                            StartTime = new DateTime(2024, 6, 27, 21, 28, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 890,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 9, 5, 20, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 890",
-                            StartTime = new DateTime(2024, 5, 18, 0, 42, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 14, 1, 1, 58, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 890",
+                            StartTime = new DateTime(2024, 5, 13, 18, 1, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 891,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 6, 18, 44, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 891",
-                            StartTime = new DateTime(2024, 6, 23, 4, 14, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 25, 3, 32, 16, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 891",
+                            StartTime = new DateTime(2024, 6, 24, 22, 32, 16, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 892,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 23, 22, 1, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 892",
-                            StartTime = new DateTime(2024, 6, 21, 13, 39, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 11, 1, 49, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 892",
+                            StartTime = new DateTime(2024, 11, 10, 18, 49, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 893,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 9, 10, 40, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 893",
-                            StartTime = new DateTime(2024, 11, 3, 2, 35, 34, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 1, 6, 8, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 893",
+                            StartTime = new DateTime(2024, 9, 30, 23, 8, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 894,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 5, 10, 19, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 894",
-                            StartTime = new DateTime(2024, 12, 15, 13, 24, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 14, 14, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 894",
+                            StartTime = new DateTime(2024, 3, 6, 7, 14, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 895,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 11, 5, 11, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 895",
-                            StartTime = new DateTime(2024, 12, 6, 14, 29, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 30, 2, 50, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 895",
+                            StartTime = new DateTime(2024, 10, 29, 22, 50, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 896,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 15, 6, 25, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 896",
-                            StartTime = new DateTime(2024, 9, 29, 14, 7, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 15, 8, 32, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 896",
+                            StartTime = new DateTime(2024, 8, 15, 6, 32, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 897,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 17, 11, 21, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 897",
-                            StartTime = new DateTime(2024, 11, 12, 14, 19, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 14, 13, 27, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 897",
+                            StartTime = new DateTime(2024, 8, 14, 8, 27, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 898,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 4, 4, 3, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 898",
-                            StartTime = new DateTime(2024, 2, 13, 7, 7, 49, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 28, 6, 37, 48, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 898",
+                            StartTime = new DateTime(2024, 3, 27, 23, 37, 48, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 899,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 13, 18, 47, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 899",
-                            StartTime = new DateTime(2024, 4, 12, 12, 25, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 18, 17, 25, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 899",
+                            StartTime = new DateTime(2024, 6, 18, 11, 25, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 900,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 21, 16, 54, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 900",
-                            StartTime = new DateTime(2024, 6, 1, 2, 1, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 6, 22, 51, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 900",
+                            StartTime = new DateTime(2024, 12, 6, 18, 51, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 901,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 4, 21, 53, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 901",
-                            StartTime = new DateTime(2024, 4, 5, 19, 18, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 8, 6, 25, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 901",
+                            StartTime = new DateTime(2024, 10, 7, 23, 25, 8, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 902,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 16, 22, 9, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 902",
-                            StartTime = new DateTime(2024, 7, 27, 16, 34, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 5, 2, 56, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 902",
+                            StartTime = new DateTime(2024, 11, 4, 20, 56, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 903,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 5, 5, 32, 30, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 903",
-                            StartTime = new DateTime(2024, 5, 26, 9, 5, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 4, 1, 41, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 903",
+                            StartTime = new DateTime(2024, 7, 4, 0, 41, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 904,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 7, 6, 51, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 904",
-                            StartTime = new DateTime(2024, 8, 24, 18, 31, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 1, 3, 40, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 904",
+                            StartTime = new DateTime(2024, 3, 31, 21, 40, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 905,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 9, 12, 45, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 905",
-                            StartTime = new DateTime(2024, 1, 18, 12, 25, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 31, 3, 6, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 905",
+                            StartTime = new DateTime(2024, 10, 31, 1, 6, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 906,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 16, 22, 46, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 906",
-                            StartTime = new DateTime(2024, 5, 20, 21, 7, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 8, 19, 42, 59, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 906",
+                            StartTime = new DateTime(2024, 5, 8, 14, 42, 59, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 907,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 25, 23, 5, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 907",
-                            StartTime = new DateTime(2024, 4, 21, 16, 0, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 10, 3, 43, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 907",
+                            StartTime = new DateTime(2024, 2, 10, 1, 43, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 908,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 22, 3, 39, 36, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 908",
-                            StartTime = new DateTime(2024, 4, 13, 18, 38, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 19, 47, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 908",
+                            StartTime = new DateTime(2024, 9, 30, 12, 47, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 909,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 13, 10, 32, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 909",
-                            StartTime = new DateTime(2024, 7, 31, 10, 50, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 21, 10, 0, 51, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 909",
+                            StartTime = new DateTime(2024, 8, 21, 7, 0, 51, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 910,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 31, 2, 3, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 910",
-                            StartTime = new DateTime(2024, 11, 27, 4, 45, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 12, 34, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 910",
+                            StartTime = new DateTime(2024, 8, 19, 7, 34, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 911,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 9, 7, 14, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 911",
-                            StartTime = new DateTime(2024, 4, 3, 21, 47, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 2, 13, 19, 43, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 911",
+                            StartTime = new DateTime(2024, 4, 2, 10, 19, 43, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 912,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 7, 14, 20, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 912",
-                            StartTime = new DateTime(2024, 7, 22, 22, 56, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 1, 22, 34, 47, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 912",
+                            StartTime = new DateTime(2024, 9, 1, 19, 34, 47, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 913,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 29, 12, 44, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 913",
-                            StartTime = new DateTime(2024, 2, 2, 13, 24, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 24, 19, 8, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 913",
+                            StartTime = new DateTime(2024, 9, 24, 18, 8, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 914,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 23, 3, 35, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 914",
-                            StartTime = new DateTime(2024, 7, 21, 11, 18, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 15, 3, 52, 19, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 914",
+                            StartTime = new DateTime(2024, 11, 15, 1, 52, 19, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 915,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 18, 4, 37, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 915",
-                            StartTime = new DateTime(2024, 10, 18, 14, 3, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 15, 0, 25, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 915",
+                            StartTime = new DateTime(2024, 3, 14, 21, 25, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 916,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 8, 12, 43, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 916",
-                            StartTime = new DateTime(2024, 9, 7, 17, 54, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 25, 20, 26, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 916",
+                            StartTime = new DateTime(2024, 5, 25, 12, 26, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 917,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 28, 8, 2, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 917",
-                            StartTime = new DateTime(2024, 6, 18, 14, 25, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 7, 6, 52, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 917",
+                            StartTime = new DateTime(2024, 5, 7, 4, 52, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 918,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 14, 15, 59, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 918",
-                            StartTime = new DateTime(2024, 7, 12, 7, 7, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 5, 19, 46, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 918",
+                            StartTime = new DateTime(2024, 4, 5, 16, 46, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 919,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 29, 22, 50, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 919",
-                            StartTime = new DateTime(2024, 10, 6, 23, 13, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 14, 2, 45, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 919",
+                            StartTime = new DateTime(2024, 8, 13, 18, 45, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 920,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 4, 12, 26, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 920",
-                            StartTime = new DateTime(2024, 8, 1, 9, 19, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 20, 13, 12, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 920",
+                            StartTime = new DateTime(2024, 3, 20, 5, 12, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 921,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 27, 4, 55, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 921",
-                            StartTime = new DateTime(2024, 5, 2, 23, 42, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 1, 22, 23, 23, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 921",
+                            StartTime = new DateTime(2024, 3, 1, 14, 23, 23, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 922,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 24, 0, 4, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 922",
-                            StartTime = new DateTime(2024, 6, 22, 12, 1, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 9, 12, 53, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 922",
+                            StartTime = new DateTime(2024, 1, 9, 7, 53, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 923,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 18, 11, 27, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 923",
-                            StartTime = new DateTime(2024, 7, 20, 11, 36, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 7, 9, 57, 33, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 923",
+                            StartTime = new DateTime(2024, 9, 7, 4, 57, 33, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 924,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 3, 2, 12, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 924",
-                            StartTime = new DateTime(2024, 7, 16, 9, 10, 52, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 20, 22, 49, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 924",
+                            StartTime = new DateTime(2024, 12, 20, 17, 49, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 925,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 5, 17, 57, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 925",
-                            StartTime = new DateTime(2024, 1, 12, 21, 40, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 25, 15, 57, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 925",
+                            StartTime = new DateTime(2024, 6, 25, 13, 57, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 926,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 31, 15, 58, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 926",
-                            StartTime = new DateTime(2024, 4, 4, 0, 27, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 17, 8, 8, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 926",
+                            StartTime = new DateTime(2024, 1, 17, 7, 8, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 927,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 14, 4, 5, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 927",
-                            StartTime = new DateTime(2024, 2, 16, 13, 6, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 20, 6, 51, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 927",
+                            StartTime = new DateTime(2024, 6, 20, 1, 51, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 928,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 1, 10, 52, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 928",
-                            StartTime = new DateTime(2024, 1, 23, 18, 6, 9, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 19, 8, 23, 26, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 928",
+                            StartTime = new DateTime(2024, 8, 19, 4, 23, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 929,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 12, 9, 49, 40, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 929",
-                            StartTime = new DateTime(2024, 11, 7, 23, 4, 23, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 26, 3, 26, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 929",
+                            StartTime = new DateTime(2024, 5, 25, 23, 26, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 930,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 18, 15, 43, 39, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 930",
-                            StartTime = new DateTime(2024, 5, 22, 8, 8, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 16, 23, 1, 40, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 930",
+                            StartTime = new DateTime(2024, 7, 16, 22, 1, 40, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 931,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 1, 2, 28, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 931",
-                            StartTime = new DateTime(2024, 1, 19, 21, 58, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 23, 19, 57, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 931",
+                            StartTime = new DateTime(2024, 2, 23, 15, 57, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 932,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 26, 9, 36, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 932",
-                            StartTime = new DateTime(2024, 10, 3, 3, 5, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 22, 9, 5, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 932",
+                            StartTime = new DateTime(2024, 8, 22, 1, 5, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 933,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 11, 11, 21, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 933",
-                            StartTime = new DateTime(2024, 10, 7, 2, 44, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 20, 8, 2, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 933",
+                            StartTime = new DateTime(2024, 6, 20, 6, 2, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 934,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 28, 0, 11, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 934",
-                            StartTime = new DateTime(2024, 9, 12, 8, 4, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 14, 5, 38, 46, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 934",
+                            StartTime = new DateTime(2024, 1, 13, 23, 38, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 935,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 2, 23, 9, 22, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 935",
-                            StartTime = new DateTime(2024, 7, 20, 13, 25, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 21, 8, 25, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 935",
+                            StartTime = new DateTime(2024, 10, 29, 15, 8, 25, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 936,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 17, 19, 44, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 936",
-                            StartTime = new DateTime(2024, 5, 8, 12, 56, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 20, 23, 11, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 936",
+                            StartTime = new DateTime(2024, 6, 20, 21, 11, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 937,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 28, 10, 58, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 937",
-                            StartTime = new DateTime(2024, 10, 27, 3, 45, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 26, 17, 5, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 937",
+                            StartTime = new DateTime(2024, 4, 26, 14, 5, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 938,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 13, 3, 27, 21, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 938",
-                            StartTime = new DateTime(2024, 9, 19, 8, 3, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 10, 9, 6, 27, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 938",
+                            StartTime = new DateTime(2024, 6, 10, 8, 6, 27, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 939,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 17, 9, 43, 20, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 939",
-                            StartTime = new DateTime(2024, 4, 9, 21, 7, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 7, 4, 47, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 939",
+                            StartTime = new DateTime(2024, 11, 6, 23, 47, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 940,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 31, 4, 3, 43, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 940",
-                            StartTime = new DateTime(2024, 6, 16, 16, 11, 40, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 25, 19, 36, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 940",
+                            StartTime = new DateTime(2024, 10, 25, 12, 36, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 941,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 20, 15, 12, 9, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 941",
-                            StartTime = new DateTime(2024, 4, 2, 7, 49, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 13, 20, 42, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 941",
+                            StartTime = new DateTime(2024, 5, 13, 19, 42, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 942,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 25, 20, 12, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 942",
-                            StartTime = new DateTime(2024, 5, 17, 6, 24, 37, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 26, 5, 58, 0, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 942",
+                            StartTime = new DateTime(2024, 7, 26, 2, 58, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 943,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 12, 17, 22, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 943",
-                            StartTime = new DateTime(2024, 4, 28, 23, 0, 28, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 20, 2, 16, 17, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 943",
+                            StartTime = new DateTime(2024, 8, 19, 18, 16, 17, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 944,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 21, 46, 32, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 944",
-                            StartTime = new DateTime(2024, 6, 3, 21, 27, 13, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 23, 4, 5, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 944",
+                            StartTime = new DateTime(2024, 11, 22, 22, 5, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 945,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 2, 0, 7, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 945",
-                            StartTime = new DateTime(2024, 3, 24, 20, 24, 3, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 1, 1, 39, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 945",
+                            StartTime = new DateTime(2024, 1, 31, 20, 39, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 946,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 29, 6, 58, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 946",
-                            StartTime = new DateTime(2024, 10, 29, 2, 56, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 12, 21, 55, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 946",
+                            StartTime = new DateTime(2024, 12, 12, 13, 55, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 947,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 13, 12, 16, 6, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 947",
-                            StartTime = new DateTime(2024, 8, 16, 20, 51, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 30, 5, 4, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 947",
+                            StartTime = new DateTime(2024, 9, 29, 22, 4, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 948,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 19, 12, 52, 55, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 948",
-                            StartTime = new DateTime(2024, 11, 16, 0, 26, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 17, 8, 58, 4, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 948",
+                            StartTime = new DateTime(2024, 8, 17, 0, 58, 4, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 949,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 10, 10, 2, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 949",
-                            StartTime = new DateTime(2024, 6, 4, 20, 53, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 21, 13, 56, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 949",
+                            StartTime = new DateTime(2024, 7, 21, 5, 56, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 950,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 18, 1, 58, 44, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 950",
-                            StartTime = new DateTime(2024, 3, 10, 15, 45, 27, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 6, 0, 25, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 950",
+                            StartTime = new DateTime(2024, 11, 5, 21, 25, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 951,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 1, 21, 14, 28, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 951",
-                            StartTime = new DateTime(2024, 9, 26, 14, 19, 25, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 3, 8, 41, 32, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 951",
+                            StartTime = new DateTime(2024, 10, 3, 5, 41, 32, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 952,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 30, 21, 5, 13, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 952",
-                            StartTime = new DateTime(2024, 3, 30, 18, 1, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 26, 3, 26, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 952",
+                            StartTime = new DateTime(2024, 9, 25, 22, 26, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 953,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 1, 2, 14, 31, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 953",
-                            StartTime = new DateTime(2024, 12, 27, 21, 11, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 25, 11, 8, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 953",
+                            StartTime = new DateTime(2024, 2, 25, 10, 8, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 954,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 2, 33, 26, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 954",
-                            StartTime = new DateTime(2024, 4, 26, 16, 57, 35, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 2, 6, 34, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 954",
+                            StartTime = new DateTime(2024, 1, 2, 5, 34, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 955,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 20, 8, 21, 57, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 955",
-                            StartTime = new DateTime(2024, 5, 20, 1, 55, 26, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 22, 41, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 955",
+                            StartTime = new DateTime(2024, 3, 6, 15, 41, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 956,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 7, 10, 8, 11, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 956",
-                            StartTime = new DateTime(2024, 10, 8, 20, 6, 18, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 5, 15, 49, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 956",
+                            StartTime = new DateTime(2024, 7, 5, 14, 49, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 957,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 17, 6, 24, 8, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 957",
-                            StartTime = new DateTime(2024, 1, 11, 15, 58, 33, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 28, 11, 30, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 957",
+                            StartTime = new DateTime(2024, 7, 28, 7, 30, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 958,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 19, 6, 34, 59, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 958",
-                            StartTime = new DateTime(2024, 6, 14, 3, 31, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 23, 13, 23, 42, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 958",
+                            StartTime = new DateTime(2024, 3, 23, 10, 23, 42, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 959,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 19, 21, 24, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 959",
-                            StartTime = new DateTime(2024, 1, 21, 12, 25, 57, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 11, 18, 33, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 959",
+                            StartTime = new DateTime(2024, 6, 11, 11, 33, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 960,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 30, 11, 13, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 960",
-                            StartTime = new DateTime(2024, 10, 12, 12, 58, 0, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 28, 15, 59, 29, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 960",
+                            StartTime = new DateTime(2024, 5, 28, 14, 59, 29, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 961,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 12, 4, 35, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 961",
-                            StartTime = new DateTime(2024, 3, 7, 21, 28, 21, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 4, 4, 49, 1, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 961",
+                            StartTime = new DateTime(2024, 6, 3, 22, 49, 1, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 962,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 4, 0, 4, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 962",
-                            StartTime = new DateTime(2024, 6, 26, 3, 24, 42, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 13, 9, 57, 41, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 962",
+                            StartTime = new DateTime(2024, 12, 13, 1, 57, 41, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 963,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 16, 0, 40, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 963",
-                            StartTime = new DateTime(2024, 10, 23, 8, 11, 31, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 3, 17, 44, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 963",
+                            StartTime = new DateTime(2024, 7, 3, 15, 44, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 964,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 7, 20, 14, 16, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 964",
-                            StartTime = new DateTime(2024, 9, 30, 6, 42, 1, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 12, 0, 10, 9, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 964",
+                            StartTime = new DateTime(2024, 2, 11, 23, 10, 9, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 965,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 21, 16, 15, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 965",
-                            StartTime = new DateTime(2024, 4, 4, 5, 52, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 16, 23, 30, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 965",
+                            StartTime = new DateTime(2024, 5, 16, 18, 30, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 966,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 24, 17, 38, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 966",
-                            StartTime = new DateTime(2024, 1, 2, 16, 23, 36, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 28, 15, 0, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 966",
+                            StartTime = new DateTime(2024, 9, 28, 12, 0, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 967,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 29, 15, 28, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 967",
-                            StartTime = new DateTime(2024, 8, 15, 14, 52, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 15, 20, 27, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 967",
+                            StartTime = new DateTime(2024, 11, 15, 19, 27, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 968,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 27, 15, 20, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 968",
-                            StartTime = new DateTime(2024, 8, 20, 16, 42, 58, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 4, 17, 22, 44, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 968",
+                            StartTime = new DateTime(2024, 11, 4, 11, 22, 44, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 969,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 24, 19, 39, 47, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 969",
-                            StartTime = new DateTime(2024, 6, 28, 11, 14, 2, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 17, 9, 38, 52, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 969",
+                            StartTime = new DateTime(2024, 3, 17, 2, 38, 52, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 970,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 4, 21, 18, 27, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 970",
-                            StartTime = new DateTime(2024, 1, 25, 18, 37, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 8, 13, 19, 38, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 970",
+                            StartTime = new DateTime(2024, 8, 13, 11, 38, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 971,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 29, 20, 37, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 971",
-                            StartTime = new DateTime(2024, 8, 6, 15, 18, 5, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 21, 7, 25, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 971",
+                            StartTime = new DateTime(2024, 11, 21, 0, 25, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 972,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 29, 8, 47, 41, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 972",
-                            StartTime = new DateTime(2024, 9, 17, 7, 30, 11, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 28, 17, 44, 7, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 972",
+                            StartTime = new DateTime(2024, 11, 28, 15, 44, 7, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 973,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 26, 6, 26, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 973",
-                            StartTime = new DateTime(2024, 3, 27, 1, 24, 53, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 29, 6, 59, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 973",
+                            StartTime = new DateTime(2024, 9, 29, 0, 59, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 974,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 31, 15, 51, 51, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 974",
-                            StartTime = new DateTime(2024, 1, 26, 22, 22, 19, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 22, 17, 25, 11, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 974",
+                            StartTime = new DateTime(2024, 5, 22, 15, 25, 11, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 975,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 24, 22, 16, 11, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 975",
-                            StartTime = new DateTime(2024, 2, 16, 23, 33, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 7, 7, 31, 5, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 975",
+                            StartTime = new DateTime(2024, 10, 7, 6, 31, 5, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 976,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 24, 2, 24, 48, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 976",
-                            StartTime = new DateTime(2024, 6, 30, 0, 51, 14, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 5, 17, 13, 53, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 976",
+                            StartTime = new DateTime(2024, 12, 5, 15, 13, 53, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 977,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 11, 11, 14, 37, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 977",
-                            StartTime = new DateTime(2024, 1, 12, 8, 6, 45, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 3, 17, 1, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 977",
+                            StartTime = new DateTime(2024, 12, 3, 11, 1, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 978,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 22, 7, 49, 24, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 978",
-                            StartTime = new DateTime(2024, 7, 3, 5, 2, 47, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 27, 2, 4, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 978",
+                            StartTime = new DateTime(2024, 11, 26, 21, 4, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 979,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 22, 11, 42, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 979",
-                            StartTime = new DateTime(2024, 4, 24, 4, 3, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 11, 30, 21, 17, 55, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 979",
+                            StartTime = new DateTime(2024, 11, 30, 14, 17, 55, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 980,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 4, 16, 26, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 980",
-                            StartTime = new DateTime(2024, 2, 25, 9, 37, 39, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 15, 16, 31, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 980",
+                            StartTime = new DateTime(2024, 2, 15, 14, 31, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 981,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 7, 8, 27, 58, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 981",
-                            StartTime = new DateTime(2024, 1, 12, 23, 14, 44, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 6, 20, 29, 10, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 981",
+                            StartTime = new DateTime(2024, 3, 6, 15, 29, 10, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 982,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 22, 17, 26, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 982",
-                            StartTime = new DateTime(2024, 8, 6, 2, 51, 54, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 6, 18, 12, 39, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 982",
+                            StartTime = new DateTime(2024, 6, 18, 10, 39, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 983,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 27, 15, 49, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 983",
-                            StartTime = new DateTime(2024, 10, 18, 13, 6, 16, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 18, 8, 8, 39, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 983",
+                            StartTime = new DateTime(2024, 3, 18, 3, 8, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 984,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 8, 31, 14, 21, 2, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 984",
-                            StartTime = new DateTime(2024, 4, 26, 18, 28, 48, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 2, 2, 43, 21, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 984",
+                            StartTime = new DateTime(2024, 4, 1, 20, 43, 21, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 985,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 5, 3, 40, 5, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 985",
-                            StartTime = new DateTime(2024, 8, 10, 11, 44, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 12, 1, 38, 15, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 985",
+                            StartTime = new DateTime(2024, 7, 11, 23, 38, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 986,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 9, 6, 9, 3, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 986",
-                            StartTime = new DateTime(2024, 3, 21, 21, 14, 30, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 2, 19, 2, 2, 50, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 986",
+                            StartTime = new DateTime(2024, 2, 18, 23, 2, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 987,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 9, 7, 10, 7, 18, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 987",
-                            StartTime = new DateTime(2024, 11, 8, 9, 36, 56, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 9, 2, 20, 26, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 987",
+                            StartTime = new DateTime(2024, 9, 2, 16, 26, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 988,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 1, 2, 10, 40, 1, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 988",
-                            StartTime = new DateTime(2024, 9, 17, 17, 39, 24, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 24, 18, 20, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 988",
+                            StartTime = new DateTime(2024, 3, 24, 15, 20, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 989,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 5, 18, 4, 38, 45, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 989",
-                            StartTime = new DateTime(2024, 7, 3, 21, 39, 15, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 4, 21, 23, 3, 35, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 989",
+                            StartTime = new DateTime(2024, 4, 21, 22, 3, 35, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 990,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 2, 1, 3, 31, 17, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 990",
-                            StartTime = new DateTime(2024, 1, 31, 13, 9, 10, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 5, 14, 1, 18, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 990",
+                            StartTime = new DateTime(2024, 10, 5, 11, 1, 18, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 991,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 14, 12, 55, 54, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 991",
-                            StartTime = new DateTime(2024, 3, 31, 10, 30, 29, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 7, 11, 4, 7, 45, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 991",
+                            StartTime = new DateTime(2024, 7, 10, 20, 7, 45, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 992,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 6, 21, 5, 10, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 992",
-                            StartTime = new DateTime(2024, 9, 25, 17, 54, 50, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 7, 9, 17, 28, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 992",
+                            StartTime = new DateTime(2024, 5, 7, 7, 17, 28, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 993,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 10, 7, 0, 21, 4, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 993",
-                            StartTime = new DateTime(2024, 5, 7, 13, 48, 7, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 12, 27, 18, 19, 13, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 993",
+                            StartTime = new DateTime(2024, 12, 27, 14, 19, 13, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 994,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 12, 2, 4, 6, 52, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 994",
-                            StartTime = new DateTime(2024, 11, 24, 3, 25, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 17, 9, 10, 31, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 994",
+                            StartTime = new DateTime(2024, 1, 17, 6, 10, 31, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 995,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 3, 1, 17, 25, 50, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 995",
-                            StartTime = new DateTime(2024, 7, 28, 21, 11, 22, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 1, 4, 14, 34, 49, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 995",
+                            StartTime = new DateTime(2024, 1, 4, 10, 34, 49, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 996,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 23, 19, 46, 0, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 996",
-                            StartTime = new DateTime(2024, 6, 29, 2, 47, 6, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 16, 1, 25, 14, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 996",
+                            StartTime = new DateTime(2024, 3, 15, 17, 25, 14, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 997,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 6, 30, 14, 15, 29, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 997",
-                            StartTime = new DateTime(2024, 7, 20, 2, 10, 20, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 10, 29, 0, 30, 20, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 997",
+                            StartTime = new DateTime(2024, 10, 28, 16, 30, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 998,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 11, 23, 3, 52, 56, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 998",
-                            StartTime = new DateTime(2024, 6, 26, 16, 29, 32, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 17, 16, 39, 38, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 998",
+                            StartTime = new DateTime(2024, 3, 17, 15, 39, 38, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 999,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 20, 14, 40, 23, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 999",
-                            StartTime = new DateTime(2024, 1, 4, 15, 7, 51, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 3, 10, 19, 29, 22, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 999",
+                            StartTime = new DateTime(2024, 3, 10, 14, 29, 22, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeRegistrationId = 1000,
                             EmployeeId = 1,
-                            EndTime = new DateTime(2024, 4, 19, 6, 45, 25, 0, DateTimeKind.Unspecified),
-                            PerformedTaskDescription = "Task 1000",
-                            StartTime = new DateTime(2024, 3, 21, 1, 55, 55, 0, DateTimeKind.Unspecified)
+                            EndTime = new DateTime(2024, 5, 17, 22, 17, 8, 0, DateTimeKind.Unspecified),
+                            PerformedTaskDescription = "Performed task 1000",
+                            StartTime = new DateTime(2024, 5, 17, 17, 17, 8, 0, DateTimeKind.Unspecified)
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("BethanysPieShopHRM.Shared.Domain.Employee", b =>
@@ -8305,6 +8506,57 @@ namespace BethanysPieShopHRM.Migrations
                     b.HasOne("BethanysPieShopHRM.Shared.Domain.Employee", null)
                         .WithMany("TimeRegistrations")
                         .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("BethanysPieShopHRM.Auth.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("BethanysPieShopHRM.Auth.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BethanysPieShopHRM.Auth.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("BethanysPieShopHRM.Auth.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

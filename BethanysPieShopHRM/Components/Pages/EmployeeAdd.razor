@@ -1,6 +1,9 @@
 ﻿@page "/employeeadd"
+@using Microsoft.AspNetCore.Authorization
 
 <h3>Add New Employee</h3>
+
+@attribute [Authorize]
 
 @if (!IsSaved)
 {

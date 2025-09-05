@@ -1,8 +1,11 @@
 ﻿@page "/employeeedit/{EmployeeId:int}"
 
+@attribute [Authorize]
+
 @rendermode InteractiveServer
 
 @using BethanysPieShopHRM.Shared.Domain
+@using Microsoft.AspNetCore.Authorization
 
 @if (!Saved)
 {

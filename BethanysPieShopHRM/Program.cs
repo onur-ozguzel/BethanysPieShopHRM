@@ -1,12 +1,15 @@
+using BethanysPieShopHRM.Auth;
 using BethanysPieShopHRM.Client;
 using BethanysPieShopHRM.Components;
-using BethanysPieShopHRM.Contracts.Repositories;
+using BethanysPieShopHRM.Components.Account;
 using BethanysPieShopHRM.Contracts.Repository;
 using BethanysPieShopHRM.Contracts.Services;
 using BethanysPieShopHRM.Data;
 using BethanysPieShopHRM.Repositories;
 using BethanysPieShopHRM.Services;
 using BethanysPieShopHRM.State;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +36,24 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<ApplicationState>();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<IdentityUserAccessor>();
+builder.Services.AddScoped<IdentityRedirectManager>();
+builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+}).AddIdentityCookies();
+
+builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddSignInManager()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,6 +77,8 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BethanysPieShopHRM.Client._Imports).Assembly);
+
+app.MapAdditionalIdentityEndpoints();
 
 app.MapGet("/api/employee", async (IEmployeeDataService employeeDataService) => await employeeDataService.GetAllEmployees());
 

@@ -1,6 +1,9 @@
 ﻿@page "/employeedetail/{EmployeeId:int}"
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.QuickGrid
 @rendermode InteractiveServer
+
+@attribute [Authorize]
 
 <section class="employee-detail">
     <h1 class="page-title">
